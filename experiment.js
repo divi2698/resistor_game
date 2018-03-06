@@ -1400,6 +1400,123 @@ PIEchangeDisplayCheckbox("R1 series R2", true);
 
 function level2Case4(){
 
+
+          var boxGeom3 = new THREE.BoxGeometry(2.933, .5, 1);
+            box3 = new THREE.Mesh(boxGeom3, new THREE.MeshBasicMaterial({color: "gray" }));
+            PIEaddElement(box3);
+            var edges3 = new THREE.EdgesGeometry(boxGeom3);
+            var line3 = new THREE.LineSegments(edges3, new THREE.LineBasicMaterial({ color: 0x000 }));
+            box3.add(line3);
+            box3.position.set(0, 0, 3.8);
+
+
+            /////////////////////////////////////
+
+            //wire connecting the resistors
+            var curve4 = new THREE.CubicBezierCurve3(
+                new THREE.Vector3(-1.46666, 0, 3.8),
+                new THREE.Vector3(-1.5, 0, 3.8),
+                new THREE.Vector3(-2, 0, 3.8),
+                new THREE.Vector3(-7, 0, 3.8)
+            );
+
+            var tube4 = new THREE.TubeGeometry(curve4, 100, 0.05, 20, false);
+            mesh9 = new THREE.Mesh(tube4, new THREE.MeshBasicMaterial({ color: "black" }));
+
+            PIEaddElement(mesh9);
+
+            //wire connecting the resistors
+            var curve5 = new THREE.CubicBezierCurve3(
+                new THREE.Vector3(1.466666666, 0, 3.8),
+                new THREE.Vector3(2, 0, 3.8),
+                new THREE.Vector3(3, 0, 3.8),
+                new THREE.Vector3(7, 0, 3.8)
+            );
+
+            var tube5 = new THREE.TubeGeometry(curve5, 100, 0.05, 20, false);
+            mesh10 = new THREE.Mesh(tube5, new THREE.MeshBasicMaterial({ color: "black" }));
+
+            PIEaddElement(mesh10);
+
+            //  //vertical lines
+            var curve7 = new THREE.CubicBezierCurve3(
+                new THREE.Vector3(-7, 0, .4),
+                new THREE.Vector3(-7, 0, 1.6),
+                new THREE.Vector3(-7, 0, 2),
+                new THREE.Vector3(-7, 0, 3.8)
+            );
+
+            var tube7 = new THREE.TubeGeometry(curve7, 100, 0.05, 20, false);
+            mesh11 = new THREE.Mesh(tube7, new THREE.MeshBasicMaterial({ color: "black" }));
+            PIEaddElement(mesh11);
+
+            // //  vertical lines
+            var curve8 = new THREE.CubicBezierCurve3(
+                new THREE.Vector3(7, 0, .4),
+                new THREE.Vector3(7, 0, 1.6),
+                new THREE.Vector3(7, 0, 1.8),
+                new THREE.Vector3(7, 0, 3.8)
+            );
+
+            var tube8 = new THREE.TubeGeometry(curve8, 100, 0.05, 20, false);
+            mesh12 = new THREE.Mesh(tube8, new THREE.MeshBasicMaterial({ color: "black" }));
+           
+        
+            PIEaddElement(mesh12);
+
+
+            ////
+
+            R123 = (R12 * R3) / (R12 + R3);
+
+            PIEaddDisplayText("R123", R123);
+            PIErender();
+
+            if(R123!=refflevel2){
+                // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
+                // successbtn.addEventListener("click",resetExperiment);
+                var loader = new THREE.FontLoader();
+                    loader.load("optimer.json", function (response) {
+                    font = response;
+        
+                var geometry = new THREE.TextGeometry("Press Reset To Try Again!!", {
+                        font: font,
+                        size: 1,
+                        height: 0.3,
+                        curveSegments: 3
+                    });
+        
+                    thevel1 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+                    
+        
+                    PIEaddElement(thevel1);
+                    // thevel.castShadow = false;
+                    // thevel.visible = false;
+        
+                    // geometry = new THREE.TextGeometry("Ball's Velocity", {
+                    //     font: font,
+                    //     size: 0.075,
+                    //     height: 0.3,
+                    // });
+                    // heading = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+                    // heading.translation = geometry.center();
+                    // PIEaddElement(heading);
+                    // heading.castShadow = false;
+                    // heading.visible = false;
+        
+                    thevel1.position.set(-8.5, 0, -12);
+                    // thevel.lookAt(PIEcamera.position);
+                    // heading.position.set(0.4 * PIEcamera.position.x, 0.2 * PIEcamera.position.y + 0.075, 0.4 * PIEcamera.position.z);
+                    // heading.lookAt(PIEcamera.position);
+                });
+                }
+
+            console.log("level2case4");
+            
+
+
+
+
 }
 
 
