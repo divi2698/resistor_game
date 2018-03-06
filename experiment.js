@@ -850,6 +850,7 @@ function level1Case1(){
         });
         }
     console.log("in case1");
+    currentLevel="Level 1";
     
  }
 
@@ -1510,7 +1511,7 @@ function level2Case4(){
                     // heading.lookAt(PIEcamera.position);
                 });
                 }
-
+            currentLevel="Level 1";
             console.log("level2case4");
             
 
@@ -1607,6 +1608,8 @@ function resetExperiment() {
         number[i].remove();
     }
     removeElements();
+    if(levelbtn)
+    levelbtn.innerHTML=currentLevel;
     PIEshowDisplayPanel();
     PIErender();
     console.log("reset");
