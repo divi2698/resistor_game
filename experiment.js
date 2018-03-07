@@ -62,29 +62,35 @@ var box1;
 var box2;
 var box21;
 var box91;
+var box81;
 var box22;
 var box41;
 var box42;
+var box82;
 var box3;
 var box31;
 var box32;
 var box33;
 var mesh1;
 var mesh91;
+var mesh81;
 var mesh21;
 var mesh31;
 var mesh41;
 var mesh2;
 var mesh92;
+var mesh82;
 var mesh22;
 var mesh42;
 var mesh3;
 
 var mesh23;
+var mesh83;
 var mesh43;
 
 var mesh4;
 var mesh24;
+var mesh84;
 var mesh44;
 var mesh32;
 var mesh33;
@@ -92,14 +98,17 @@ var mesh34;
 var mesh5;
 var mesh95;
 var mesh25;
+var mesh85;
 var mesh45;
 var mesh6;
 var mesh96;
+var mesh86;
 var mesh26;
 var mesh46;
 var mesh35;
 var mesh36;
 var mesh7;
+var mesh87;
 var mesh97;
 var mesh27;
 var mesh47;
@@ -617,8 +626,8 @@ function stopAnimation() {
 function level1Action(){
 
     PIEaddDisplayText("Resultant Resistance", refflevel1);
-    PIEaddDisplayCheckbox("R1 parellel R2", false, level1Case1);
-    PIEaddDisplayCheckbox("R1 series R2", false, level1Case2);
+    PIEaddMyCheckbox("R1 parellel R2", false, level1Case1);
+    PIEaddMyCheckbox("R1 series R2", false, level1Case2);
     
     
     // PIEchangeInputCheckbox("Level 5", true);
@@ -646,8 +655,8 @@ function level2Action(){
         number[i].remove();
     }
     PIEaddDisplayText("Resultant Resistance", refflevel2);    
-    PIEaddDisplayCheckbox("R1 parellel R2", false,level2Case1);
-    PIEaddDisplayCheckbox("R1 series R2", false,level2Case2);
+    PIEaddMyCheckbox("R1 parellel R2", false,level2Case1);
+    PIEaddMyCheckbox("R1 series R2", false,level2Case2);
 
     // if (PIEgetDisplayCheckbox("R1 parellel R2") == true && PIEgetDisplayCheckbox("R1 series R2") == false){
     //     var inputCheckboxes = document.getElementsByClassName("cr boolean");
@@ -703,8 +712,8 @@ function level3Action(){
     //========================================//
 
     PIEaddDisplayText("Resultant Resistance", refflevel3);    
-    PIEaddDisplayCheckbox("R1 parellel R2", false,level3Case1);
-    PIEaddDisplayCheckbox("R1 series R2", false,level3Case2);
+    PIEaddMyCheckbox("R1 parellel R2", false,level3Case1);
+    PIEaddMyCheckbox("R1 series R2", false,level3Case2);
    
 }
 
@@ -729,11 +738,11 @@ function level4Action(){
     //========================================//
 
     PIEaddDisplayText("Resultant Resistance", refflevel4);    
-    PIEaddDisplayCheckbox("R1 p R2 p R3", false,level4Case1);
-    PIEaddDisplayCheckbox("R1 s R2 s R3", false,level4Case2);
-    PIEaddDisplayCheckbox("R1 p R2 s R3", false,level4Case3);
-    PIEaddDisplayCheckbox("R1 p R3 s R2", false,level4Case4);
-    PIEaddDisplayCheckbox("R2 p R3 s R1", false,level4Case5);
+    PIEaddMyCheckbox("R1 p R2 p R3", false,level4Case1);
+    PIEaddMyCheckbox("R1 s R2 s R3", false,level4Case2);
+    PIEaddMyCheckbox("R1 p R2 s R3", false,level4Case3);
+    PIEaddMyCheckbox("R1 p R3 s R2", false,level4Case4);
+    PIEaddMyCheckbox("R2 p R3 s R1", false,level4Case5);
    
 }
 
@@ -745,29 +754,33 @@ function level5Action(){
     levelbtn.innerHTML=currentLevel;
     resetExperiment();
     var inputCheckboxes = document.getElementsByClassName("cr boolean");
-    // console.log(inputCheckboxes);
+    console.log(inputCheckboxes.length);
 
     for(var i=0;i<inputCheckboxes.length ;i++){
+    
     inputCheckboxes[i].remove();
     }
 
     var number = document.getElementsByClassName("cr number");
-    // console.log(inputCheckboxes);
+    console.log(number.length);
     for(var i = 0; i < number.length; i++) {
         number[i].remove();
     }
+    console.log(number.length);
 
     //========================================//
     console.log("level5Action");
 
     PIEaddDisplayText("Resultant Resistance", refflevel5);    
 
-    PIEaddDisplayCheckbox("R1 p R2 p R3",false,level5Case1);
-    PIEaddDisplayCheckbox("R1 s R2 s R3",false,level5Case2);
-    PIEaddDisplayCheckbox("R1 p R2 s R3",false,level5Case3);
-    PIEaddDisplayCheckbox("R1 p R3 s R2",false,level5Case4);
-    PIEaddDisplayCheckbox("R2 p R3 s R1",false,level5Case5);
+    PIEaddMyCheckbox("R1 p R2 p R3",false,level5Case1);
+    PIEaddMyCheckbox("R1 s R2 s R3",false,level5Case2);
 
+    PIEaddMyCheckbox("R1 p R2 s R3",false,level5Case3);
+    PIEaddMyCheckbox("R1 p R3 s R2",false,level5Case4);
+    PIEaddMyCheckbox("R2 p R3 s R1",false,level5Case5);
+
+    // PIErender();
     console.log("level5Action");
     
 }
@@ -1301,7 +1314,7 @@ function level2Case1(){
     R12 = (R1 * R2) / (R1 + R2);
 
     PIEaddDisplayText("R12", R12);
-    PIEaddDisplayCheckbox("R12 parellel R3",false,level2Case3);
+    PIEaddMyCheckbox("R12 parellel R3",false,level2Case3);
     PIErender();
    
     console.log("in l2c1");
@@ -1523,7 +1536,7 @@ PIEchangeDisplayCheckbox("R1 series R2", true);
  R12 = (R1 + R2);
 
  PIEaddDisplayText("R12", R12);
- PIEaddDisplayCheckbox("R12 parellel R3",false,level2Case4);
+ PIEaddMyCheckbox("R12 parellel R3",false,level2Case4);
  PIErender();
 
  console.log("in l2c2");
@@ -1806,8 +1819,8 @@ function level3Case1(){
     R12 = (R1 * R2) / (R1 + R2);
 
     PIEaddDisplayText("R12", R12);
-    PIEaddDisplayCheckbox("R3 parellel R4",false,level3Case3);
-    PIEaddDisplayCheckbox("R3 series R4",false,level3Case4);
+    PIEaddMyCheckbox("R3 parellel R4",false,level3Case3);
+    PIEaddMyCheckbox("R3 series R4",false,level3Case4);
     PIErender();
    
     console.log("in l3c1");
@@ -1940,8 +1953,8 @@ function level3Case2(){
         R12 = (R1 + R2);
 
         PIEaddDisplayText("R12", R12);
-        PIEaddDisplayCheckbox("R3 parellel R4",false,level3Case3);
-        PIEaddDisplayCheckbox("R3 series R4",false,level3Case4);
+        PIEaddMyCheckbox("R3 parellel R4",false,level3Case3);
+        PIEaddMyCheckbox("R3 series R4",false,level3Case4);
         PIErender();
     
         console.log("in l3c1");
@@ -2103,7 +2116,7 @@ function level3Case3(){
     R34 = (R3* R4) / (R3 + R4);
 
     PIEaddDisplayText("R34", R34);
-    PIEaddDisplayCheckbox("R12 parellel R34",false,level3Case9);
+    PIEaddMyCheckbox("R12 parellel R34",false,level3Case9);
     
     PIErender();
    
@@ -2237,7 +2250,7 @@ function level3Case4(){
         R34 = (R3 + R4);
 
         PIEaddDisplayText("R34", R34);
-        PIEaddDisplayCheckbox("R12 parellel R34",false,level3Case10);
+        PIEaddMyCheckbox("R12 parellel R34",false,level3Case10);
         
         PIErender();
 
@@ -2248,7 +2261,7 @@ function level3Case9(){
     PIEchangeDisplayCheckbox("R12 parellel R34",true);
     R1234= (R12*R34)/(R12+R34);    
 
-    PIEaddDisplayCheckbox("R1234",R1234);
+    PIEaddMyCheckbox("R1234",R1234);
 
     if(R1234!=refflevel3){
         // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
@@ -2333,7 +2346,7 @@ function level3Case10(){
     PIEchangeDisplayCheckbox("R12 parellel R34",true);
     R1234= (R12*R34)/(R12+R34);    
 
-    PIEaddDisplayCheckbox("R1234",R1234);
+    PIEaddMyCheckbox("R1234",R1234);
 
     if(R1234!=refflevel3){
         // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
@@ -2584,7 +2597,7 @@ function level4Case1(){
     R123 = (R1 * R2*R3) / (R1*R2 + R2*R3+R1*R3);
 
     PIEaddDisplayText("R123", R123);
-    PIEaddDisplayCheckbox("R123 parellel R4",false,level4Case10);
+    PIEaddMyCheckbox("R123 parellel R4",false,level4Case10);
     
     PIErender();
    
@@ -2755,7 +2768,7 @@ function level4Case2(){
        R123 = (R1+R2+R3);
 
        PIEaddDisplayText("R123", R123);
-       PIEaddDisplayCheckbox("R123 parellel R4",false,level4Case10);
+       PIEaddMyCheckbox("R123 parellel R4",false,level4Case10);
        
        PIErender();
       
@@ -2960,7 +2973,7 @@ function level4Case3(){
     R123 = (R1*R2)/(R1+R2)+R3;
 
        PIEaddDisplayText("R123", R123);
-       PIEaddDisplayCheckbox("R123 parellel R4",false,level4Case10);
+       PIEaddMyCheckbox("R123 parellel R4",false,level4Case10);
        
        PIErender();
       
@@ -3173,7 +3186,7 @@ function level4Case4(){
     R123 = (R1*R3)/(R1+R3)+R2;
 
        PIEaddDisplayText("R123", R123);
-       PIEaddDisplayCheckbox("R123 parellel R4",false,level4Case10);
+       PIEaddMyCheckbox("R123 parellel R4",false,level4Case10);
        
        PIErender();
       
@@ -3383,7 +3396,7 @@ function level4Case5(){
     R123 = (R3*R2)/(R3+R2)+R1;
 
        PIEaddDisplayText("R123", R123);
-       PIEaddDisplayCheckbox("R123 parellel R4",false,level4Case10);
+       PIEaddMyCheckbox("R123 parellel R4",false,level4Case10);
        
        PIErender();
       
@@ -3540,7 +3553,7 @@ function level4Case10(){
 
     R1234= (R123*R4)/(R123+R4);    
 
-    PIEaddDisplayCheckbox("R1234",R1234);
+    PIEaddMyCheckbox("R1234",R1234);
 
     if(R1234!=refflevel4){
         // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
@@ -3589,10 +3602,13 @@ function level4Case10(){
          level2btn=PIEaddButton("Next Level");
 
          level2btn.addEventListener("click",level5Action);
+
          PIErender();
+         
     }
     
     console.log("level4case10");
+
 }
 /////////////////////////////////////////////////////////////////
 
@@ -3608,6 +3624,7 @@ function level5Case1(){
 
     // r1 p r2 p r3
 
+    
 
     PIEchangeDisplayCheckbox("R1 p R2 p R3", true);
     var inputCheckboxes = document.getElementsByClassName("cr boolean");
@@ -3791,8 +3808,8 @@ function level5Case1(){
     R123 = (R1 * R2*R3) / (R1*R2 + R2*R3+R1*R3);
 
     PIEaddDisplayText("R123", R123);
-    PIEaddDisplayCheckbox("R4 parellel R5",false,level5Case8);
-    PIEaddDisplayCheckbox("R4 series R5",false,level5Case9);
+    PIEaddMyCheckbox("R4 parellel R5",false,level5Case8);
+    PIEaddMyCheckbox("R4 series R5",false,level5Case9);
     
     PIErender();
    
@@ -3967,8 +3984,8 @@ function level5Case2(){
        R123 = (R1+R2+R3);
 
        PIEaddDisplayText("R123", R123);
-       PIEaddDisplayCheckbox("R4 parellel R5",false,level5Case8);
-       PIEaddDisplayCheckbox("R4 series R5",false,level5Case9);
+       PIEaddMyCheckbox("R4 parellel R5",false,level5Case8);
+       PIEaddMyCheckbox("R4 series R5",false,level5Case9);
        
        PIErender();
       
@@ -4176,8 +4193,8 @@ function level5Case3(){
 
       
     PIEaddDisplayText("R123", R123);
-    PIEaddDisplayCheckbox("R4 parellel R5",false,level5Case8);
-    PIEaddDisplayCheckbox("R4 series R5",false,level5Case9);
+    PIEaddMyCheckbox("R4 parellel R5",false,level5Case8);
+    PIEaddMyCheckbox("R4 series R5",false,level5Case9);
     
        PIErender();
       
@@ -4391,8 +4408,8 @@ function level5Case4(){
 
       
     PIEaddDisplayText("R123", R123);
-    PIEaddDisplayCheckbox("R4 parellel R5",false,level5Case8);
-    PIEaddDisplayCheckbox("R4 series R5",false,level5Case9);
+    PIEaddMyCheckbox("R4 parellel R5",false,level5Case8);
+    PIEaddMyCheckbox("R4 series R5",false,level5Case9);
     
        PIErender();
       
@@ -4602,8 +4619,8 @@ function level5Case5(){
     R123 = (R3*R2)/(R3+R2)+R1;
 
        PIEaddDisplayText("R123", R123);
-       PIEaddDisplayCheckbox("R4 parellel R5",false,level5Case8);
-       PIEaddDisplayCheckbox("R4 series R5",false,level5Case9);
+       PIEaddMyCheckbox("R4 parellel R5",false,level5Case8);
+       PIEaddMyCheckbox("R4 series R5",false,level5Case9);
        
        PIErender();
       
@@ -4623,7 +4640,9 @@ function level5Case8(){
     // r4 p r5
 
     PIEchangeDisplayCheckbox("R4 parellel R5",true);
-
+    var inputCheckboxes = document.getElementsByClassName("cr boolean");
+    // console.log(inputCheckboxes);
+    inputCheckboxes[2].remove();
 
     var boxGeom = new THREE.BoxGeometry(2.933, .5, 1);
     box91 = new THREE.Mesh(boxGeom, new THREE.MeshBasicMaterial({ color: "gray" }));
@@ -4765,8 +4784,10 @@ function level5Case8(){
 
     R45= (R5*R4)/(R5+R4);    
 
-    PIEaddDisplayCheckbox("R45",R45);
-
+    PIEaddMyCheckbox("R45",R45);
+    PIEaddMyCheckbox("R123 parellel R45",false,level5Case10);
+    
+    PIErender();
 
     console.log("level5case8");
 
@@ -4777,11 +4798,198 @@ function level5Case8(){
 
 
 function level5Case9(){
+    
+
+    PIEchangeDisplayCheckbox("R4 series R5", true);
+    var inputCheckboxes = document.getElementsByClassName("cr boolean");
+    // console.log(inputCheckboxes);
+    inputCheckboxes[1].remove();
+
+    //first resistor
+     var boxGeom = new THREE.BoxGeometry(2.933, .5, 1);
+     box81 = new THREE.Mesh(boxGeom, new THREE.MeshBasicMaterial({color: "gray" }));
+     PIEaddElement(box81);
+     var edges = new THREE.EdgesGeometry(boxGeom);
+     var line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0x000 }));
+     box81.add(line);
+     box81.position.set(-4.4, 0, 3.8);
+
+     //second resistor
+     var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
+     box82 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({color: "gray" }));//color: 0xd3d3d3
+     PIEaddElement(box82);
+     var edges2 = new THREE.EdgesGeometry(boxGeom2);
+     var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
+     box82.add(line2);
+     box82.position.set(4.4, 0, 3.8);
+
+     //wire connecting the resistors
+     var curve1 = new THREE.CubicBezierCurve3(
+         new THREE.Vector3(-7, 0,3.8),
+         new THREE.Vector3(-6.5, 0,3.8),
+         new THREE.Vector3(-6, 0,3.8),
+         new THREE.Vector3(-5.86666, 0, 3.8)
+     );
+
+     var tube1 = new THREE.TubeGeometry(curve1, 100, 0.05, 20, false);
+     mesh81 = new THREE.Mesh(tube1, new THREE.MeshBasicMaterial({ color: "black" }));
+
+     PIEaddElement(mesh81);
+
+     //wire connecting the resistors
+     var curve2 = new THREE.CubicBezierCurve3(
+         new THREE.Vector3(-2.93333, 0,3.8),
+         new THREE.Vector3(-1, 0,3.8),
+         new THREE.Vector3(-1.5, 0,3.8),
+         new THREE.Vector3(2.933333333333, 0, 3.8)
+     );
+
+     var tube2 = new THREE.TubeGeometry(curve2, 100, 0.05, 20, false);
+     mesh82 = new THREE.Mesh(tube2, new THREE.MeshBasicMaterial({ color: "black" }));
+
+     PIEaddElement(mesh82);
+
+     //wire connecting the resistors
+     var curve3 = new THREE.CubicBezierCurve3(
+         new THREE.Vector3(5.866666666, 0,3.8),
+         new THREE.Vector3(6, 0,3.8),
+         new THREE.Vector3(7, 0,3.8),
+         new THREE.Vector3(7, 0,3.8)
+     );
+
+     var tube3 = new THREE.TubeGeometry(curve3, 100, 0.05, 20, false);
+     mesh83 = new THREE.Mesh(tube3, new THREE.MeshBasicMaterial({ color: "black" }));
+
+     PIEaddElement(mesh83);
+
+      //  //vertical lines
+    var curve7 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-7, 0, 3.8),
+        new THREE.Vector3(-7, 0, 1.6),
+        new THREE.Vector3(-7, 0, 1.2),
+        new THREE.Vector3(-7, 0, .4)
+    );
+
+    var tube7 = new THREE.TubeGeometry(curve7, 100, 0.05, 20, false);
+    mesh84 = new THREE.Mesh(tube7, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh84);
+
+    // //  vertical lines
+    var curve8 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(7, 0, 3.8),
+        new THREE.Vector3(7, 0, 1.6),
+        new THREE.Vector3(7, 0, 1.2),
+        new THREE.Vector3(7, 0, .4)
+    );
+
+    var tube8 = new THREE.TubeGeometry(curve8, 100, 0.05, 20, false);
+    mesh85 = new THREE.Mesh(tube8, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh85);
+
+    //wires connecting the terminals to the resistors in series
+
+        //wire connecting the resistors
+        var curve6 = new THREE.CubicBezierCurve3(
+            new THREE.Vector3(-8.8, 0, .4),
+            new THREE.Vector3(-8.5, 0, .4),
+            new THREE.Vector3(-8.3, 0, .4),
+            new THREE.Vector3(-7, 0, .4)
+        );
+    
+        var tube6 = new THREE.TubeGeometry(curve6, 100, 0.05, 20, false);
+        mesh86 = new THREE.Mesh(tube6, new THREE.MeshBasicMaterial({ color: "black" }));
+    
+        PIEaddElement(mesh86);
+    
+        //  wire connecting the resistors
+        var curve9 = new THREE.CubicBezierCurve3(
+            new THREE.Vector3(7, 0, .4),
+            new THREE.Vector3(7.5, 0, .4),
+            new THREE.Vector3(8, 0, .4),
+            new THREE.Vector3(8.8, 0, .4)
+        );
+    
+        var tube9 = new THREE.TubeGeometry(curve9, 100, 0.05, 20, false);
+        mesh87 = new THREE.Mesh(tube9, new THREE.MeshBasicMaterial({ color: "black" }));
+    
+        PIEaddElement(mesh87);
+
+
+
+        R45 = (R4+ R5);
+
+        PIEaddDisplayText("R45", R45);
+        PIEaddMyCheckbox("R123 parellel R45",false,level5Case10);
+        PIErender();
 
 }
 
 
+function level5Case10(){
 
+    
+    PIEchangeDisplayCheckbox("R123 parellel R45",true);
+    R12345= (R123*R45)/(R123+R45);    
+
+    PIEaddMyCheckbox("R12345",R12345);
+
+    if(R12345!=refflevel5){
+        // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
+        // successbtn.addEventListener("click",resetExperiment);
+        var loader = new THREE.FontLoader();
+            loader.load("optimer.json", function (response) {
+            font = response;
+
+        var geometry = new THREE.TextGeometry("Press Reset To Try Again!!", {
+                font: font,
+                size: 1,
+                height: 0.3,
+                curveSegments: 3
+            });
+
+            thevel1 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+            
+
+            PIEaddElement(thevel1);
+            thevel1.position.set(-8.5, 0, -12);
+           
+        });
+        currentLevel="Level 1";
+    }
+    else if (R12345 == refflevel5) {
+        
+        var loader = new THREE.FontLoader();
+         loader.load("./optimer.json", function (response) {
+             font = response;
+
+             var geometry = new THREE.TextGeometry("Success All Levels Completed", {
+                 font: font,
+                 size: 1,
+                 height: 0.3,
+                 curveSegments: 3
+             });
+
+             thevel2 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+            PIEaddElement(thevel2);
+            thevel2.position.set(-12, 0, -15);
+           
+         });
+
+        //  level2btn=PIEaddButton("Play Again");
+         currentLevel="Level 1";
+
+        //  level2btn.addEventListener("click",PIEresetExperiment());
+         
+    }
+    
+    console.log("level3case10");
+
+
+}
 
 ///////////////////////////////////////////////////
 
@@ -4815,11 +5023,11 @@ function loadExperimentElements() {
     // max 		The Maximum value in slider
     // step 		The The step by which slider should change
     // PIEaddInputSlider("Number of turns", 1, test3, 1, 5, 1);
-    // PIEaddDisplayCheckbox("Level 1", false, level1);
-    // PIEaddDisplayCheckbox("Level 2", false, level2);
-    // PIEaddDisplayCheckbox("Level 3", false, level3);
-    // PIEaddDisplayCheckbox("Level 4", false, level4);
-    // PIEaddDisplayCheckbox("Level 5", false, level5);
+    // PIEaddMyCheckbox("Level 1", false, level1);
+    // PIEaddMyCheckbox("Level 2", false, level2);
+    // PIEaddMyCheckbox("Level 3", false, level3);
+    // PIEaddMyCheckbox("Level 4", false, level4);
+    // PIEaddMyCheckbox("Level 5", false, level5);
 
     // PIEaddInputCommand("Current Direction :", test);
     // label 		The label to appear on the command
@@ -4914,7 +5122,9 @@ function removeElements() {
     PIEremoveElement(box2);
     PIEremoveElement(box21);
     PIEremoveElement(box41);
+    PIEremoveElement(box81);
     PIEremoveElement(box22);
+    PIEremoveElement(box82);
     PIEremoveElement(box42);
     PIEremoveElement(box3);
     PIEremoveElement(box33);
@@ -4924,33 +5134,40 @@ function removeElements() {
     PIEremoveElement(mesh1);
     PIEremoveElement(mesh91);
     PIEremoveElement(mesh41);
+    PIEremoveElement(mesh81);
     PIEremoveElement(mesh28);
     PIEremoveElement(mesh31);
     PIEremoveElement(mesh2);
+    PIEremoveElement(mesh82);
     PIEremoveElement(mesh92);
     PIEremoveElement(mesh42);
     PIEremoveElement(mesh22);
     PIEremoveElement(mesh21);
     PIEremoveElement(mesh3);
     PIEremoveElement(mesh43);
+    PIEremoveElement(mesh83);
     PIEremoveElement(mesh23);
     PIEremoveElement(mesh4);
     PIEremoveElement(mesh44);
+    PIEremoveElement(mesh84);
     PIEremoveElement(mesh24);
     PIEremoveElement(mesh32);
     PIEremoveElement(mesh33);
     PIEremoveElement(mesh34);
     PIEremoveElement(mesh5);
     PIEremoveElement(mesh95);
+    PIEremoveElement(mesh85);
     PIEremoveElement(mesh45);
     PIEremoveElement(mesh25);
     PIEremoveElement(mesh6);
+    PIEremoveElement(mesh86);
     PIEremoveElement(mesh46);
     PIEremoveElement(mesh96);
     PIEremoveElement(mesh26);
     PIEremoveElement(mesh35);
     PIEremoveElement(mesh36);
     PIEremoveElement(mesh7);
+    PIEremoveElement(mesh87);
     PIEremoveElement(mesh97);
     PIEremoveElement(mesh47);
     PIEremoveElement(mesh27);
@@ -5000,3 +5217,357 @@ return (button)
 
 
 
+//==========================================================================//
+function PIEaddMyCheckbox(b, d, c) {
+    var a;
+    switch (PIEcbDisplay) {
+        case 0:
+            PIEdisplayObject.cb00 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb00").name(b);
+            break;
+        case 1:
+            PIEdisplayObject.cb01 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb01").name(b);
+            break;
+        case 2:
+            PIEdisplayObject.cb02 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb02").name(b);
+            break;
+        case 3:
+            PIEdisplayObject.cb03 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb03").name(b);
+            break;
+        case 4:
+            PIEdisplayObject.cb04 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb04").name(b);
+            break;
+        case 5:
+            PIEdisplayObject.cb05 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb05").name(b);
+            break;
+        case 6:
+            PIEdisplayObject.cb06 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb06").name(b);
+            break;
+        case 7:
+            PIEdisplayObject.cb07 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb07").name(b);
+            break;
+        case 8:
+            PIEdisplayObject.cb08 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb08").name(b);
+            break;
+        case 9:
+            PIEdisplayObject.cb09 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb09").name(b);
+            break;
+        case 10:
+            PIEdisplayObject.cb10 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb10").name(b);
+            break;
+        case 11:
+            PIEdisplayObject.cb11 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb11").name(b);
+            break;
+        case 12:
+            PIEdisplayObject.cb12 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb12").name(b);
+            break;
+        case 13:
+            PIEdisplayObject.cb13 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb13").name(b);
+            break;
+        case 14:
+            PIEdisplayObject.cb14 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb14").name(b);
+            break;
+        case 15:
+            PIEdisplayObject.cb15 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb15").name(b);
+            break;
+        case 16:
+            PIEdisplayObject.cb16 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb16").name(b);
+            break;
+        case 17:
+            PIEdisplayObject.cb17 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb17").name(b);
+            break;
+        case 18:
+            PIEdisplayObject.cb18 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb18").name(b);
+            break;
+        case 19:
+            PIEdisplayObject.cb19 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb19").name(b);
+            break;
+
+        case 20:
+            PIEdisplayObject.cb20 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb20").name(b);
+            break;
+        case 21:
+            PIEdisplayObject.cb21 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb21").name(b);
+            break;
+        case 22:
+            PIEdisplayObject.cb22 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb22").name(b);
+            break;
+        case 23:
+            PIEdisplayObject.cb23 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb23").name(b);
+            break;
+        case 24:
+            PIEdisplayObject.cb24 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb24").name(b);
+            break;
+        case 25:
+            PIEdisplayObject.cb25 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb25").name(b);
+            break;
+        case 26:
+            PIEdisplayObject.cb26 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb26").name(b);
+            break;
+        case 27:
+            PIEdisplayObject.cb27 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb27").name(b);
+            break;
+        case 28:
+            PIEdisplayObject.cb28 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb28").name(b);
+            break;
+        case 29:
+            PIEdisplayObject.cb29 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb29").name(b);
+            break;
+        case 30:
+            PIEdisplayObject.cb30 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb30").name(b);
+            break;
+        case 31:
+            PIEdisplayObject.cb31 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb31").name(b);
+            break;
+        case 32:
+            PIEdisplayObject.cb32 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb32").name(b);
+            break;
+        case 33:
+            PIEdisplayObject.cb33 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb33").name(b);
+            break;
+        case 34:
+            PIEdisplayObject.cb34 = 38
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb34").name(b);
+            break;
+        case 35:
+            PIEdisplayObject.cb19 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb35").name(b);
+            break;
+        case 36:
+            PIEdisplayObject.cb36 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb36").name(b);
+            break;
+        case 37:
+            PIEdisplayObject.cb37 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb37").name(b);
+            break;
+        case 38:
+            PIEdisplayObject.cb38 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb38").name(b);
+            break;
+        case 39:
+            PIEdisplayObject.cb39 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb39").name(b);
+            break;
+        case 40:
+            PIEdisplayObject.cb40 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb40").name(b);
+            break;
+        case 41:
+            PIEdisplayObject.cb41 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb41").name(b);
+            break;
+        case 42:
+            PIEdisplayObject.cb42 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb42").name(b);
+            break;
+        case 43:
+            PIEdisplayObject.cb43 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb43").name(b);
+            break;
+        case 44:
+            PIEdisplayObject.cb44 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb44").name(b);
+            break;
+        case 45:
+            PIEdisplayObject.cb45 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb45").name(b);
+            break;
+        case 46:
+            PIEdisplayObject.cb46 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb46").name(b);
+            break;
+        case 47:
+            PIEdisplayObject.cb47 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb47").name(b);
+            break;
+        case 48:
+            PIEdisplayObject.cb48 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb48").name(b);
+            break;
+        case 49:
+            PIEdisplayObject.cb49 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb49").name(b);
+            break;
+        case 50:
+            PIEdisplayObject.cb50 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb50").name(b);
+            break;
+        case 51:
+            PIEdisplayObject.cb51 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb51").name(b);
+            break;
+        case 52:
+            PIEdisplayObject.cb52 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb52").name(b);
+            break;
+        case 53:
+            PIEdisplayObject.cb53 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb53").name(b);
+            break;
+        case 54:
+            PIEdisplayObject.cb54 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb54").name(b);
+            break;
+        case 55:
+            PIEdisplayObject.cb55 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb55").name(b);
+            break;
+        case 56:
+            PIEdisplayObject.cb56 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb56").name(b);
+            break;
+        case 57:
+            PIEdisplayObject.cb57 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb57").name(b);
+            break;
+        case 58:
+            PIEdisplayObject.cb58 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb58").name(b);
+            break;
+        case 59:
+            PIEdisplayObject.cb59 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb59").name(b);
+            break;
+        case 60:
+            PIEdisplayObject.cb60 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb60").name(b);
+            break;
+        case 61:
+            PIEdisplayObject.cb61 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb61").name(b);
+            break;
+        case 62:
+            PIEdisplayObject.cb62 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb62").name(b);
+            break;
+        case 63:
+            PIEdisplayObject.cb63 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb63").name(b);
+            break;
+        case 64:
+            PIEdisplayObject.cb64 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb64").name(b);
+            break;
+        case 65:
+            PIEdisplayObject.cb65 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb65").name(b);
+            break;
+        case 66:
+            PIEdisplayObject.cb66 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb66").name(b);
+            break;
+        case 67:
+            PIEdisplayObject.cb67 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb67").name(b);
+            break;
+        case 68:
+            PIEdisplayObject.cb68 = d;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "cb68").name(b);
+            break;
+        // case 19:
+        //     PIEdisplayObject.cb19 = d;
+        //     a = PIEdisplayGUI.add(PIEdisplayObject, "cb19").name(b);
+        //     break;
+        // case 19:
+        //     PIEdisplayObject.cb19 = d;
+        //     a = PIEdisplayGUI.add(PIEdisplayObject, "cb19").name(b);
+        //     break;
+        // case 19:
+        //     PIEdisplayObject.cb19 = d;
+        //     a = PIEdisplayGUI.add(PIEdisplayObject, "cb19").name(b);
+        //     break;
+        // case 19:
+        //     PIEdisplayObject.cb19 = d;
+        //     a = PIEdisplayGUI.add(PIEdisplayObject, "cb19").name(b);
+        //     break;
+        // case 19:
+        //     PIEdisplayObject.cb19 = d;
+        //     a = PIEdisplayGUI.add(PIEdisplayObject, "cb19").name(b);
+        //     break;
+        // case 19:
+        //     PIEdisplayObject.cb19 = d;
+        //     a = PIEdisplayGUI.add(PIEdisplayObject, "cb19").name(b);
+        //     break;
+        // case 19:
+        //     PIEdisplayObject.cb19 = d;
+        //     a = PIEdisplayGUI.add(PIEdisplayObject, "cb19").name(b);
+        //     break;
+        // case 19:
+        //     PIEdisplayObject.cb19 = d;
+        //     a = PIEdisplayGUI.add(PIEdisplayObject, "cb19").name(b);
+        //     break;
+        // case 19:
+        //     PIEdisplayObject.cb19 = d;
+        //     a = PIEdisplayGUI.add(PIEdisplayObject, "cb19").name(b);
+        //     break;
+        // case 19:
+        //     PIEdisplayObject.cb19 = d;
+        //     a = PIEdisplayGUI.add(PIEdisplayObject, "cb19").name(b);
+        //     break;
+        // case 19:
+        //     PIEdisplayObject.cb19 = d;
+        //     a = PIEdisplayGUI.add(PIEdisplayObject, "cb19").name(b);
+        //     break;
+        // case 19:
+        //     PIEdisplayObject.cb19 = d;
+        //     a = PIEdisplayGUI.add(PIEdisplayObject, "cb19").name(b);
+        //     break;
+        // case 19:
+        //     PIEdisplayObject.cb19 = d;
+        //     a = PIEdisplayGUI.add(PIEdisplayObject, "cb19").name(b);
+        //     break;
+        // case 19:
+        //     PIEdisplayObject.cb19 = d;
+        //     a = PIEdisplayGUI.add(PIEdisplayObject, "cb19").name(b);
+        //     break;
+        // case 19:
+        //     PIEdisplayObject.cb19 = d;
+        //     a = PIEdisplayGUI.add(PIEdisplayObject, "cb19").name(b);
+        //     break;
+        // case 19:
+        //     PIEdisplayObject.cb19 = d;
+        //     a = PIEdisplayGUI.add(PIEdisplayObject, "cb19").name(b);
+        //     break;
+        default:
+            return;
+            break
+    }
+    a.onChange(c);
+    PIEcbDisplayHandles.push(a);
+    PIEcbDisplayNames.push(b);
+    PIEcbDisplay++;
+}
