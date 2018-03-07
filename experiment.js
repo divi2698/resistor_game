@@ -133,20 +133,17 @@ var thevel96;
 
 function initialiseHelp() {
     helpContent = "";
-    helpContent = helpContent + "<h2>Magnetic field due to a current carrying circular loop help</h2>";
+    helpContent = helpContent + "<h2>Building circuit of required resistance from given resistors</h2>";
     helpContent = helpContent + "<h3>About the experiment</h3>";
-    helpContent = helpContent + "<p>Shown how the deflection changes with direction and strength of the current.</p>";
-    helpContent = helpContent + "<p>When the switch is closed, there is deflection in the compass according to the direction and strength of the current.</p>"
+    helpContent = helpContent + "<p>Shown how the Resulatant Resistance changes with different combinations of given resistors.</p>";
     helpContent = helpContent + "<h3>Animation control</h3>";
-    helpContent = helpContent + "<p>Select voltage of a cell through slider.</p>";
-    helpContent = helpContent + "<p>Select the direction of the current using checkboxes.</p>";
-    helpContent = helpContent + "<p>Drag the compass to set its position.</p>";
-    helpContent = helpContent + "<p>Drag the coil to set its position.</p>";
-    helpContent = helpContent + "<p>Click on start button to start the animation</p>";
-    helpContent = helpContent + "<p>Alternatively, click on the swith to start the animation</p>";
-    helpContent = helpContent + "<p>Click on pause button to pause the animation</p>";
+    helpContent = helpContent + "<p>Click the start button to start the game at level 1.</p>";
+    helpContent = helpContent + "<p>Select the desired combination of resistors to get the correct resultant.</p>";
+    helpContent = helpContent + "<p>Keep on building the circuit till all the given resistors are used in the circuit.</p>";
+    helpContent = helpContent + "<p>Click on the reset button if resultant resistance is not equal to the required resistance.</p>";
+    helpContent = helpContent + "<p>On finishing a level click on the Next Level button to move to the next level.</p>";
     helpContent = helpContent + "<p>Click on Reset button to reset animation</p>";
-    helpContent = helpContent + "<p>Click on start button and then drag to view a 360 degree view and scroll to zoom</p>";
+    helpContent = helpContent + "<p>Complete five levels to finish the game.</p>";
     infoContent = infoContent + "<h2>Happy Experimenting</h2>";
     PIEupdateHelp(helpContent);
 }
@@ -154,15 +151,13 @@ function initialiseHelp() {
 var infoContent;
 function initialiseInfo() {
     infoContent = "";
-    infoContent = infoContent + "<h2>Magnetic field due to a current carrying circular loop concepts</h2>";
+    infoContent = infoContent + "<h2>Building circuit of required resistance from given resistors</h2>";
     infoContent = infoContent + "<h3>About the experiment</h3>";
-    infoContent = infoContent + "<p>Shown how the deflection changes with direction and strength of the current.</p>";
-    infoContent = infoContent + "<p>When the switch is closed, there is deflection in the compass according to the direction and strength of the current.</p>";
-    infoContent = infoContent + "<h3>Current Flow</h3>";
-    infoContent = infoContent + "<p>According to the Fleming's Right hand rule of finding magnetic direction, if the current's direction is clockwise, the needle deflects to the right and left otherwise </p>";
-    infoContent = infoContent + "<p>Needle of compass aligns itself to the tangent to the magnetic field lines</p>";
-    infoContent = infoContent + "<p>Also since force on needle is directly propotional to the current, there is more deflection when voltage is high.</p>";
-    infoContent = infoContent + "<p>If the compass is moved far from the rod, where there is no magnetic field, then there is no deflection in compass.</p>";
+    infoContent = infoContent + "<p>Shown how the Resulatant Resistance changes with different combinations of given resistors.</p>";
+    infoContent = infoContent + "<h3>Ohm's Law</h3>";
+    infoContent = infoContent + "<p>Current is directly proportional to the given Voltage. </p>";
+    infoContent = infoContent + "<p>When two resistors R1 and R2 are connected in series the Equivalent resistance = R1 + R2.</p>";
+    infoContent = infoContent + "<p>When two resistors R1 and R2 are connected in parallel the Equivalent resistance =  (R1 * R2) / (R1 + R2).</p>";
     infoContent = infoContent + "<h2>Happy Experimenting</h2>";
     PIEupdateInfo(infoContent);
 }
@@ -183,21 +178,18 @@ function initialiseScene() {
 
     PIEscene.background = new THREE.Color(0x00BFFF);
     //PIEscene.background = new THREE.Color( 0xFCEDB2 );
-    var ambient = new THREE.AmbientLight(0x555555);
+    var ambient = new THREE.AmbientLight(0xffffff);
     PIEaddElement(ambient);
 
     var light = new THREE.DirectionalLight(0x123456);
     light.position = PIEcamera.position;
     PIEaddElement(light);
 
-    var ambient = new THREE.AmbientLight(0x555555);
-    PIEaddElement(ambient);
 
-    var light = new THREE.DirectionalLight(0x123456);
-    light.position = PIEcamera.position;
-    PIEaddElement(light);
 
-    var groundMaterial = new THREE.MeshPhongMaterial({ color: 0x024406, specular: 0x111111 });
+    
+
+    var groundMaterial = new THREE.MeshPhongMaterial({ color: 0x0c0910, specular: 0xffffff });
     var mesh233 = new THREE.Mesh(new THREE.PlaneBufferGeometry(2000, 2000), groundMaterial);
     mesh233.position.y = -25;
     mesh233.rotation.x = - Math.PI / 2;
@@ -5313,8 +5305,8 @@ function level5Case10(){
 
 function loadExperimentElements() {
 
-    PIEsetExperimentTitle("Equivalent Resistances");
-    // PIEsetDeveloperName("Chirag Wadhera");
+    PIEsetExperimentTitle("Eq. Resistance");
+    PIEsetDeveloperName("Diwakar");
 
     initialiseHelp();
     initialiseInfo();
