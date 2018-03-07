@@ -2729,11 +2729,634 @@ function level4Case2(){
 }
 function level4Case3(){
 
+    PIEchangeDisplayCheckbox("R1 p R2 s R3", true);
+    var inputCheckboxes = document.getElementsByClassName("cr boolean");
+    // console.log(inputCheckboxes);
+    for(var i=4;i>=0;i--){
+        if(i!=2)
+        inputCheckboxes[i].remove();
+    }
+
+
+    //===============================================//
+
+    var boxGeom = new THREE.BoxGeometry(2.933, .5, 1);
+    box31 = new THREE.Mesh(boxGeom, new THREE.MeshBasicMaterial({ color: "gray" }));
+    PIEaddElement(box31);
+    var edges = new THREE.EdgesGeometry(boxGeom);
+    var line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0x000 }));
+    box31.add(line);
+    box31.position.set(-4.4, 0, -5.8);
+
+    //second resistor
+    var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
+    box32 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({ color: "gray" }));
+    PIEaddElement(box32);
+    var edges2 = new THREE.EdgesGeometry(boxGeom2);
+    var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
+    box32.add(line2);
+    box32.position.set(-4.4, 0, -1);
+
+    //second resistor
+
+    var boxGeom3 = new THREE.BoxGeometry(2.933, .5, 1);
+    box2 = new THREE.Mesh(boxGeom3, new THREE.MeshBasicMaterial({ color: "gray" }));
+    PIEaddElement(box2);
+    var edges3 = new THREE.EdgesGeometry(boxGeom3);
+    var line3 = new THREE.LineSegments(edges3, new THREE.LineBasicMaterial({ color: 0x000 }));
+    box2.add(line3);
+    box2.position.set(4.4, 0, -3.8);
+
+    //wire connecting the resistors
+    //  var curve1 = new THREE.CubicBezierCurve3(
+    //      new THREE.Vector3(-8.8, 0, .4),
+    //      new THREE.Vector3(-7, 0, .4),
+    //      new THREE.Vector3(-6, 0, .4),
+    //      new THREE.Vector3(-5.86666, 0, 0.4)
+    //  );
+
+    //  var tube1 = new THREE.TubeGeometry(curve1, 100, 0.05, 20, false);
+    //  var mesh1 = new THREE.Mesh(tube1, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    //  PIEaddElement(mesh1);
+
+    //wire connecting the resistors
+
+    var curve2 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-5.8666, 0, -5.8),
+        new THREE.Vector3(-6, 0, -5.8),
+        new THREE.Vector3(-7, 0, -5.8),
+        new THREE.Vector3(-7.8, 0, -5.8)
+    );
+
+    var tube2 = new THREE.TubeGeometry(curve2, 100, 0.05, 20, false);
+    mesh31 = new THREE.Mesh(tube2, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh31);
+
+    //wire connecting the resistors
+    var curve3 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-2.933, 0, -5.8),
+        new THREE.Vector3(-1, 0, -5.8),
+        new THREE.Vector3(-1, 0, -5.8),
+        new THREE.Vector3(-0.999, 0, -5.8)
+    );
+
+    var tube3 = new THREE.TubeGeometry(curve3, 100, 0.05, 20, false);
+    mesh32 = new THREE.Mesh(tube3, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh32);
+
+    //wire connecting the resistors
+    var curve4 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-5.8666, 0, -1),
+        new THREE.Vector3(-5.9, 0, -1),
+        new THREE.Vector3(-6, 0, -1),
+        new THREE.Vector3(-7.8, 0, -1)
+    );
+
+    var tube4 = new THREE.TubeGeometry(curve4, 100, 0.05, 20, false);
+    mesh33 = new THREE.Mesh(tube4, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh33);
+
+    //wire connecting the resistors
+    var curve5 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-2.9333, 0, -1),
+        new THREE.Vector3(-1, 0, -1),
+        new THREE.Vector3(-1, 0, -1),
+        new THREE.Vector3(-0.999, 0, -1)
+    );
+
+    var tube5 = new THREE.TubeGeometry(curve5, 100, 0.05, 20, false);
+    mesh34 = new THREE.Mesh(tube5, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh34);
+
+    //wire connecting the resistors
+    var curve6 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-8.8, 0, .4),
+        new THREE.Vector3(-8.5, 0, .4),
+        new THREE.Vector3(-8.3, 0, .4),
+        new THREE.Vector3(-7.8, 0, .4)
+    );
+
+    var tube6 = new THREE.TubeGeometry(curve6, 100, 0.05, 20, false);
+    mesh35 = new THREE.Mesh(tube6, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh35);
+
+    //  wire connecting the resistors
+    var curve9 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(7.8, 0, .4),
+        new THREE.Vector3(7.5, 0, .4),
+        new THREE.Vector3(8, 0, .4),
+        new THREE.Vector3(8.8, 0, .4)
+    );
+
+    var tube9 = new THREE.TubeGeometry(curve9, 100, 0.05, 20, false);
+    mesh36 = new THREE.Mesh(tube9, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh36);
+
+
+    //  //vertical lines
+    var curve7 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-7.8, 0, -5.8),
+        new THREE.Vector3(-7.8, 0, -1.6),
+        new THREE.Vector3(-7.8, 0, -1.2),
+        new THREE.Vector3(-7.8, 0, .4)
+    );
+
+    var tube7 = new THREE.TubeGeometry(curve7, 100, 0.05, 20, false);
+    mesh37 = new THREE.Mesh(tube7, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh37);
+
+    // //  vertical lines
+    var curve8 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(7.8, 0, -3.8),
+        new THREE.Vector3(7.8, 0, -1.6),
+        new THREE.Vector3(7.8, 0, -1.2),
+        new THREE.Vector3(7.8, 0, .4)
+    );
+
+    var tube8 = new THREE.TubeGeometry(curve8, 100, 0.05, 20, false);
+    mesh38 = new THREE.Mesh(tube8, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh38);
+    // //  vertical lines
+    var curve41 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-0.999, 0, -5.8),
+        new THREE.Vector3(-0.999, 0, -1.6),
+        new THREE.Vector3(-0.999, 0, -1.2),
+        new THREE.Vector3(-0.999, 0, -1)
+    );
+
+    var tube41 = new THREE.TubeGeometry(curve41, 100, 0.05, 20, false);
+    mesh41 = new THREE.Mesh(tube41, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh41);
+
+    var curve41 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(5.866, 0, -3.8),
+        new THREE.Vector3(6, 0, -3.8),
+        new THREE.Vector3(6.999, 0, -3.8),
+        new THREE.Vector3(7.8, 0, -3.8)
+    );
+
+    var tube41 = new THREE.TubeGeometry(curve41, 100, 0.05, 20, false);
+    mesh44 = new THREE.Mesh(tube41, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh44);
+
+    var curve41 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(2.966, 0, -3.8),
+        new THREE.Vector3(0.999, 0, -3.8),
+        new THREE.Vector3(0.999, 0, -3.8),
+        new THREE.Vector3(-0.999, 0, -3.8)
+    );
+
+    var tube41 = new THREE.TubeGeometry(curve41, 100, 0.05, 20, false);
+    mesh45 = new THREE.Mesh(tube41, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh45);
+
+    R123 = (R1*R2)/(R1+R2)+R3;
+
+       PIEaddDisplayText("R123", R123);
+       PIEaddDisplayCheckbox("R123 parellel R4",false,level4Case10);
+       
+       PIErender();
+      
+      
+   
+   
+    console.log("in l4c3");
+
+
+
+
 }
+
+
 function level4Case4(){
+
+    PIEchangeDisplayCheckbox("R1 p R3 s R2", true);
+    var inputCheckboxes = document.getElementsByClassName("cr boolean");
+    // console.log(inputCheckboxes);
+    for(var i=4;i>=0;i--){
+        if(i!=3)
+        inputCheckboxes[i].remove();
+    }
+
+
+    //===============================================//
+
+    var boxGeom = new THREE.BoxGeometry(2.933, .5, 1);
+    box31 = new THREE.Mesh(boxGeom, new THREE.MeshBasicMaterial({ color: "gray" }));
+    PIEaddElement(box31);
+    var edges = new THREE.EdgesGeometry(boxGeom);
+    var line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0x000 }));
+    box31.add(line);
+    box31.position.set(-4.4, 0, -5.8);
+
+    //second resistor
+    var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
+    box32 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({ color: "gray" }));
+    PIEaddElement(box32);
+    var edges2 = new THREE.EdgesGeometry(boxGeom2);
+    var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
+    box32.add(line2);
+    box32.position.set(-4.4, 0, -1);
+
+    //second resistor
+
+    var boxGeom3 = new THREE.BoxGeometry(2.933, .5, 1);
+    box2 = new THREE.Mesh(boxGeom3, new THREE.MeshBasicMaterial({ color: "gray" }));
+    PIEaddElement(box2);
+    var edges3 = new THREE.EdgesGeometry(boxGeom3);
+    var line3 = new THREE.LineSegments(edges3, new THREE.LineBasicMaterial({ color: 0x000 }));
+    box2.add(line3);
+    box2.position.set(4.4, 0, -3.8);
+
+    //wire connecting the resistors
+    //  var curve1 = new THREE.CubicBezierCurve3(
+    //      new THREE.Vector3(-8.8, 0, .4),
+    //      new THREE.Vector3(-7, 0, .4),
+    //      new THREE.Vector3(-6, 0, .4),
+    //      new THREE.Vector3(-5.86666, 0, 0.4)
+    //  );
+
+    //  var tube1 = new THREE.TubeGeometry(curve1, 100, 0.05, 20, false);
+    //  var mesh1 = new THREE.Mesh(tube1, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    //  PIEaddElement(mesh1);
+
+    //wire connecting the resistors
+
+    var curve2 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-5.8666, 0, -5.8),
+        new THREE.Vector3(-6, 0, -5.8),
+        new THREE.Vector3(-7, 0, -5.8),
+        new THREE.Vector3(-7.8, 0, -5.8)
+    );
+
+    var tube2 = new THREE.TubeGeometry(curve2, 100, 0.05, 20, false);
+    mesh31 = new THREE.Mesh(tube2, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh31);
+
+    //wire connecting the resistors
+    var curve3 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-2.933, 0, -5.8),
+        new THREE.Vector3(-1, 0, -5.8),
+        new THREE.Vector3(-1, 0, -5.8),
+        new THREE.Vector3(-0.999, 0, -5.8)
+    );
+
+    var tube3 = new THREE.TubeGeometry(curve3, 100, 0.05, 20, false);
+    mesh32 = new THREE.Mesh(tube3, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh32);
+
+    //wire connecting the resistors
+    var curve4 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-5.8666, 0, -1),
+        new THREE.Vector3(-5.9, 0, -1),
+        new THREE.Vector3(-6, 0, -1),
+        new THREE.Vector3(-7.8, 0, -1)
+    );
+
+    var tube4 = new THREE.TubeGeometry(curve4, 100, 0.05, 20, false);
+    mesh33 = new THREE.Mesh(tube4, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh33);
+
+    //wire connecting the resistors
+    var curve5 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-2.9333, 0, -1),
+        new THREE.Vector3(-1, 0, -1),
+        new THREE.Vector3(-1, 0, -1),
+        new THREE.Vector3(-0.999, 0, -1)
+    );
+
+    var tube5 = new THREE.TubeGeometry(curve5, 100, 0.05, 20, false);
+    mesh34 = new THREE.Mesh(tube5, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh34);
+
+    //wire connecting the resistors
+    var curve6 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-8.8, 0, .4),
+        new THREE.Vector3(-8.5, 0, .4),
+        new THREE.Vector3(-8.3, 0, .4),
+        new THREE.Vector3(-7.8, 0, .4)
+    );
+
+    var tube6 = new THREE.TubeGeometry(curve6, 100, 0.05, 20, false);
+    mesh35 = new THREE.Mesh(tube6, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh35);
+
+    //  wire connecting the resistors
+    var curve9 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(7.8, 0, .4),
+        new THREE.Vector3(7.5, 0, .4),
+        new THREE.Vector3(8, 0, .4),
+        new THREE.Vector3(8.8, 0, .4)
+    );
+
+    var tube9 = new THREE.TubeGeometry(curve9, 100, 0.05, 20, false);
+    mesh36 = new THREE.Mesh(tube9, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh36);
+
+
+    //  //vertical lines
+    var curve7 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-7.8, 0, -5.8),
+        new THREE.Vector3(-7.8, 0, -1.6),
+        new THREE.Vector3(-7.8, 0, -1.2),
+        new THREE.Vector3(-7.8, 0, .4)
+    );
+
+    var tube7 = new THREE.TubeGeometry(curve7, 100, 0.05, 20, false);
+    mesh37 = new THREE.Mesh(tube7, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh37);
+
+    // //  vertical lines
+    var curve8 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(7.8, 0, -3.8),
+        new THREE.Vector3(7.8, 0, -1.6),
+        new THREE.Vector3(7.8, 0, -1.2),
+        new THREE.Vector3(7.8, 0, .4)
+    );
+
+    var tube8 = new THREE.TubeGeometry(curve8, 100, 0.05, 20, false);
+    mesh38 = new THREE.Mesh(tube8, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh38);
+    // //  vertical lines
+    var curve41 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-0.999, 0, -5.8),
+        new THREE.Vector3(-0.999, 0, -1.6),
+        new THREE.Vector3(-0.999, 0, -1.2),
+        new THREE.Vector3(-0.999, 0, -1)
+    );
+
+    var tube41 = new THREE.TubeGeometry(curve41, 100, 0.05, 20, false);
+    mesh41 = new THREE.Mesh(tube41, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh41);
+
+    var curve41 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(5.866, 0, -3.8),
+        new THREE.Vector3(6, 0, -3.8),
+        new THREE.Vector3(6.999, 0, -3.8),
+        new THREE.Vector3(7.8, 0, -3.8)
+    );
+
+    var tube41 = new THREE.TubeGeometry(curve41, 100, 0.05, 20, false);
+    mesh44 = new THREE.Mesh(tube41, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh44);
+
+    var curve41 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(2.966, 0, -3.8),
+        new THREE.Vector3(0.999, 0, -3.8),
+        new THREE.Vector3(0.999, 0, -3.8),
+        new THREE.Vector3(-0.999, 0, -3.8)
+    );
+
+    var tube41 = new THREE.TubeGeometry(curve41, 100, 0.05, 20, false);
+    mesh45 = new THREE.Mesh(tube41, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh45);
+
+    R123 = (R1*R3)/(R1+R3)+R2;
+
+       PIEaddDisplayText("R123", R123);
+       PIEaddDisplayCheckbox("R123 parellel R4",false,level4Case10);
+       
+       PIErender();
+      
+      
+   
+   
+    console.log("in l4c4");
+
+
 
 }
 function level4Case5(){
+        
+    PIEchangeDisplayCheckbox("R2 p R3 s R1", true);
+    var inputCheckboxes = document.getElementsByClassName("cr boolean");
+    // console.log(inputCheckboxes);
+    for(var i=4;i>=0;i--){
+        if(i!=4)
+        inputCheckboxes[i].remove();
+    }
+
+
+    //===============================================//
+
+    var boxGeom = new THREE.BoxGeometry(2.933, .5, 1);
+    box31 = new THREE.Mesh(boxGeom, new THREE.MeshBasicMaterial({ color: "gray" }));
+    PIEaddElement(box31);
+    var edges = new THREE.EdgesGeometry(boxGeom);
+    var line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0x000 }));
+    box31.add(line);
+    box31.position.set(-4.4, 0, -5.8);
+
+    //second resistor
+    var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
+    box32 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({ color: "gray" }));
+    PIEaddElement(box32);
+    var edges2 = new THREE.EdgesGeometry(boxGeom2);
+    var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
+    box32.add(line2);
+    box32.position.set(-4.4, 0, -1);
+
+    //second resistor
+
+    var boxGeom3 = new THREE.BoxGeometry(2.933, .5, 1);
+    box2 = new THREE.Mesh(boxGeom3, new THREE.MeshBasicMaterial({ color: "gray" }));
+    PIEaddElement(box2);
+    var edges3 = new THREE.EdgesGeometry(boxGeom3);
+    var line3 = new THREE.LineSegments(edges3, new THREE.LineBasicMaterial({ color: 0x000 }));
+    box2.add(line3);
+    box2.position.set(4.4, 0, -3.8);
+
+    //wire connecting the resistors
+    //  var curve1 = new THREE.CubicBezierCurve3(
+    //      new THREE.Vector3(-8.8, 0, .4),
+    //      new THREE.Vector3(-7, 0, .4),
+    //      new THREE.Vector3(-6, 0, .4),
+    //      new THREE.Vector3(-5.86666, 0, 0.4)
+    //  );
+
+    //  var tube1 = new THREE.TubeGeometry(curve1, 100, 0.05, 20, false);
+    //  var mesh1 = new THREE.Mesh(tube1, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    //  PIEaddElement(mesh1);
+
+    //wire connecting the resistors
+
+    var curve2 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-5.8666, 0, -5.8),
+        new THREE.Vector3(-6, 0, -5.8),
+        new THREE.Vector3(-7, 0, -5.8),
+        new THREE.Vector3(-7.8, 0, -5.8)
+    );
+
+    var tube2 = new THREE.TubeGeometry(curve2, 100, 0.05, 20, false);
+    mesh31 = new THREE.Mesh(tube2, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh31);
+
+    //wire connecting the resistors
+    var curve3 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-2.933, 0, -5.8),
+        new THREE.Vector3(-1, 0, -5.8),
+        new THREE.Vector3(-1, 0, -5.8),
+        new THREE.Vector3(-0.999, 0, -5.8)
+    );
+
+    var tube3 = new THREE.TubeGeometry(curve3, 100, 0.05, 20, false);
+    mesh32 = new THREE.Mesh(tube3, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh32);
+
+    //wire connecting the resistors
+    var curve4 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-5.8666, 0, -1),
+        new THREE.Vector3(-5.9, 0, -1),
+        new THREE.Vector3(-6, 0, -1),
+        new THREE.Vector3(-7.8, 0, -1)
+    );
+
+    var tube4 = new THREE.TubeGeometry(curve4, 100, 0.05, 20, false);
+    mesh33 = new THREE.Mesh(tube4, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh33);
+
+    //wire connecting the resistors
+    var curve5 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-2.9333, 0, -1),
+        new THREE.Vector3(-1, 0, -1),
+        new THREE.Vector3(-1, 0, -1),
+        new THREE.Vector3(-0.999, 0, -1)
+    );
+
+    var tube5 = new THREE.TubeGeometry(curve5, 100, 0.05, 20, false);
+    mesh34 = new THREE.Mesh(tube5, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh34);
+
+    //wire connecting the resistors
+    var curve6 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-8.8, 0, .4),
+        new THREE.Vector3(-8.5, 0, .4),
+        new THREE.Vector3(-8.3, 0, .4),
+        new THREE.Vector3(-7.8, 0, .4)
+    );
+
+    var tube6 = new THREE.TubeGeometry(curve6, 100, 0.05, 20, false);
+    mesh35 = new THREE.Mesh(tube6, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh35);
+
+    //  wire connecting the resistors
+    var curve9 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(7.8, 0, .4),
+        new THREE.Vector3(7.5, 0, .4),
+        new THREE.Vector3(8, 0, .4),
+        new THREE.Vector3(8.8, 0, .4)
+    );
+
+    var tube9 = new THREE.TubeGeometry(curve9, 100, 0.05, 20, false);
+    mesh36 = new THREE.Mesh(tube9, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh36);
+
+
+    //  //vertical lines
+    var curve7 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-7.8, 0, -5.8),
+        new THREE.Vector3(-7.8, 0, -1.6),
+        new THREE.Vector3(-7.8, 0, -1.2),
+        new THREE.Vector3(-7.8, 0, .4)
+    );
+
+    var tube7 = new THREE.TubeGeometry(curve7, 100, 0.05, 20, false);
+    mesh37 = new THREE.Mesh(tube7, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh37);
+
+    // //  vertical lines
+    var curve8 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(7.8, 0, -3.8),
+        new THREE.Vector3(7.8, 0, -1.6),
+        new THREE.Vector3(7.8, 0, -1.2),
+        new THREE.Vector3(7.8, 0, .4)
+    );
+
+    var tube8 = new THREE.TubeGeometry(curve8, 100, 0.05, 20, false);
+    mesh38 = new THREE.Mesh(tube8, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh38);
+    // //  vertical lines
+    var curve41 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-0.999, 0, -5.8),
+        new THREE.Vector3(-0.999, 0, -1.6),
+        new THREE.Vector3(-0.999, 0, -1.2),
+        new THREE.Vector3(-0.999, 0, -1)
+    );
+
+    var tube41 = new THREE.TubeGeometry(curve41, 100, 0.05, 20, false);
+    mesh41 = new THREE.Mesh(tube41, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh41);
+
+    var curve41 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(5.866, 0, -3.8),
+        new THREE.Vector3(6, 0, -3.8),
+        new THREE.Vector3(6.999, 0, -3.8),
+        new THREE.Vector3(7.8, 0, -3.8)
+    );
+
+    var tube41 = new THREE.TubeGeometry(curve41, 100, 0.05, 20, false);
+    mesh44 = new THREE.Mesh(tube41, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh44);
+
+    var curve41 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(2.966, 0, -3.8),
+        new THREE.Vector3(0.999, 0, -3.8),
+        new THREE.Vector3(0.999, 0, -3.8),
+        new THREE.Vector3(-0.999, 0, -3.8)
+    );
+
+    var tube41 = new THREE.TubeGeometry(curve41, 100, 0.05, 20, false);
+    mesh45 = new THREE.Mesh(tube41, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh45);
+
+    R123 = (R3*R2)/(R3+R2)+R1;
+
+       PIEaddDisplayText("R123", R123);
+       PIEaddDisplayCheckbox("R123 parellel R4",false,level4Case10);
+       
+       PIErender();
+      
+      
+   
+   
+    console.log("in l4c5");
+
 
 }
 
