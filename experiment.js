@@ -124,6 +124,12 @@ var mesh12;
 ////////////////////
 var thevel1;
 var thevel2;
+var thevel91;
+var thevel92;
+var thevel93;
+var thevel94;
+var thevel95;
+var thevel96;
 
 function initialiseHelp() {
     helpContent = "";
@@ -487,140 +493,6 @@ function stopAnimation() {
 
 
 
-// //==============================================//
-//     // ===========LEVEL 1===================//
-
-// var flag1=0;
-// function level1(){
-//     if(flag1==0){
-//     PIEchangeInputCheckbox("Level 1", true);
-//     PIEchangeInputCheckbox("Level 2", false);
-//     PIEchangeInputCheckbox("Level 3", false);
-//     PIEchangeInputCheckbox("Level 4", false);
-//     PIEchangeInputCheckbox("Level 5", false);
-    
-
-//     PIErender();
-//     flag1 = 1;
-//     level1Action()
-//     }
-// }
-
-
-// //==============================================//
-//     // ===========LEVEL 2===================//
-
-// var flag2=0;
-// function level2(){
-//     if(flag1==1){
-//     PIEchangeInputCheckbox("Level 1", false);
-//     PIEchangeInputCheckbox("Level 2", true);
-//     PIEchangeInputCheckbox("Level 3", false);
-//     PIEchangeInputCheckbox("Level 4", false);
-//     PIEchangeInputCheckbox("Level 5", false);
-
-//     PIErender();
-    
-//     flag2=1;
-//     level2Action();
-
-//     }
-//     else {
-//         PIEchangeInputCheckbox("Level 5", false);
-//         PIEchangeInputCheckbox("Level 2", false);
-//         PIEchangeInputCheckbox("Level 3", false);
-//         PIEchangeInputCheckbox("Level 4", false);
-//         // PIEchangeInputCheckbox("Level 1", false);
-//     }
-// }
-
-
-// //==============================================//
-//     // ===========LEVEL 3===================//
-// var flag3=0;
-// function level3(){
-//     if(flag1==1&&flag2==1){
-//     PIEchangeInputCheckbox("Level 1", false);
-//     PIEchangeInputCheckbox("Level 3", true);
-//     PIEchangeInputCheckbox("Level 2", false);
-//     PIEchangeInputCheckbox("Level 4", false);
-//     PIEchangeInputCheckbox("Level 5", false);
-
-//     PIErender();
-    
-//     flag3=1;
-//     }
-//     else {
-//         PIEchangeInputCheckbox("Level 5", false);
-//         // PIEchangeInputCheckbox("Level 2", false);
-//         PIEchangeInputCheckbox("Level 3", false);
-//         PIEchangeInputCheckbox("Level 4", false);
-//         // PIEchangeInputCheckbox("Level 1", false);
-//     }
-// }
-
-
-// //==============================================//
-//     // ===========LEVEL 4===================//
-
-//     var flag4=0;
-// function level4(){
-//     if (flag1== 1 && flag2 == 1 && flag3 == 1) {
-//     PIEchangeInputCheckbox("Level 4", true);
-//     PIEchangeInputCheckbox("Level 2", false);
-//     PIEchangeInputCheckbox("Level 3", false);
-//     PIEchangeInputCheckbox("Level 1", false);
-//     PIEchangeInputCheckbox("Level 5", false);
-
-//     PIErender();
-    
-//     flag4=1;
-//     }
-//     else {
-//         PIEchangeInputCheckbox("Level 5", false);
-//         // PIEchangeInputCheckbox("Level 2", false);
-//         // PIEchangeInputCheckbox("Level 3", false);
-//         PIEchangeInputCheckbox("Level 4", false);
-//         // PIEchangeInputCheckbox("Level 1", false);
-//     }
-// }
-
-
-
-// //==============================================//
-//     // ===========LEVEL 5===================//
-
-// var flag5=0;
-// function level5(){
-    
-//     if (flag1 == 1 && flag2 == 1 && flag3 == 1 && flag4 == 1) {
-//     PIEchangeInputCheckbox("Level 5", true);
-//     PIEchangeInputCheckbox("Level 2", false);
-//     PIEchangeInputCheckbox("Level 3", false);
-//     PIEchangeInputCheckbox("Level 4", false);
-//     PIEchangeInputCheckbox("Level 1", false);
-
-//     PIErender();
-    
-//     flag5=1;
-    
-// }
-// else{
-//         PIEchangeInputCheckbox("Level 5", false);
-//         // PIEchangeInputCheckbox("Level 2", false);
-//         // PIEchangeInputCheckbox("Level 3", false);
-//         // PIEchangeInputCheckbox("Level 4", false);
-//         // PIEchangeInputCheckbox("Level 1", false);
-// }
-// }
-
-
-//======================================================================================================//
-                 //===== LEVEL ACTIONS===========//
-
-
-
-//======================================================//
         //======LEVEL 1 ACTION===========//
                 
 function level1Action(){
@@ -628,8 +500,67 @@ function level1Action(){
     PIEaddDisplayText("Resultant Resistance", refflevel1);
     PIEaddMyCheckbox("R1 parellel R2", false, level1Case1);
     PIEaddMyCheckbox("R1 series R2", false, level1Case2);
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+    font = response;
+var res1="Required Resistance = "+refflevel1.toString()+" ohm";
+var geometry = new THREE.TextGeometry(res1, {
+        font: font,
+        size: .5,
+        height: 0.01,
+        curveSegments: 3
+    });
+
+    thevel91 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
     
+
+    PIEaddElement(thevel91);
+    thevel91.position.set(-22, 0, -12);
+    thevel91.rotation.x = - Math.PI / 6;
+   
+});
     
+
+var loader = new THREE.FontLoader();
+loader.load("optimer.json", function (response) {
+font = response;
+var res1="R1 = "+R1.toString()+" ohm";
+var geometry = new THREE.TextGeometry(res1, {
+    font: font,
+    size: .5,
+    height: 0.01,
+    curveSegments: 3
+});
+
+thevel92 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+PIEaddElement(thevel92);
+thevel92.position.set(-22.35, -1.5, -12);
+thevel92.rotation.x = - Math.PI / 6;
+
+});
+   
+var loader = new THREE.FontLoader();
+loader.load("optimer.json", function (response) {
+font = response;
+var res1="R2 = "+R2.toString()+" ohm";
+var geometry = new THREE.TextGeometry(res1, {
+    font: font,
+    size: .5,
+    height: 0.01,
+    curveSegments: 3
+});
+
+thevel93 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+PIEaddElement(thevel93);
+thevel93.position.set(-22.75,-3,-12);
+thevel93.rotation.x = - Math.PI / 6;
+
+});
     // PIEchangeInputCheckbox("Level 5", true);
 }
 
@@ -658,38 +589,88 @@ function level2Action(){
     PIEaddMyCheckbox("R1 parellel R2", false,level2Case1);
     PIEaddMyCheckbox("R1 series R2", false,level2Case2);
 
-    // if (PIEgetDisplayCheckbox("R1 parellel R2") == true && PIEgetDisplayCheckbox("R1 series R2") == false){
-    //     var inputCheckboxes = document.getElementsByClassName("cr boolean");
-    //     // console.log(inputCheckboxes);
-    //     inputCheckboxes[4+2].remove();
-    //     // console.log(inputCheckboxes);
-    //     PIEaddInputCheckbox("R12 parellel R3",false,level2case3);
-    // }
-    // else if({
-    //     var inputCheckboxes = document.getElementsByClassName("cr boolean");
-    //     // console.log(inputCheckboxes);
-    //     inputCheckboxes[4 + 1].remove();
-    //     // console.log(inputCheckboxes);
-    //     PIEaddInputCheckbox("R12 series R3", false, level2case4);
-    // }
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+    var res1="Required Resistance = "+refflevel2.toString()+" ohm";
+    var geometry = new THREE.TextGeometry(res1, {
+            font: font,
+            size: .5,
+            height: 0.01,
+            curveSegments: 3
+        });
+    
+        thevel91 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+        
+    
+        PIEaddElement(thevel91);
+        thevel91.position.set(-22, 0, -12);
+        thevel91.rotation.x = - Math.PI / 6;
+       
+    });
+    PIErender();
+
+    var loader = new THREE.FontLoader();
+loader.load("optimer.json", function (response) {
+font = response;
+var res1="R1 = "+R1.toString()+" ohm";
+var geometry = new THREE.TextGeometry(res1, {
+    font: font,
+    size: .5,
+    height: 0.01,
+    curveSegments: 3
+});
+
+thevel92 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
 
 
+PIEaddElement(thevel92);
+thevel92.position.set(-22.35, -1.5, -12);
+thevel92.rotation.x = - Math.PI / 6;
+
+});
+
+var loader = new THREE.FontLoader();
+loader.load("optimer.json", function (response) {
+font = response;
+var res1="R2 = "+R2.toString()+" ohm";
+var geometry = new THREE.TextGeometry(res1, {
+    font: font,
+    size: .5,
+    height: 0.01,
+    curveSegments: 3
+});
+
+thevel93 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
 
 
-//     var inputCheckboxes =document.getElementsByClassName("cr boolean");
-//     // console.log(inputCheckboxes);
-//     inputCheckboxes[5].remove();
-//     inputCheckboxes[5].remove();
+PIEaddElement(thevel93);
+thevel93.position.set(-22.75,-3,-12);
+thevel93.rotation.x = - Math.PI / 6;
 
-//     PIEaddInputCheckbox("R1 parellel R2", false, level2Case1);
-//     PIEaddInputCheckbox("R1 series R2", false, level2Case2);
-//     // alert("jdghdfsjg");
+});
 
-//     // PIEaddInputCheckbox("R1 parellel R2", false, level1Case1);
-//     // PIEaddInputCheckbox("R1 series R2", false, level1Case2);
-//     // if(PIEgetDisplayCheckbox("R1 parellel R2")==true)
-//     // PIEchangeInputCheckbox("Level 5", true);
-//     // alert(PIEgetDisplayCheckbox("R1 parellel R2"));
+
+var loader = new THREE.FontLoader();
+loader.load("optimer.json", function (response) {
+font = response;
+var res1="R3 = "+R3.toString()+" ohm";
+var geometry = new THREE.TextGeometry(res1, {
+    font: font,
+    size: .5,
+    height: 0.01,
+    curveSegments: 3
+});
+
+thevel94 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+PIEaddElement(thevel94);
+thevel94.position.set(-23.15,-4.5,-12);
+thevel94.rotation.x = - Math.PI / 6;
+
+});
+
 }
 
 function level3Action(){
@@ -714,6 +695,106 @@ function level3Action(){
     PIEaddDisplayText("Resultant Resistance", refflevel3);    
     PIEaddMyCheckbox("R1 parellel R2", false,level3Case1);
     PIEaddMyCheckbox("R1 series R2", false,level3Case2);
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+    var res1="Required Resistance = "+refflevel3.toString()+" ohm";
+    var geometry = new THREE.TextGeometry(res1, {
+            font: font,
+            size: .5,
+            height: 0.01,
+            curveSegments: 3
+        });
+    
+        thevel91 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+        
+    
+        PIEaddElement(thevel91);
+        thevel91.position.set(-22, 0, -12);
+        thevel91.rotation.x = - Math.PI / 6;
+       
+    });
+
+    var loader = new THREE.FontLoader();
+loader.load("optimer.json", function (response) {
+font = response;
+var res1="R1 = "+R1.toString()+" ohm";
+var geometry = new THREE.TextGeometry(res1, {
+    font: font,
+    size: .5,
+    height: 0.01,
+    curveSegments: 3
+});
+
+thevel92 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+PIEaddElement(thevel92);
+thevel92.position.set(-22.35, -1.5, -12);
+thevel92.rotation.x = - Math.PI / 6;
+
+});
+
+var loader = new THREE.FontLoader();
+loader.load("optimer.json", function (response) {
+font = response;
+var res1="R2 = "+R2.toString()+" ohm";
+var geometry = new THREE.TextGeometry(res1, {
+    font: font,
+    size: .5,
+    height: 0.01,
+    curveSegments: 3
+});
+
+thevel93 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+PIEaddElement(thevel93);
+thevel93.position.set(-22.75,-3,-12);
+thevel93.rotation.x = - Math.PI / 6;
+
+});
+
+var loader = new THREE.FontLoader();
+loader.load("optimer.json", function (response) {
+font = response;
+var res1="R3 = "+R3.toString()+" ohm";
+var geometry = new THREE.TextGeometry(res1, {
+    font: font,
+    size: .5,
+    height: 0.01,
+    curveSegments: 3
+});
+
+thevel94 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+PIEaddElement(thevel94);
+thevel94.position.set(-23.15,-4.5,-12);
+thevel94.rotation.x = - Math.PI / 6;
+
+});
+
+var loader = new THREE.FontLoader();
+loader.load("optimer.json", function (response) {
+font = response;
+var res1="R4 = "+R4.toString()+" ohm";
+var geometry = new THREE.TextGeometry(res1, {
+    font: font,
+    size: .5,
+    height: 0.01,
+    curveSegments: 3
+});
+
+thevel95 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+PIEaddElement(thevel95);
+thevel95.position.set(-23.55,-6,-12);
+thevel95.rotation.x = - Math.PI / 6;
+
+});
    
 }
 
@@ -743,7 +824,107 @@ function level4Action(){
     PIEaddMyCheckbox("R1 p R2 s R3", false,level4Case3);
     PIEaddMyCheckbox("R1 p R3 s R2", false,level4Case4);
     PIEaddMyCheckbox("R2 p R3 s R1", false,level4Case5);
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+    var res1="Required Resistance = "+refflevel4.toString()+" ohm";
+    var geometry = new THREE.TextGeometry(res1, {
+            font: font,
+            size: .5,
+            height: 0.01,
+            curveSegments: 3
+        });
+    
+        thevel91 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+        
+    
+        PIEaddElement(thevel91);
+        thevel91.position.set(-22, 0, -12);
+        thevel91.rotation.x = - Math.PI / 6;
+       
+    });
    
+    var loader = new THREE.FontLoader();
+loader.load("optimer.json", function (response) {
+font = response;
+var res1="R1 = "+R1.toString()+" ohm";
+var geometry = new THREE.TextGeometry(res1, {
+    font: font,
+    size: .5,
+    height: 0.01,
+    curveSegments: 3
+});
+
+thevel92 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+PIEaddElement(thevel92);
+thevel92.position.set(-22.35, -1.5, -12);
+thevel92.rotation.x = - Math.PI / 6;
+
+});
+
+var loader = new THREE.FontLoader();
+loader.load("optimer.json", function (response) {
+font = response;
+var res1="R2 = "+R2.toString()+" ohm";
+var geometry = new THREE.TextGeometry(res1, {
+    font: font,
+    size: .5,
+    height: 0.01,
+    curveSegments: 3
+});
+
+thevel93 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+PIEaddElement(thevel93);
+thevel93.position.set(-22.75,-3,-12);
+thevel93.rotation.x = - Math.PI / 6;
+
+});
+
+var loader = new THREE.FontLoader();
+loader.load("optimer.json", function (response) {
+font = response;
+var res1="R3 = "+R3.toString()+" ohm";
+var geometry = new THREE.TextGeometry(res1, {
+    font: font,
+    size: .5,
+    height: 0.01,
+    curveSegments: 3
+});
+
+thevel94 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+PIEaddElement(thevel94);
+thevel94.position.set(-23.15,-4.5,-12);
+thevel94.rotation.x = - Math.PI / 6;
+
+});
+
+var loader = new THREE.FontLoader();
+loader.load("optimer.json", function (response) {
+font = response;
+var res1="R4 = "+R4.toString()+" ohm";
+var geometry = new THREE.TextGeometry(res1, {
+    font: font,
+    size: .5,
+    height: 0.01,
+    curveSegments: 3
+});
+
+thevel95 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+PIEaddElement(thevel95);
+thevel95.position.set(-23.55,-6,-12);
+thevel95.rotation.x = - Math.PI / 6;
+
+});
+
 }
 
 
@@ -780,6 +961,127 @@ function level5Action(){
     PIEaddMyCheckbox("R1 p R3 s R2",false,level5Case4);
     PIEaddMyCheckbox("R2 p R3 s R1",false,level5Case5);
 
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+    var res1="Required Resistance = "+refflevel5.toString()+" ohm";
+    var geometry = new THREE.TextGeometry(res1, {
+            font: font,
+            size: .5,
+            height: 0.01,
+            curveSegments: 3
+        });
+    
+        thevel91 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+        
+    
+        PIEaddElement(thevel91);
+        thevel91.position.set(-22, 0, -12);
+        thevel91.rotation.x = - Math.PI / 6;
+       
+    });
+
+    var loader = new THREE.FontLoader();
+loader.load("optimer.json", function (response) {
+font = response;
+var res1="R1 = "+R1.toString()+" ohm";
+var geometry = new THREE.TextGeometry(res1, {
+    font: font,
+    size: .5,
+    height: 0.01,
+    curveSegments: 3
+});
+
+thevel92 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+PIEaddElement(thevel92);
+thevel92.position.set(-22.35, -1.5, -12);
+thevel92.rotation.x = - Math.PI / 6;
+
+});
+
+var loader = new THREE.FontLoader();
+loader.load("optimer.json", function (response) {
+font = response;
+var res1="R2 = "+R2.toString()+" ohm";
+var geometry = new THREE.TextGeometry(res1, {
+    font: font,
+    size: .5,
+    height: 0.01,
+    curveSegments: 3
+});
+
+thevel93 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+PIEaddElement(thevel93);
+thevel93.position.set(-22.75,-3,-12);
+thevel93.rotation.x = - Math.PI / 6;
+
+});
+
+
+var loader = new THREE.FontLoader();
+loader.load("optimer.json", function (response) {
+font = response;
+var res1="R3 = "+R3.toString()+" ohm";
+var geometry = new THREE.TextGeometry(res1, {
+    font: font,
+    size: .5,
+    height: 0.01,
+    curveSegments: 3
+});
+
+thevel94 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+PIEaddElement(thevel94);
+thevel94.position.set(-23.15,-4.5,-12);
+thevel94.rotation.x = - Math.PI / 6;
+
+});
+
+var loader = new THREE.FontLoader();
+loader.load("optimer.json", function (response) {
+font = response;
+var res1="R4 = "+R4.toString()+" ohm";
+var geometry = new THREE.TextGeometry(res1, {
+    font: font,
+    size: .5,
+    height: 0.01,
+    curveSegments: 3
+});
+
+thevel95 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+PIEaddElement(thevel95);
+thevel95.position.set(-23.55,-6,-12);
+thevel95.rotation.x = - Math.PI / 6;
+
+});
+
+
+var loader = new THREE.FontLoader();
+loader.load("optimer.json", function (response) {
+font = response;
+var res1="R5 = "+R5.toString()+" ohm";
+var geometry = new THREE.TextGeometry(res1, {
+    font: font,
+    size: .5,
+    height: 0.01,
+    curveSegments: 3
+});
+
+thevel96 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+PIEaddElement(thevel96);
+thevel96.position.set(-23.95, -7.5, -12);
+thevel96.rotation.x = - Math.PI / 6;
+
+});
     // PIErender();
     console.log("level5Action");
     
@@ -965,8 +1267,8 @@ function level1Case1(){
 
         var geometry = new THREE.TextGeometry("Press Reset To Try Again!!", {
                 font: font,
-                size: 1,
-                height: 0.3,
+                size: .8,
+                height: 0.01,
                 curveSegments: 3
             });
 
@@ -989,6 +1291,8 @@ function level1Case1(){
             // heading.visible = false;
 
             thevel1.position.set(-8.5, 0, -12);
+            thevel1.rotation.x = - Math.PI / 6;
+            
             // thevel.lookAt(PIEcamera.position);
             // heading.position.set(0.4 * PIEcamera.position.x, 0.2 * PIEcamera.position.y + 0.075, 0.4 * PIEcamera.position.z);
             // heading.lookAt(PIEcamera.position);
@@ -1101,8 +1405,8 @@ function level1Case1(){
 
              var geometry = new THREE.TextGeometry("Press Next Level To Go To Next Level", {
                  font: font,
-                 size: 1,
-                 height: 0.3,
+                 size: .8,
+                 height: 0.01,
                  curveSegments: 3
              });
 
@@ -1124,7 +1428,8 @@ function level1Case1(){
              // heading.castShadow = false;
              // heading.visible = false;
 
-             thevel2.position.set(-12, 0, -15);
+             thevel2.position.set(-10.1, 0, -12);
+             thevel2.rotation.x = - Math.PI / 6;
              // thevel.lookAt(PIEcamera.position);
              // heading.position.set(0.4 * PIEcamera.position.x, 0.2 * PIEcamera.position.y + 0.075, 0.4 * PIEcamera.position.z);
              // heading.lookAt(PIEcamera.position);
@@ -1411,8 +1716,8 @@ function level2Case3(){
 
              var geometry = new THREE.TextGeometry("Press Next Level To Go To Next Level", {
                  font: font,
-                 size: 1,
-                 height: 0.3,
+                 size: .8,
+                 height: 0.01,
                  curveSegments: 3
              });
 
@@ -1434,7 +1739,9 @@ function level2Case3(){
              // heading.castShadow = false;
              // heading.visible = false;
 
-             thevel2.position.set(-12, 0, -15);
+             thevel2.position.set(-10.1, 0, -12);
+             thevel2.rotation.x = - Math.PI / 6;
+             
              // thevel.lookAt(PIEcamera.position);
              // heading.position.set(0.4 * PIEcamera.position.x, 0.2 * PIEcamera.position.y + 0.075, 0.4 * PIEcamera.position.z);
              // heading.lookAt(PIEcamera.position);
@@ -1629,8 +1936,8 @@ function level2Case4(){
         
                 var geometry = new THREE.TextGeometry("Press Reset To Try Again!!", {
                         font: font,
-                        size: 1,
-                        height: 0.3,
+                        size: .8,
+                        height: 0.01,
                         curveSegments: 3
                     });
         
@@ -1653,6 +1960,7 @@ function level2Case4(){
                     // heading.visible = false;
         
                     thevel1.position.set(-8.5, 0, -12);
+                    thevel1.rotation.x = - Math.PI / 6;
                     // thevel.lookAt(PIEcamera.position);
                     // heading.position.set(0.4 * PIEcamera.position.x, 0.2 * PIEcamera.position.y + 0.075, 0.4 * PIEcamera.position.z);
                     // heading.lookAt(PIEcamera.position);
@@ -2272,8 +2580,8 @@ function level3Case9(){
 
         var geometry = new THREE.TextGeometry("Press Reset To Try Again!!", {
                 font: font,
-                size: 1,
-                height: 0.3,
+                size: .8,
+                height: 0.01,
                 curveSegments: 3
             });
 
@@ -2282,6 +2590,7 @@ function level3Case9(){
 
             PIEaddElement(thevel1);
             thevel1.position.set(-8.5, 0, -12);
+            thevel1.rotation.x = - Math.PI / 6;
            
         });
         
@@ -2296,8 +2605,8 @@ function level3Case9(){
 
              var geometry = new THREE.TextGeometry("Press Next Level To Go To Next Level", {
                  font: font,
-                 size: 1,
-                 height: 0.3,
+                 size: 0.8,
+                 height: 0.01,
                  curveSegments: 3
              });
 
@@ -2319,7 +2628,7 @@ function level3Case9(){
              // heading.castShadow = false;
              // heading.visible = false;
 
-             thevel2.position.set(-12, 0, -15);
+             thevel2.position.set(-10.1, 0, -12);
              // thevel.lookAt(PIEcamera.position);
              // heading.position.set(0.4 * PIEcamera.position.x, 0.2 * PIEcamera.position.y + 0.075, 0.4 * PIEcamera.position.z);
              // heading.lookAt(PIEcamera.position);
@@ -2357,8 +2666,8 @@ function level3Case10(){
 
         var geometry = new THREE.TextGeometry("Press Reset To Try Again!!", {
                 font: font,
-                size: 1,
-                height: 0.3,
+                size: .8,
+                height: 0.01,
                 curveSegments: 3
             });
 
@@ -2367,6 +2676,7 @@ function level3Case10(){
 
             PIEaddElement(thevel1);
             thevel1.position.set(-8.5, 0, -12);
+            thevel1.rotation.x = - Math.PI / 6;
            
         });
         currentLevel="Level 1";
@@ -2379,8 +2689,8 @@ function level3Case10(){
 
              var geometry = new THREE.TextGeometry("Press Next Level To Go To Next Level", {
                  font: font,
-                 size: 1,
-                 height: 0.3,
+                 size: .8,
+                 height: 0.01,
                  curveSegments: 3
              });
 
@@ -2388,7 +2698,9 @@ function level3Case10(){
 
 
             PIEaddElement(thevel2);
-            thevel2.position.set(-12, 0, -15);
+            thevel2.position.set(-10.1, 0, -12);
+            thevel2.rotation.x = - Math.PI / 6;
+            
            
          });
 
@@ -3564,8 +3876,8 @@ function level4Case10(){
 
         var geometry = new THREE.TextGeometry("Press Reset To Try Again!!", {
                 font: font,
-                size: 1,
-                height: 0.3,
+                size: .8,
+                height: 0.1,
                 curveSegments: 3
             });
 
@@ -3574,6 +3886,7 @@ function level4Case10(){
 
             PIEaddElement(thevel1);
             thevel1.position.set(-8.5, 0, -12);
+            thevel1.rotation.x = - Math.PI / 6;
            
         });
         currentLevel="Level 1";
@@ -3586,8 +3899,8 @@ function level4Case10(){
 
              var geometry = new THREE.TextGeometry("Press Next Level To Go To Next Level", {
                  font: font,
-                 size: 1,
-                 height: 0.3,
+                 size: 0.8,
+                 height: 0.01,
                  curveSegments: 3
              });
 
@@ -3595,7 +3908,9 @@ function level4Case10(){
 
 
             PIEaddElement(thevel2);
-            thevel2.position.set(-12, 0, -15);
+            thevel2.position.set(-10.1, 0, -12);
+            thevel2.rotation.x = - Math.PI / 6;
+            
            
          });
 
@@ -4944,8 +5259,8 @@ function level5Case10(){
 
         var geometry = new THREE.TextGeometry("Press Reset To Try Again!!", {
                 font: font,
-                size: 1,
-                height: 0.3,
+                size: .8,
+                height: 0.01,
                 curveSegments: 3
             });
 
@@ -4954,6 +5269,7 @@ function level5Case10(){
 
             PIEaddElement(thevel1);
             thevel1.position.set(-8.5, 0, -12);
+            thevel1.rotation.x = - Math.PI / 6;
            
         });
         currentLevel="Level 1";
@@ -4966,8 +5282,8 @@ function level5Case10(){
 
              var geometry = new THREE.TextGeometry("Success All Levels Completed", {
                  font: font,
-                 size: 1,
-                 height: 0.3,
+                 size: .8,
+                 height: 0.01,
                  curveSegments: 3
              });
 
@@ -4975,7 +5291,9 @@ function level5Case10(){
 
 
             PIEaddElement(thevel2);
-            thevel2.position.set(-12, 0, -15);
+            thevel2.position.set(-8.65, 0, -15);
+            thevel2.rotation.x = - Math.PI / 6;
+
            
          });
 
@@ -5182,6 +5500,12 @@ function removeElements() {
     PIEremoveElement(mesh12);
     PIEremoveElement(thevel1);
     PIEremoveElement(thevel2);
+    PIEremoveElement(thevel91);
+    PIEremoveElement(thevel92);
+    PIEremoveElement(thevel93);
+    PIEremoveElement(thevel94);
+    PIEremoveElement(thevel95);
+    PIEremoveElement(thevel96);
     // level1btn.remove();
 }
 
