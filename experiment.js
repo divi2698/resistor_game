@@ -497,7 +497,7 @@ function stopAnimation() {
                 
 function level1Action(){
 
-    PIEaddDisplayText("Resultant Resistance", refflevel1);
+    PIEaddMyText("Resultant Resistance", refflevel1);
     PIEaddMyCheckbox("R1 parellel R2", false, level1Case1);
     PIEaddMyCheckbox("R1 series R2", false, level1Case2);
 
@@ -585,7 +585,7 @@ function level2Action(){
     for(var i = 0; i < number.length; i++) {
         number[i].remove();
     }
-    PIEaddDisplayText("Resultant Resistance", refflevel2);    
+    PIEaddMyText("Resultant Resistance", refflevel2);    
     PIEaddMyCheckbox("R1 parellel R2", false,level2Case1);
     PIEaddMyCheckbox("R1 series R2", false,level2Case2);
 
@@ -692,7 +692,7 @@ function level3Action(){
 
     //========================================//
 
-    PIEaddDisplayText("Resultant Resistance", refflevel3);    
+    PIEaddMyText("Resultant Resistance", refflevel3);    
     PIEaddMyCheckbox("R1 parellel R2", false,level3Case1);
     PIEaddMyCheckbox("R1 series R2", false,level3Case2);
 
@@ -818,7 +818,7 @@ function level4Action(){
 
     //========================================//
 
-    PIEaddDisplayText("Resultant Resistance", refflevel4);    
+    PIEaddMyText("Resultant Resistance", refflevel4);    
     PIEaddMyCheckbox("R1 p R2 p R3", false,level4Case1);
     PIEaddMyCheckbox("R1 s R2 s R3", false,level4Case2);
     PIEaddMyCheckbox("R1 p R2 s R3", false,level4Case3);
@@ -952,7 +952,7 @@ function level5Action(){
     //========================================//
     console.log("level5Action");
 
-    PIEaddDisplayText("Resultant Resistance", refflevel5);    
+    PIEaddMyText("Resultant Resistance", refflevel5);    
 
     PIEaddMyCheckbox("R1 p R2 p R3",false,level5Case1);
     PIEaddMyCheckbox("R1 s R2 s R3",false,level5Case2);
@@ -1256,7 +1256,7 @@ function level1Case1(){
 
     R12=(R1*R2)/(R1+R2);
 
-    PIEaddDisplayText("R12",R12);
+    PIEaddMyText("R12",R12);
     PIErender();
     if(R12!=refflevel1){
         // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
@@ -1394,7 +1394,7 @@ function level1Case1(){
 
      R12 = (R1 + R2);
 
-     PIEaddDisplayText("R12", R12);
+     PIEaddMyText("R12", R12);
      PIErender();
      if (R12 == refflevel1) {
          // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
@@ -1618,7 +1618,7 @@ function level2Case1(){
 
     R12 = (R1 * R2) / (R1 + R2);
 
-    PIEaddDisplayText("R12", R12);
+    PIEaddMyText("R12", R12);
     PIEaddMyCheckbox("R12 parellel R3",false,level2Case3);
     PIErender();
    
@@ -1704,7 +1704,7 @@ function level2Case3(){
 
     R123 = (R12 * R3) / (R12 + R3);
 
-    PIEaddDisplayText("R123", R123);
+    PIEaddMyText("R123", R123);
     PIErender();
 
     if (R123 == refflevel2) {
@@ -1842,7 +1842,7 @@ PIEchangeDisplayCheckbox("R1 series R2", true);
 
  R12 = (R1 + R2);
 
- PIEaddDisplayText("R12", R12);
+ PIEaddMyText("R12", R12);
  PIEaddMyCheckbox("R12 parellel R3",false,level2Case4);
  PIErender();
 
@@ -1924,7 +1924,7 @@ function level2Case4(){
 
             R123 = (R12 * R3) / (R12 + R3);
 
-            PIEaddDisplayText("R123", R123);
+            PIEaddMyText("R123", R123);
             PIErender();
 
             if(R123!=refflevel2){
@@ -2126,7 +2126,7 @@ function level3Case1(){
 
     R12 = (R1 * R2) / (R1 + R2);
 
-    PIEaddDisplayText("R12", R12);
+    PIEaddMyText("R12", R12);
     PIEaddMyCheckbox("R3 parellel R4",false,level3Case3);
     PIEaddMyCheckbox("R3 series R4",false,level3Case4);
     PIErender();
@@ -2260,7 +2260,7 @@ function level3Case2(){
 
         R12 = (R1 + R2);
 
-        PIEaddDisplayText("R12", R12);
+        PIEaddMyText("R12", R12);
         PIEaddMyCheckbox("R3 parellel R4",false,level3Case3);
         PIEaddMyCheckbox("R3 series R4",false,level3Case4);
         PIErender();
@@ -2423,7 +2423,7 @@ function level3Case3(){
 
     R34 = (R3* R4) / (R3 + R4);
 
-    PIEaddDisplayText("R34", R34);
+    PIEaddMyText("R34", R34);
     PIEaddMyCheckbox("R12 parellel R34",false,level3Case9);
     
     PIErender();
@@ -2557,7 +2557,7 @@ function level3Case4(){
 
         R34 = (R3 + R4);
 
-        PIEaddDisplayText("R34", R34);
+        PIEaddMyText("R34", R34);
         PIEaddMyCheckbox("R12 parellel R34",false,level3Case10);
         
         PIErender();
@@ -2908,7 +2908,7 @@ function level4Case1(){
 
     R123 = (R1 * R2*R3) / (R1*R2 + R2*R3+R1*R3);
 
-    PIEaddDisplayText("R123", R123);
+    PIEaddMyText("R123", R123);
     PIEaddMyCheckbox("R123 parellel R4",false,level4Case10);
     
     PIErender();
@@ -3079,7 +3079,7 @@ function level4Case2(){
 
        R123 = (R1+R2+R3);
 
-       PIEaddDisplayText("R123", R123);
+       PIEaddMyText("R123", R123);
        PIEaddMyCheckbox("R123 parellel R4",false,level4Case10);
        
        PIErender();
@@ -3284,7 +3284,7 @@ function level4Case3(){
 
     R123 = (R1*R2)/(R1+R2)+R3;
 
-       PIEaddDisplayText("R123", R123);
+       PIEaddMyText("R123", R123);
        PIEaddMyCheckbox("R123 parellel R4",false,level4Case10);
        
        PIErender();
@@ -3497,7 +3497,7 @@ function level4Case4(){
 
     R123 = (R1*R3)/(R1+R3)+R2;
 
-       PIEaddDisplayText("R123", R123);
+       PIEaddMyText("R123", R123);
        PIEaddMyCheckbox("R123 parellel R4",false,level4Case10);
        
        PIErender();
@@ -3707,7 +3707,7 @@ function level4Case5(){
 
     R123 = (R3*R2)/(R3+R2)+R1;
 
-       PIEaddDisplayText("R123", R123);
+       PIEaddMyText("R123", R123);
        PIEaddMyCheckbox("R123 parellel R4",false,level4Case10);
        
        PIErender();
@@ -4122,7 +4122,7 @@ function level5Case1(){
 
     R123 = (R1 * R2*R3) / (R1*R2 + R2*R3+R1*R3);
 
-    PIEaddDisplayText("R123", R123);
+    PIEaddMyText("R123", R123);
     PIEaddMyCheckbox("R4 parellel R5",false,level5Case8);
     PIEaddMyCheckbox("R4 series R5",false,level5Case9);
     
@@ -4298,7 +4298,7 @@ function level5Case2(){
 
        R123 = (R1+R2+R3);
 
-       PIEaddDisplayText("R123", R123);
+       PIEaddMyText("R123", R123);
        PIEaddMyCheckbox("R4 parellel R5",false,level5Case8);
        PIEaddMyCheckbox("R4 series R5",false,level5Case9);
        
@@ -4507,7 +4507,7 @@ function level5Case3(){
     R123 = (R1*R2)/(R1+R2)+R3;
 
       
-    PIEaddDisplayText("R123", R123);
+    PIEaddMyText("R123", R123);
     PIEaddMyCheckbox("R4 parellel R5",false,level5Case8);
     PIEaddMyCheckbox("R4 series R5",false,level5Case9);
     
@@ -4722,7 +4722,7 @@ function level5Case4(){
     R123 = (R1*R3)/(R1+R3)+R2;
 
       
-    PIEaddDisplayText("R123", R123);
+    PIEaddMyText("R123", R123);
     PIEaddMyCheckbox("R4 parellel R5",false,level5Case8);
     PIEaddMyCheckbox("R4 series R5",false,level5Case9);
     
@@ -4933,7 +4933,7 @@ function level5Case5(){
 
     R123 = (R3*R2)/(R3+R2)+R1;
 
-       PIEaddDisplayText("R123", R123);
+       PIEaddMyText("R123", R123);
        PIEaddMyCheckbox("R4 parellel R5",false,level5Case8);
        PIEaddMyCheckbox("R4 series R5",false,level5Case9);
        
@@ -5235,7 +5235,7 @@ function level5Case9(){
 
         R45 = (R4+ R5);
 
-        PIEaddDisplayText("R45", R45);
+        PIEaddMyText("R45", R45);
         PIEaddMyCheckbox("R123 parellel R45",false,level5Case10);
         PIErender();
 
@@ -5683,7 +5683,7 @@ function PIEaddMyCheckbox(b, d, c) {
             a = PIEdisplayGUI.add(PIEdisplayObject, "cb33").name(b);
             break;
         case 34:
-            PIEdisplayObject.cb34 = 38
+            PIEdisplayObject.cb34 = d;
             a = PIEdisplayGUI.add(PIEdisplayObject, "cb34").name(b);
             break;
         case 35:
@@ -5895,3 +5895,296 @@ function PIEaddMyCheckbox(b, d, c) {
     PIEcbDisplayNames.push(b);
     PIEcbDisplay++;
 }
+
+
+function PIEaddMyText(b, c) {
+    var a;
+    switch (PIEitDisplay) {
+        case 0:
+            PIEdisplayObject.it00 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it00").name(b);
+            break;
+        case 1:
+            PIEdisplayObject.it01 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it01").name(b);
+            break;
+        case 2:
+            PIEdisplayObject.it02 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it02").name(b);
+            break;
+        case 3:
+            PIEdisplayObject.it03 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it03").name(b);
+            break;
+        case 4:
+            PIEdisplayObject.it04 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it04").name(b);
+            break;
+        case 5:
+            PIEdisplayObject.it05 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it05").name(b);
+            break;
+        case 6:
+            PIEdisplayObject.it06 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it06").name(b);
+            break;
+        case 7:
+            PIEdisplayObject.it07 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it07").name(b);
+            break;
+        case 8:
+            PIEdisplayObject.it08 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it08").name(b);
+            break;
+        case 9:
+            PIEdisplayObject.it09 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it09").name(b);
+            break;
+        case 10:
+            PIEdisplayObject.it10 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it10").name(b);
+            break;
+        case 11:
+            PIEdisplayObject.it11 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it11").name(b);
+            break;
+        case 12:
+            PIEdisplayObject.it12 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it12").name(b);
+            break;
+        case 13:
+            PIEdisplayObject.it13 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it13").name(b);
+            break;
+        case 14:
+            PIEdisplayObject.it14 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it14").name(b);
+            break;
+        case 15:
+            PIEdisplayObject.it15 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it15").name(b);
+            break;
+        case 16:
+            PIEdisplayObject.it16 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it16").name(b);
+            break;
+        case 17:
+            PIEdisplayObject.it17 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it17").name(b);
+            break;
+        case 18:
+            PIEdisplayObject.it18 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it18").name(b);
+            break;
+        case 19:
+            PIEdisplayObject.it19 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it19").name(b);
+            break;
+            case 20:
+            PIEdisplayObject.it20 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it20").name(b);
+            break;
+        case 21:
+            PIEdisplayObject.it21 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it21").name(b);
+            break;
+        case 22:
+            PIEdisplayObject.it22 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it22").name(b);
+            break;
+        case 23:
+            PIEdisplayObject.it23 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it23").name(b);
+            break;
+        case 24:
+            PIEdisplayObject.it24 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it24").name(b);
+            break;
+        case 25:
+            PIEdisplayObject.it25 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it25").name(b);
+            break;
+        case 26:
+            PIEdisplayObject.it26 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it26").name(b);
+            break;
+        case 27:
+            PIEdisplayObject.it27 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it27").name(b);
+            break;
+        case 28:
+            PIEdisplayObject.it28 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it28").name(b);
+            break;
+        case 29:
+            PIEdisplayObject.it29 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it29").name(b);
+            break;
+        case 30:
+            PIEdisplayObject.it30 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it30").name(b);
+            break;
+        case 31:
+            PIEdisplayObject.it31 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it31").name(b);
+            break;
+        case 32:
+            PIEdisplayObject.it32 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it32").name(b);
+            break;
+        case 33:
+            PIEdisplayObject.it33 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it33").name(b);
+            break;
+        case 34:
+            PIEdisplayObject.it34 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it34").name(b);
+            break;
+        case 35:
+            PIEdisplayObject.it19 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it35").name(b);
+            break;
+        case 36:
+            PIEdisplayObject.it36 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it36").name(b);
+            break;
+        case 37:
+            PIEdisplayObject.it37 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it37").name(b);
+            break;
+        case 38:
+            PIEdisplayObject.it38 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it38").name(b);
+            break;
+        case 39:
+            PIEdisplayObject.it39 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it39").name(b);
+            break;
+        case 40:
+            PIEdisplayObject.it40 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it40").name(b);
+            break;
+        case 41:
+            PIEdisplayObject.it41 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it41").name(b);
+            break;
+        case 42:
+            PIEdisplayObject.it42 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it42").name(b);
+            break;
+        case 43:
+            PIEdisplayObject.it43 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it43").name(b);
+            break;
+        case 44:
+            PIEdisplayObject.it44 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it44").name(b);
+            break;
+        case 45:
+            PIEdisplayObject.it45 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it45").name(b);
+            break;
+        case 46:
+            PIEdisplayObject.it46 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it46").name(b);
+            break;
+        case 47:
+            PIEdisplayObject.it47 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it47").name(b);
+            break;
+        case 48:
+            PIEdisplayObject.it48 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it48").name(b);
+            break;
+        case 49:
+            PIEdisplayObject.it49 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it49").name(b);
+            break;
+        case 50:
+            PIEdisplayObject.it50 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it50").name(b);
+            break;
+        case 51:
+            PIEdisplayObject.it51 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it51").name(b);
+            break;
+        case 52:
+            PIEdisplayObject.it52 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it52").name(b);
+            break;
+        case 53:
+            PIEdisplayObject.it53 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it53").name(b);
+            break;
+        case 54:
+            PIEdisplayObject.it54 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it54").name(b);
+            break;
+        case 55:
+            PIEdisplayObject.it55 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it55").name(b);
+            break;
+        case 56:
+            PIEdisplayObject.it56 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it56").name(b);
+            break;
+        case 57:
+            PIEdisplayObject.it57 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it57").name(b);
+            break;
+        case 58:
+            PIEdisplayObject.it58 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it58").name(b);
+            break;
+        case 59:
+            PIEdisplayObject.it59 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it59").name(b);
+            break;
+        case 60:
+            PIEdisplayObject.it60 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it60").name(b);
+            break;
+        case 61:
+            PIEdisplayObject.it61 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it61").name(b);
+            break;
+        case 62:
+            PIEdisplayObject.it62 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it62").name(b);
+            break;
+        case 63:
+            PIEdisplayObject.it63 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it63").name(b);
+            break;
+        case 64:
+            PIEdisplayObject.it64 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it64").name(b);
+            break;
+        case 65:
+            PIEdisplayObject.it65 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it65").name(b);
+            break;
+        case 66:
+            PIEdisplayObject.it66 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it66").name(b);
+            break;
+        case 67:
+            PIEdisplayObject.it67 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it67").name(b);
+            break;
+        case 68:
+            PIEdisplayObject.it68 = c;
+            a = PIEdisplayGUI.add(PIEdisplayObject, "it68").name(b);
+            break;
+       
+        default:
+            return;
+            break
+    }
+    PIEitDisplayHandles.push(a);
+    PIEitDisplayNames.push(b);
+    PIEitDisplay++
+}
+
+
+//==============================================//
