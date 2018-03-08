@@ -24,28 +24,41 @@ var arrow6A;
 var camefrom="0";
 var helpContent;
 //////////////////////////////////////
-var R1=2.0;
+var R1=1.0;
 var R2=2.0;
 var R12;
-var refflevel1=4.0;
+var R12string;
+var refflevel1=3.00;
+var refflevel1string="3.00";
 ///////
-var R3=1.0;
-var refflevel2=0.5;
+var R3=3.0;
+var refflevel2=0.55;
+var refflevel2string="0.55";
 var R123;
+var R123string;
+
 ///////////////////
-var refflevel3=2.0;
-var R4=3.0;
+var refflevel3=2.10;
+var refflevel3string="2.10";
+var R4=4.0;
 var R34;
+var R34string;
 var R1234;
+var R1234string;
 /////////////
-var refflevel4=1.2;
+var refflevel4=1.91;
+var refflevel4string="1.91";
 var R123;
+var R123string;
 /////////
 
-var refflevel5=1.5;
-var R5=3.0;
+var refflevel5=2.61;
+var refflevel5string="2.61";
+var R5=5.0;
 var R45;
+var R45string;
 var R12345;
+var R12345string;
 var flag=0;
 
 
@@ -1275,12 +1288,13 @@ function level1Case1(){
     // }
 
     R12=(R1*R2)/(R1+R2);
-
+    
+    R12string=R12.toFixed(2);
     PIEaddMyText("R12",R12);
     PIErender();
 
     giveupbtn.remove();
-    if(R12!=refflevel1&&flag==0){
+    if(R12string!=refflevel1string&&flag==0){
         // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
         // successbtn.addEventListener("click",resetExperiment);
         var loader = new THREE.FontLoader();
@@ -1402,10 +1416,11 @@ function level1Case1(){
 
      R12 = (R1 + R2);
 
+     R12string=R12.toFixed(2);
      PIEaddMyText("R12", R12);
      PIErender();
      giveupbtn.remove();
-     if(R12 == refflevel1&&flag==0) {
+     if(R12string == refflevel1string&&flag==0) {
          // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
          // successbtn.addEventListener("click",resetExperiment);
          var loader = new THREE.FontLoader();
@@ -1698,12 +1713,13 @@ function level2Case3(){
             PIEaddElement(mesh12);
 
     R123 = (R12 * R3) / (R12 + R3);
+    R123string=R123.toFixed(2);
 
     PIEaddMyText("R123", R123);
     PIErender();
     giveupbtn.remove();
 
-    if (R123 == refflevel2&&flag==0) {
+    if (R123string == refflevel2string&&flag==0) {
         // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
         // successbtn.addEventListener("click",resetExperiment);
         var loader = new THREE.FontLoader();
@@ -1919,11 +1935,11 @@ function level2Case4(){
             ////
 
             R123 = (R12 * R3) / (R12 + R3);
-
+            R123string=R123.toFixed(2);
             PIEaddMyText("R123", R123);
             PIErender();
             giveupbtn.remove();
-            if(R123!=refflevel2){
+            if(R123string!=refflevel2string){
                 // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
                 // successbtn.addEventListener("click",resetExperiment);
                 var loader = new THREE.FontLoader();
@@ -2565,10 +2581,11 @@ function level3Case9(){
     PIEchangeDisplayCheckbox("R12 parellel R34",true);
     R1234= (R12*R34)/(R12+R34);    
 
+    R1234string=R1234.toFixed(2);
     PIEaddMyCheckbox("R1234",R1234);
     giveupbtn.remove();
 
-    if(R1234!=refflevel3){
+    if(R1234string!=refflevel3string){
         // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
         // successbtn.addEventListener("click",resetExperiment);
         var loader = new THREE.FontLoader();
@@ -2593,7 +2610,7 @@ function level3Case9(){
         
     currentLevel="Level 1";
     }
-    else if (R1234 == refflevel3&&flag==0) {
+    else if (R1234string == refflevel3string&&flag==0) {
         // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
         // successbtn.addEventListener("click",resetExperiment);
         var loader = new THREE.FontLoader();
@@ -2651,11 +2668,11 @@ function level3Case10(){
 
     PIEchangeDisplayCheckbox("R12 parellel R34",true);
     R1234= (R12*R34)/(R12+R34);    
-
+    R1234string=R1234.toFixed(2);
     PIEaddMyCheckbox("R1234",R1234);
     giveupbtn.remove();
 
-    if(R1234!=refflevel3){
+    if(R1234string!=refflevel3string){
         // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
         // successbtn.addEventListener("click",resetExperiment);
         var loader = new THREE.FontLoader();
@@ -2679,7 +2696,7 @@ function level3Case10(){
         });
         currentLevel="Level 1";
     }
-    else if (R1234 == refflevel3 &&flag==0) {
+    else if (R1234string == refflevel3string &&flag==0) {
         
         var loader = new THREE.FontLoader();
          loader.load("./optimer.json", function (response) {
@@ -3076,6 +3093,7 @@ function level4Case2(){
        PIEaddElement(mesh7);
 
        R123 = (R1+R2+R3);
+       
 
        PIEaddMyText("R123", R123);
        PIEaddMyCheckbox("R123 parellel R4",false,level4Case10);
@@ -3862,10 +3880,10 @@ function level4Case10(){
 
 
     R1234= (R123*R4)/(R123+R4);    
-
+    R1234string=R1234.toFixed(2);
     PIEaddMyCheckbox("R1234",R1234);
     giveupbtn.remove();
-    if(R1234!=refflevel4){
+    if(R1234string!=refflevel4string){
         // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
         // successbtn.addEventListener("click",resetExperiment);
         var loader = new THREE.FontLoader();
@@ -3889,7 +3907,7 @@ function level4Case10(){
         });
         currentLevel="Level 1";
     }
-    else if (R1234 == refflevel4&&flag==0) {
+    else if (R1234string == refflevel4string&&flag==0) {
         
         var loader = new THREE.FontLoader();
          loader.load("./optimer.json", function (response) {
@@ -5245,10 +5263,10 @@ function level5Case10(){
     
     PIEchangeDisplayCheckbox("R123 parellel R45",true);
     R12345= (R123*R45)/(R123+R45);    
-
+    R12345string=R12345.toFixed(2);
     PIEaddMyCheckbox("R12345",R12345);
     giveupbtn.remove();
-    if(R12345!=refflevel5){
+    if(R12345string!=refflevel5string){
         // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
         // successbtn.addEventListener("click",resetExperiment);
         var loader = new THREE.FontLoader();
@@ -5272,7 +5290,7 @@ function level5Case10(){
         });
         currentLevel="Level 1";
     }
-    else if (R12345 == refflevel5&&flag==0) {
+    else if (R12345string == refflevel5string&&flag==0) {
         
         var loader = new THREE.FontLoader();
          loader.load("./optimer.json", function (response) {
