@@ -1,3 +1,4 @@
+// new
 var mySceneTLX;
 var mySceneTLY;
 var mySceneBRX;
@@ -45,6 +46,7 @@ var refflevel5=1.5;
 var R5=3.0;
 var R45;
 var R12345;
+var flag=0;
 
 
 
@@ -57,6 +59,8 @@ var nextlevel=true;
 var levelbtn;
 var currentLevel="Level 1";
 var level2btn;
+var presentLevelGiveUp="Level 1";
+var giveupbtn;
 
 var box1;
 var box2;
@@ -130,6 +134,7 @@ var thevel93;
 var thevel94;
 var thevel95;
 var thevel96;
+var thevel71;
 
 function initialiseHelp() {
     helpContent = "";
@@ -489,9 +494,15 @@ function stopAnimation() {
                 
 function level1Action(){
 
+    presentLevelGiveUp="Level 1";
+    giveupbtn=PIEaddButton("Give Up");
+    giveupbtn.addEventListener("click",giveup);
+
     PIEaddMyText("Resultant Resistance", refflevel1);
     PIEaddMyCheckbox("R1 parellel R2", false, level1Case1);
     PIEaddMyCheckbox("R1 series R2", false, level1Case2);
+
+
 
     var loader = new THREE.FontLoader();
     loader.load("optimer.json", function (response) {
@@ -577,6 +588,11 @@ function level2Action(){
     for(var i = 0; i < number.length; i++) {
         number[i].remove();
     }
+
+    presentLevelGiveUp="Level 2";
+    giveupbtn=PIEaddButton("Give Up");
+    giveupbtn.addEventListener("click",giveup);
+
     PIEaddMyText("Resultant Resistance", refflevel2);    
     PIEaddMyCheckbox("R1 parellel R2", false,level2Case1);
     PIEaddMyCheckbox("R1 series R2", false,level2Case2);
@@ -683,6 +699,10 @@ function level3Action(){
     }
 
     //========================================//
+
+    presentLevelGiveUp="Level 3";
+    giveupbtn=PIEaddButton("Give Up");
+    giveupbtn.addEventListener("click",giveup);
 
     PIEaddMyText("Resultant Resistance", refflevel3);    
     PIEaddMyCheckbox("R1 parellel R2", false,level3Case1);
@@ -809,6 +829,10 @@ function level4Action(){
     }
 
     //========================================//
+
+    presentLevelGiveUp="Level 4";
+    giveupbtn=PIEaddButton("Give Up");
+    giveupbtn.addEventListener("click",giveup);
 
     PIEaddMyText("Resultant Resistance", refflevel4);    
     PIEaddMyCheckbox("R1 p R2 p R3", false,level4Case1);
@@ -943,6 +967,10 @@ function level5Action(){
 
     //========================================//
     console.log("level5Action");
+
+    presentLevelGiveUp="Level 5";
+    giveupbtn=PIEaddButton("Give Up");
+    giveupbtn.addEventListener("click",giveup);
 
     PIEaddMyText("Resultant Resistance", refflevel5);    
 
@@ -1250,7 +1278,9 @@ function level1Case1(){
 
     PIEaddMyText("R12",R12);
     PIErender();
-    if(R12!=refflevel1){
+
+    giveupbtn.remove();
+    if(R12!=refflevel1&&flag==0){
         // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
         // successbtn.addEventListener("click",resetExperiment);
         var loader = new THREE.FontLoader();
@@ -1268,26 +1298,12 @@ function level1Case1(){
             
 
             PIEaddElement(thevel1);
-            // thevel.castShadow = false;
-            // thevel.visible = false;
-
-            // geometry = new THREE.TextGeometry("Ball's Velocity", {
-            //     font: font,
-            //     size: 0.075,
-            //     height: 0.3,
-            // });
-            // heading = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-            // heading.translation = geometry.center();
-            // PIEaddElement(heading);
-            // heading.castShadow = false;
-            // heading.visible = false;
+          
 
             thevel1.position.set(-8.5, 0, -12);
             thevel1.rotation.x = - Math.PI / 6;
             
-            // thevel.lookAt(PIEcamera.position);
-            // heading.position.set(0.4 * PIEcamera.position.x, 0.2 * PIEcamera.position.y + 0.075, 0.4 * PIEcamera.position.z);
-            // heading.lookAt(PIEcamera.position);
+           
         });
         }
     console.log("in case1");
@@ -1388,7 +1404,8 @@ function level1Case1(){
 
      PIEaddMyText("R12", R12);
      PIErender();
-     if (R12 == refflevel1) {
+     giveupbtn.remove();
+     if(R12 == refflevel1&&flag==0) {
          // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
          // successbtn.addEventListener("click",resetExperiment);
          var loader = new THREE.FontLoader();
@@ -1406,25 +1423,11 @@ function level1Case1(){
 
 
              PIEaddElement(thevel2);
-             // thevel.castShadow = false;
-             // thevel.visible = false;
-
-             // geometry = new THREE.TextGeometry("Ball's Velocity", {
-             //     font: font,
-             //     size: 0.075,
-             //     height: 0.3,
-             // });
-             // heading = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-             // heading.translation = geometry.center();
-             // PIEaddElement(heading);
-             // heading.castShadow = false;
-             // heading.visible = false;
+            
 
              thevel2.position.set(-10.1, 0, -12);
              thevel2.rotation.x = - Math.PI / 6;
-             // thevel.lookAt(PIEcamera.position);
-             // heading.position.set(0.4 * PIEcamera.position.x, 0.2 * PIEcamera.position.y + 0.075, 0.4 * PIEcamera.position.z);
-             // heading.lookAt(PIEcamera.position);
+         
          });
      }
      console.log("in case1");
@@ -1698,8 +1701,9 @@ function level2Case3(){
 
     PIEaddMyText("R123", R123);
     PIErender();
+    giveupbtn.remove();
 
-    if (R123 == refflevel2) {
+    if (R123 == refflevel2&&flag==0) {
         // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
         // successbtn.addEventListener("click",resetExperiment);
         var loader = new THREE.FontLoader();
@@ -1918,7 +1922,7 @@ function level2Case4(){
 
             PIEaddMyText("R123", R123);
             PIErender();
-
+            giveupbtn.remove();
             if(R123!=refflevel2){
                 // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
                 // successbtn.addEventListener("click",resetExperiment);
@@ -2562,6 +2566,7 @@ function level3Case9(){
     R1234= (R12*R34)/(R12+R34);    
 
     PIEaddMyCheckbox("R1234",R1234);
+    giveupbtn.remove();
 
     if(R1234!=refflevel3){
         // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
@@ -2588,7 +2593,7 @@ function level3Case9(){
         
     currentLevel="Level 1";
     }
-    else if (R1234 == refflevel3) {
+    else if (R1234 == refflevel3&&flag==0) {
         // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
         // successbtn.addEventListener("click",resetExperiment);
         var loader = new THREE.FontLoader();
@@ -2648,6 +2653,7 @@ function level3Case10(){
     R1234= (R12*R34)/(R12+R34);    
 
     PIEaddMyCheckbox("R1234",R1234);
+    giveupbtn.remove();
 
     if(R1234!=refflevel3){
         // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
@@ -2673,7 +2679,7 @@ function level3Case10(){
         });
         currentLevel="Level 1";
     }
-    else if (R1234 == refflevel3) {
+    else if (R1234 == refflevel3 &&flag==0) {
         
         var loader = new THREE.FontLoader();
          loader.load("./optimer.json", function (response) {
@@ -3858,7 +3864,7 @@ function level4Case10(){
     R1234= (R123*R4)/(R123+R4);    
 
     PIEaddMyCheckbox("R1234",R1234);
-
+    giveupbtn.remove();
     if(R1234!=refflevel4){
         // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
         // successbtn.addEventListener("click",resetExperiment);
@@ -3883,7 +3889,7 @@ function level4Case10(){
         });
         currentLevel="Level 1";
     }
-    else if (R1234 == refflevel4) {
+    else if (R1234 == refflevel4&&flag==0) {
         
         var loader = new THREE.FontLoader();
          loader.load("./optimer.json", function (response) {
@@ -5241,7 +5247,7 @@ function level5Case10(){
     R12345= (R123*R45)/(R123+R45);    
 
     PIEaddMyCheckbox("R12345",R12345);
-
+    giveupbtn.remove();
     if(R12345!=refflevel5){
         // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
         // successbtn.addEventListener("click",resetExperiment);
@@ -5266,7 +5272,7 @@ function level5Case10(){
         });
         currentLevel="Level 1";
     }
-    else if (R12345 == refflevel5) {
+    else if (R12345 == refflevel5&&flag==0) {
         
         var loader = new THREE.FontLoader();
          loader.load("./optimer.json", function (response) {
@@ -5298,6 +5304,56 @@ function level5Case10(){
     
     console.log("level3case10");
 
+
+}
+
+function  giveup(){
+    flag=1;
+    if(presentLevelGiveUp=="Level 1"){
+        level1Case2();
+    }
+    else if(presentLevelGiveUp=="Level 2"){
+        level2Case1();
+        level2Case3();
+    }
+    else if(presentLevelGiveUp=="Level 3"){
+        level3Case2();
+        level3Case4();
+        level3Case10();
+    }
+    else if(presentLevelGiveUp=="Level 4"){
+        level4Case3();
+        level4Case10();
+    }
+    else if(presentLevelGiveUp=="Level 4"){
+        level5Case3();
+        level5Case9();
+        level5Case10();
+    }
+    removethevels();
+    level2btn.remove();
+    PIErender();
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+    font = response;
+
+var geometry = new THREE.TextGeometry("Press Reset To Try Again!!", {
+        font: font,
+        size: .8,
+        height: 0.01,
+        curveSegments: 3
+    });
+
+    thevel71 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+    
+
+    PIEaddElement(thevel71);
+    thevel71.position.set(-8.5, 0, -12);
+    thevel71.rotation.x = - Math.PI / 6;
+   
+});
+flag=0;
+currentLevel="Level 1";
 
 }
 
@@ -5498,10 +5554,22 @@ function removeElements() {
     PIEremoveElement(thevel94);
     PIEremoveElement(thevel95);
     PIEremoveElement(thevel96);
+    PIEremoveElement(thevel71);
     // level1btn.remove();
 }
 
-
+function removethevels(){
+    PIEremoveElement(thevel1);
+    PIEremoveElement(thevel2);
+    PIEremoveElement(thevel91);
+    PIEremoveElement(thevel92);
+    PIEremoveElement(thevel93);
+    PIEremoveElement(thevel94);
+    PIEremoveElement(thevel95);
+    PIEremoveElement(thevel96);
+    PIEremoveElement(thevel71);
+    PIErender();
+}
 //==============================================================//
 
 function PIEremoveElement(b) {
