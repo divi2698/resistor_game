@@ -5462,6 +5462,14 @@ function resetExperiment() {
         number[i].remove();
     }
     removeElements();
+    
+    PIEcbDisplayHandles.splice(0,PIEcbDisplayHandles.length);
+    PIEcbDisplayNames.splice(0, PIEcbDisplayNames.length);
+    PIEcbDisplay=0;
+    PIEitDisplayHandles.splice(0,PIEitDisplayHandles.length);
+    PIEitDisplayNames.splice(0, PIEitDisplayNames.length);
+    PIEitDisplay=0;
+
     PIErender();
     if(levelbtn)
     levelbtn.innerHTML=currentLevel;
