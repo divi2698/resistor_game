@@ -149,6 +149,7 @@ var thevel95;
 var thevel96;
 var thevel71;
 
+
 function initialiseHelp() {
     helpContent = "";
     helpContent = helpContent + "<h2>Building circuit of required resistance from given resistors</h2>";
@@ -493,8 +494,15 @@ function stopAnimation() {
    console.log("stop animation");
     // removeElements();
     // PIEstopAnimation(); //removes the field lines and the arrows on it at the stop button 
-
+    PIEresetExperiment();
     resetExperiment();
+    currentLevel="Level 1";
+    levelbtn.innerHTML=currentLevel;
+    
+    if(level2btn)
+        level2btn.remove();
+    if(giveupbtn)
+        giveupbtn.remove();
     PIErender();
     console.log("at end stop anim");
     
@@ -1151,6 +1159,10 @@ function level1Case1(){
      var line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0x000 }));
      box1.add(line);
      box1.position.set(0, 0, 1.4);
+
+    
+
+
 
      //second resistor
      var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
@@ -5453,9 +5465,40 @@ function loadExperimentElements() {
     // notify 		The command function to be called
 
     // showNoArrows();
+   
+
+    console.log("start animation");
+    // PIEstartAnimation();
+    startOrbitalControls();
+    resetExperiment();
+
+    // while(nextlevel==true){
+
+    // if(level==1)
+    if (levelbtn) {
+        levelbtn.remove();
+    }
+    currentLevel = "Level 1"
+    levelbtn = PIEaddButton("Level 1");
+
+    console.log(level1btn);
+    level1Action();
+    console.log("back in start");
+    // if(nextlevel==false)
+    // {
+    //     console.log("nfdkfkl");
+    //     startAnimation();
+
+    // }
+
+    // PIEadjustDisplayScene();
+    PIErender();
+
 
 
     PIErender();
+  
+
 
 
     
@@ -6289,6 +6332,29 @@ function PIEaddMyText(b, c) {
     PIEitDisplay++
 }
 
+
+///////////////////////////////////////////////////
+
+
+
+function PIEstopAnimation() {
+    if (PIEanimationON == true) {
+        PIEpauseOffset = 0;
+        PIEcurrentTime = 0;
+        PIEoffsetTime = 0;
+        PIEanimationON = false;
+        PIEanimationPaused = false;
+        PIEresumeButton.style.display = "none";
+        PIEresumeButton.style.visibility = "hidden";
+        PIEpauseButton.style.display = "inline";
+        PIEpauseButton.style.visibility = "hidden";
+        PIEstopButton.style.display = "none";
+        PIEstartButton.style.display = "inline";
+        PIEshowInputPanel()
+        resetExperiment();
+        console.log("in epxerimentjs local file");
+    }
+}
 
 //==============================================//
 
