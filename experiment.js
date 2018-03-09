@@ -79,7 +79,10 @@ var box1;
 var box2;
 var box21;
 var box91;
+var box61;
 var box81;
+var box92;
+var box62;
 var box22;
 var box41;
 var box42;
@@ -93,11 +96,13 @@ var mesh91;
 var mesh81;
 var mesh21;
 var mesh31;
+var mesh61;
 var mesh41;
 var mesh2;
 var mesh92;
 var mesh82;
 var mesh22;
+var mesh62;
 var mesh42;
 var mesh3;
 
@@ -148,6 +153,11 @@ var thevel94;
 var thevel95;
 var thevel96;
 var thevel71;
+var thevel81;
+var thevel82;
+var thevel83;
+var thevel84;
+var thevel85;
 
 
 function initialiseHelp() {
@@ -510,7 +520,9 @@ function stopAnimation() {
 
 /////////////////////////////////////////////////////////
 
-
+//  function showResistanceValues(){
+     
+//  }
 
 
         //======LEVEL 1 ACTION===========//
@@ -530,56 +542,56 @@ function level1Action(){
     var loader = new THREE.FontLoader();
     loader.load("optimer.json", function (response) {
     font = response;
-var res1="Required Resistance = "+refflevel1.toString()+" ohm";
-var geometry = new THREE.TextGeometry(res1, {
+    var res1="Required Resistance = "+refflevel1.toString()+" ohm";
+    var geometry = new THREE.TextGeometry(res1, {
+            font: font,
+            size: .5,
+            height: 0.01,
+            curveSegments: 3
+        });
+
+        thevel91 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+        
+
+        PIEaddElement(thevel91);
+        thevel91.position.set(-22, 0, -12);
+        thevel91.rotation.x = - Math.PI / 6;
+    
+    });
+        
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+    font = response;
+    var res1="R1 = "+R1.toString()+" ohm";
+    var geometry = new THREE.TextGeometry(res1, {
         font: font,
         size: .5,
         height: 0.01,
         curveSegments: 3
     });
 
-    thevel91 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+    thevel92 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+    PIEaddElement(thevel92);
+    thevel92.position.set(-22.35, -1.5, -12);
+    thevel92.rotation.x = - Math.PI / 6;
+
+    });
     
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+    font = response;
+    var res1="R2 = "+R2.toString()+" ohm";
+    var geometry = new THREE.TextGeometry(res1, {
+        font: font,
+        size: .5,
+        height: 0.01,
+        curveSegments: 3
+    });
 
-    PIEaddElement(thevel91);
-    thevel91.position.set(-22, 0, -12);
-    thevel91.rotation.x = - Math.PI / 6;
-   
-});
-    
-
-var loader = new THREE.FontLoader();
-loader.load("optimer.json", function (response) {
-font = response;
-var res1="R1 = "+R1.toString()+" ohm";
-var geometry = new THREE.TextGeometry(res1, {
-    font: font,
-    size: .5,
-    height: 0.01,
-    curveSegments: 3
-});
-
-thevel92 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-PIEaddElement(thevel92);
-thevel92.position.set(-22.35, -1.5, -12);
-thevel92.rotation.x = - Math.PI / 6;
-
-});
-   
-var loader = new THREE.FontLoader();
-loader.load("optimer.json", function (response) {
-font = response;
-var res1="R2 = "+R2.toString()+" ohm";
-var geometry = new THREE.TextGeometry(res1, {
-    font: font,
-    size: .5,
-    height: 0.01,
-    curveSegments: 3
-});
-
-thevel93 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+    thevel93 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
 
 
 PIEaddElement(thevel93);
@@ -1160,18 +1172,72 @@ function level1Case1(){
      box1.add(line);
      box1.position.set(0, 0, 1.4);
 
+    //second resistor
+    var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
+    box2 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({ color: "gray" }));
+    PIEaddElement(box2);
+    var edges2 = new THREE.EdgesGeometry(boxGeom2);
+    var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
+    box2.add(line2);
+    box2.position.set(0, 0, -1);
+
+
+
+
+    //  first resistor text
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R2", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel81 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel81);
+
+
+        thevel81.position.set(-0.55, 0, 1.8);
+        thevel81.rotation.x = - Math.PI / 2;
+
+
+    });
+
     
 
 
 
-     //second resistor
-     var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
-     box2 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({color: "gray" }));
-     PIEaddElement(box2);
-     var edges2 = new THREE.EdgesGeometry(boxGeom2);
-     var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
-     box2.add(line2);
-     box2.position.set(0, 0, -1);
+       //  second resistor txt
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R1", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel82 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel82);
+
+
+        thevel82.position.set(-0.55, 0, -.6);
+        thevel82.rotation.x = - Math.PI / 2;
+
+
+    });
+
 
      //wire connecting the resistors
      //  var curve1 = new THREE.CubicBezierCurve3(
@@ -1366,14 +1432,71 @@ function level1Case1(){
      box1.add(line);
      box1.position.set(-4.4, 0, 0.4);
 
+
+
      //second resistor
      var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
-     box2 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({color: "gray" }));//color: 0xd3d3d3
+     box2 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({ color: "gray" }));//color: 0xd3d3d3
      PIEaddElement(box2);
      var edges2 = new THREE.EdgesGeometry(boxGeom2);
      var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
      box2.add(line2);
      box2.position.set(4.4, 0, 0.4);
+
+
+     //  first resistor text
+
+     var loader = new THREE.FontLoader();
+     loader.load("optimer.json", function (response) {
+         font = response;
+
+         var geometry = new THREE.TextGeometry("R1", {
+             font: font,
+             size: .8,
+             height: 0.3,
+             curveSegments: 3
+         });
+
+         thevel81 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+         PIEaddElement(thevel81);
+
+
+         thevel81.position.set(-5, 0, 0.8);
+         thevel81.rotation.x = - Math.PI / 2;
+
+
+     });
+
+
+
+
+     //  second resistor txt
+
+     var loader = new THREE.FontLoader();
+     loader.load("optimer.json", function (response) {
+         font = response;
+
+         var geometry = new THREE.TextGeometry("R2", {
+             font: font,
+             size: .8,
+             height: 0.3,
+             curveSegments: 3
+         });
+
+         thevel82 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+         PIEaddElement(thevel82);
+
+
+         thevel82.position.set(3.8, 0, .8);
+         thevel82.rotation.x = - Math.PI / 2;
+
+
+     });
+
 
      //wire connecting the resistors
      var curve1 = new THREE.CubicBezierCurve3(
@@ -1511,6 +1634,64 @@ function level2Case1(){
     var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
     box2.add(line2);
     box2.position.set(0, 0, -1);
+
+    //  first resistor text
+
+
+    //  second resistor txt
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R1", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel82 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel82);
+
+
+        thevel82.position.set(-0.55, 0, -.6);
+        thevel82.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R2", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel81 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel81);
+
+
+        thevel81.position.set(-0.55, 0, 1.8);
+        thevel81.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
+
+
+   
 
     //wire connecting the resistors
     //  var curve1 = new THREE.CubicBezierCurve3(
@@ -1672,6 +1853,32 @@ function level2Case3(){
             box3.position.set(0, 0, 3.8);
 
 
+    //  first resistor text
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R3", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel83 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel83);
+
+
+        thevel83.position.set(-.58, 0,4.2 );
+        thevel83.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
             /////////////////////////////////////
 
             //wire connecting the resistors
@@ -1808,14 +2015,69 @@ PIEchangeDisplayCheckbox("R1 series R2", true);
  box1.add(line);
  box1.position.set(-4.4, 0, 0.4);
 
- //second resistor
- var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
- box2 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({color: "gray" }));//color: 0xd3d3d3
- PIEaddElement(box2);
- var edges2 = new THREE.EdgesGeometry(boxGeom2);
- var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
- box2.add(line2);
- box2.position.set(4.4, 0, 0.4);
+
+
+    //  first resistor text
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R1", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel81 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel81);
+
+
+        thevel81.position.set(-5, 0, 0.8);
+        thevel81.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
+    //second resistor
+    var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
+    box2 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({ color: "gray" }));//color: 0xd3d3d3
+    PIEaddElement(box2);
+    var edges2 = new THREE.EdgesGeometry(boxGeom2);
+    var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
+    box2.add(line2);
+    box2.position.set(4.4, 0, 0.4);
+
+
+    //  second resistor txt
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R2", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel82 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel82);
+
+
+        thevel82.position.set(3.8, 0, .8);
+        thevel82.rotation.x = - Math.PI / 2;
+
+
+    });
+
 
  //wire connecting the resistors
  var curve1 = new THREE.CubicBezierCurve3(
@@ -1889,6 +2151,32 @@ function level2Case4(){
             var line3 = new THREE.LineSegments(edges3, new THREE.LineBasicMaterial({ color: 0x000 }));
             box3.add(line3);
             box3.position.set(0, 0, 3.8);
+
+    //  first resistor text
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R3", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel83 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel83);
+
+
+        thevel83.position.set(-.58, 0, 4.2);
+        thevel83.rotation.x = - Math.PI / 2;
+
+
+    });
+
 
 
             /////////////////////////////////////
@@ -2022,6 +2310,34 @@ function level3Case1(){
     box31.add(line);
     box31.position.set(0, 0, -3.4);
 
+    //  first resistor text
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R1", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel81 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel81);
+
+
+        thevel81.position.set(-0.55, 0, -3);
+        thevel81.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
+    
+
     //second resistor
     var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
     box32 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({ color: "gray" }));
@@ -2030,6 +2346,34 @@ function level3Case1(){
     var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
     box32.add(line2);
     box32.position.set(0, 0, -1);
+
+
+
+    //  second resistor txt
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R2", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel82 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel82);
+
+
+        thevel82.position.set(-0.55, 0, -.6);
+        thevel82.rotation.x = - Math.PI / 2;
+
+
+    });
+
 
     //wire connecting the resistors
     //  var curve1 = new THREE.CubicBezierCurve3(
@@ -2180,14 +2524,71 @@ function level3Case2(){
      box1.add(line);
      box1.position.set(-4.4, 0, -3.4);
 
-     //second resistor
-     var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
-     box2 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({color: "gray" }));//color: 0xd3d3d3
-     PIEaddElement(box2);
-     var edges2 = new THREE.EdgesGeometry(boxGeom2);
-     var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
-     box2.add(line2);
-     box2.position.set(4.4, 0, -3.4);
+    //second resistor
+    var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
+    box2 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({ color: "gray" }));//color: 0xd3d3d3
+    PIEaddElement(box2);
+    var edges2 = new THREE.EdgesGeometry(boxGeom2);
+    var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
+    box2.add(line2);
+    box2.position.set(4.4, 0, -3.4);
+
+
+    //  first resistor text
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R1", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel81 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel81);
+
+
+        thevel81.position.set(-5, 0, -3);
+        thevel81.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
+
+
+
+
+
+    //  second resistor txt
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R2", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel82 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel82);
+
+
+        thevel82.position.set(3.8, 0, -3);
+        thevel82.rotation.x = - Math.PI / 2;
+
+
+    });
 
      //wire connecting the resistors
      var curve1 = new THREE.CubicBezierCurve3(
@@ -2317,7 +2718,34 @@ function level3Case3(){
     box21.add(line);
     box21.position.set(0, 0, 1.4);
 
-    //second resistor
+    //  first resistor text
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R3", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel83 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel83);
+
+
+        thevel83.position.set(-0.55, 0, 1.8);
+        thevel83.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
+
+        //second resistor
     var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
     box22 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({ color: "gray" }));
     PIEaddElement(box22);
@@ -2325,6 +2753,32 @@ function level3Case3(){
     var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
     box22.add(line2);
     box22.position.set(0,0,3.8);
+
+
+    //  second resistor txt
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R4", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel84 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel84);
+
+
+        thevel84.position.set(-0.55, 0, 4.2);
+        thevel84.rotation.x = - Math.PI / 2;
+
+
+    });
+
 
     //wire connecting the resistors
     //  var curve1 = new THREE.CubicBezierCurve3(
@@ -2477,14 +2931,70 @@ function level3Case4(){
      box41.add(line);
      box41.position.set(-4.4, 0, 3.8);
 
-     //second resistor
-     var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
-     box42 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({color: "gray" }));//color: 0xd3d3d3
-     PIEaddElement(box42);
-     var edges2 = new THREE.EdgesGeometry(boxGeom2);
-     var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
-     box42.add(line2);
-     box42.position.set(4.4, 0, 3.8);
+
+
+    //second resistor
+    var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
+    box42 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({ color: "gray" }));//color: 0xd3d3d3
+    PIEaddElement(box42);
+    var edges2 = new THREE.EdgesGeometry(boxGeom2);
+    var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
+    box42.add(line2);
+    box42.position.set(4.4, 0, 3.8);
+
+
+    //  first resistor text
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R3", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel83 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel83);
+
+
+        thevel83.position.set(-5, 0, 4.2);
+        thevel83.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
+
+
+    //  second resistor txt
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R4", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel84 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel84);
+
+
+        thevel84.position.set(3.8, 0, 4.2);
+        thevel84.rotation.x = - Math.PI / 2;
+
+
+    });
 
      //wire connecting the resistors
      var curve1 = new THREE.CubicBezierCurve3(
@@ -2774,6 +3284,30 @@ function level4Case1(){
     box31.add(line);
     box31.position.set(0, 0, -5.8);
 
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R1", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel81 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel81);
+
+
+        thevel81.position.set(-0.55, 0, -5.4);
+        thevel81.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
     var boxGeom = new THREE.BoxGeometry(2.933, .5, 1);
     box33 = new THREE.Mesh(boxGeom, new THREE.MeshBasicMaterial({ color: "gray" }));
     PIEaddElement(box33);
@@ -2781,6 +3315,30 @@ function level4Case1(){
     var line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0x000 }));
     box33.add(line);
     box33.position.set(0, 0, -3.4);
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R2", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel82 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel82);
+
+
+        thevel82.position.set(-0.55, 0, -3);
+        thevel82.rotation.x = - Math.PI / 2;
+
+
+    });
+
 
     //second resistor
     var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
@@ -2790,6 +3348,29 @@ function level4Case1(){
     var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
     box32.add(line2);
     box32.position.set(0, 0, -1);
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R3", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel83 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel83);
+
+
+        thevel83.position.set(-0.55, 0, -.6);
+        thevel83.rotation.x = - Math.PI / 2;
+
+
+    });
 
     //wire connecting the resistors
     //  var curve1 = new THREE.CubicBezierCurve3(
@@ -2970,6 +3551,31 @@ function level4Case2(){
     box1.add(line);
     box1.position.set(-4.4, 0, -3.4);
 
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R1", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel81 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel81);
+
+
+        thevel81.position.set(-5, 0, -3);
+        thevel81.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
+
     //second resistor
     var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
     box2 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({color: "gray" }));//color: 0xd3d3d3
@@ -2979,6 +3585,30 @@ function level4Case2(){
     box2.add(line2);
     box2.position.set(4.4, 0, -3.4);
 
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R3", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel82 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel82);
+
+
+        thevel82.position.set(3.8, 0, -3);
+        thevel82.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
     //second resistor
     var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
     box3 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({color: "gray" }));//color: 0xd3d3d3
@@ -2987,6 +3617,31 @@ function level4Case2(){
     var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
     box3.add(line2);
     box3.position.set(0, 0, -3.4);
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R2", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel83 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel83);
+
+
+        thevel83.position.set(-0.55, 0, -3);
+        thevel83.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
 
     //wire connecting the resistors
     var curve1 = new THREE.CubicBezierCurve3(
@@ -3156,6 +3811,81 @@ function level4Case3(){
     var line3 = new THREE.LineSegments(edges3, new THREE.LineBasicMaterial({ color: 0x000 }));
     box2.add(line3);
     box2.position.set(4.4, 0, -3.8);
+
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R1", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel81 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel81);
+
+
+        thevel81.position.set(-5, 0, -5.4);
+        thevel81.rotation.x = - Math.PI / 2;
+
+
+    });
+
+ 
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R2", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel82 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel82);
+
+
+        thevel82.position.set(-5, 0, -.6);
+        thevel82.rotation.x = - Math.PI / 2;
+
+
+    });
+   
+
+    //third resistor txt
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R3", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel83 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel83);
+
+
+        thevel83.position.set(3.8, 0, -3.4);
+        thevel83.rotation.x = - Math.PI / 2;
+
+
+    });
+
 
     //wire connecting the resistors
     //  var curve1 = new THREE.CubicBezierCurve3(
@@ -3351,6 +4081,30 @@ function level4Case4(){
     box31.add(line);
     box31.position.set(-4.4, 0, -5.8);
 
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R1", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel81 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel81);
+
+
+        thevel81.position.set(-5, 0, -5.4);
+        thevel81.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
     //second resistor
     var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
     box32 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({ color: "gray" }));
@@ -3359,6 +4113,30 @@ function level4Case4(){
     var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
     box32.add(line2);
     box32.position.set(-4.4, 0, -1);
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R3", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel82 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel82);
+
+
+        thevel82.position.set(-5, 0, -.6);
+        thevel82.rotation.x = - Math.PI / 2;
+
+
+    });
+
 
     //second resistor
 
@@ -3369,6 +4147,30 @@ function level4Case4(){
     var line3 = new THREE.LineSegments(edges3, new THREE.LineBasicMaterial({ color: 0x000 }));
     box2.add(line3);
     box2.position.set(4.4, 0, -3.8);
+
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R2", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel83 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel83);
+
+
+        thevel83.position.set(3.8, 0, -3.4);
+        thevel83.rotation.x = - Math.PI / 2;
+
+
+    });
 
     //wire connecting the resistors
     //  var curve1 = new THREE.CubicBezierCurve3(
@@ -3561,6 +4363,30 @@ function level4Case5(){
     box31.add(line);
     box31.position.set(-4.4, 0, -5.8);
 
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R2", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel81 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel81);
+
+
+        thevel81.position.set(-5, 0, -5.4);
+        thevel81.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
     //second resistor
     var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
     box32 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({ color: "gray" }));
@@ -3569,6 +4395,30 @@ function level4Case5(){
     var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
     box32.add(line2);
     box32.position.set(-4.4, 0, -1);
+
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R3", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel82 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel82);
+
+
+        thevel82.position.set(-5, 0, -.6);
+        thevel82.rotation.x = - Math.PI / 2;
+
+
+    });
 
     //second resistor
 
@@ -3579,6 +4429,30 @@ function level4Case5(){
     var line3 = new THREE.LineSegments(edges3, new THREE.LineBasicMaterial({ color: 0x000 }));
     box2.add(line3);
     box2.position.set(4.4, 0, -3.8);
+
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R1", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel83 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel83);
+
+
+        thevel83.position.set(3.8, 0, -3.4);
+        thevel83.rotation.x = - Math.PI / 2;
+
+
+    });
 
     //wire connecting the resistors
     //  var curve1 = new THREE.CubicBezierCurve3(
@@ -3762,6 +4636,30 @@ function level4Case10(){
     var line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0x000 }));
     box91.add(line);
     box91.position.set(0, 0, 3.8);
+
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R4", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel84 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel84);
+
+
+        thevel84.position.set(-.58, 0, 4.2);
+        thevel84.rotation.x = - Math.PI / 2;
+
+
+    });
 
     // //second resistor
     // var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
@@ -3989,6 +4887,31 @@ function level5Case1(){
     box31.add(line);
     box31.position.set(0, 0, -5.8);
 
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R1", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel81 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel81);
+
+
+        thevel81.position.set(-0.55, 0, -5.4);
+        thevel81.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
+
     var boxGeom = new THREE.BoxGeometry(2.933, .5, 1);
     box33 = new THREE.Mesh(boxGeom, new THREE.MeshBasicMaterial({ color: "gray" }));
     PIEaddElement(box33);
@@ -3996,6 +4919,30 @@ function level5Case1(){
     var line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0x000 }));
     box33.add(line);
     box33.position.set(0, 0, -3.4);
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R2", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel82 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel82);
+
+
+        thevel82.position.set(-0.55, 0, -3);
+        thevel82.rotation.x = - Math.PI / 2;
+
+
+    });
+
 
     //second resistor
     var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
@@ -4005,6 +4952,29 @@ function level5Case1(){
     var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
     box32.add(line2);
     box32.position.set(0, 0, -1);
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R3", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel83 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel83);
+
+
+        thevel83.position.set(-0.55, 0, -.6);
+        thevel83.rotation.x = - Math.PI / 2;
+
+
+    });
 
     //wire connecting the resistors
     //  var curve1 = new THREE.CubicBezierCurve3(
@@ -4190,6 +5160,29 @@ function level5Case2(){
     box1.add(line);
     box1.position.set(-4.4, 0, -3.4);
 
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R1", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel81 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel81);
+
+
+        thevel81.position.set(-5, 0, -3);
+        thevel81.rotation.x = - Math.PI / 2;
+
+
+    });
+
     //second resistor
     var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
     box2 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({color: "gray" }));//color: 0xd3d3d3
@@ -4199,6 +5192,29 @@ function level5Case2(){
     box2.add(line2);
     box2.position.set(4.4, 0, -3.4);
 
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R3", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel82 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel82);
+
+
+        thevel82.position.set(3.8, 0, -3);
+        thevel82.rotation.x = - Math.PI / 2;
+
+
+    });
+
     //second resistor
     var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
     box3 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({color: "gray" }));//color: 0xd3d3d3
@@ -4207,6 +5223,30 @@ function level5Case2(){
     var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
     box3.add(line2);
     box3.position.set(0, 0, -3.4);
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R2", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel83 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel83);
+
+
+        thevel83.position.set(-0.55, 0, -3);
+        thevel83.rotation.x = - Math.PI / 2;
+
+
+    });
+
 
     //wire connecting the resistors
     var curve1 = new THREE.CubicBezierCurve3(
@@ -4360,6 +5400,31 @@ function level5Case3(){
     box31.add(line);
     box31.position.set(-4.4, 0, -5.8);
 
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R1", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel81 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel81);
+
+
+        thevel81.position.set(-5, 0, -5.4);
+        thevel81.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
+
     //second resistor
     var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
     box32 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({ color: "gray" }));
@@ -4368,6 +5433,30 @@ function level5Case3(){
     var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
     box32.add(line2);
     box32.position.set(-4.4, 0, -1);
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R2", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel82 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel82);
+
+
+        thevel82.position.set(-5, 0, -.6);
+        thevel82.rotation.x = - Math.PI / 2;
+
+
+    });
+
 
     //second resistor
 
@@ -4378,6 +5467,30 @@ function level5Case3(){
     var line3 = new THREE.LineSegments(edges3, new THREE.LineBasicMaterial({ color: 0x000 }));
     box2.add(line3);
     box2.position.set(4.4, 0, -3.8);
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R3", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel83 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel83);
+
+
+        thevel83.position.set(3.8, 0, -3.4);
+        thevel83.rotation.x = - Math.PI / 2;
+
+
+    });
+
 
     //wire connecting the resistors
     //  var curve1 = new THREE.CubicBezierCurve3(
@@ -4575,6 +5688,30 @@ function level5Case4(){
     box31.add(line);
     box31.position.set(-4.4, 0, -5.8);
 
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R1", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel81 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel81);
+
+
+        thevel81.position.set(-5, 0, -5.4);
+        thevel81.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
     //second resistor
     var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
     box32 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({ color: "gray" }));
@@ -4584,6 +5721,28 @@ function level5Case4(){
     box32.add(line2);
     box32.position.set(-4.4, 0, -1);
 
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R3", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel82 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel82);
+
+
+        thevel82.position.set(-5, 0, -.6);
+        thevel82.rotation.x = - Math.PI / 2;
+
+
+    });
     //second resistor
 
     var boxGeom3 = new THREE.BoxGeometry(2.933, .5, 1);
@@ -4593,6 +5752,31 @@ function level5Case4(){
     var line3 = new THREE.LineSegments(edges3, new THREE.LineBasicMaterial({ color: 0x000 }));
     box2.add(line3);
     box2.position.set(4.4, 0, -3.8);
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R2", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel83 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel83);
+
+
+        thevel83.position.set(3.8, 0, -3.4);
+        thevel83.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
 
     //wire connecting the resistors
     //  var curve1 = new THREE.CubicBezierCurve3(
@@ -4787,6 +5971,29 @@ function level5Case5(){
     box31.add(line);
     box31.position.set(-4.4, 0, -5.8);
 
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R2", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel81 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel81);
+
+
+        thevel81.position.set(-5, 0, -5.4);
+        thevel81.rotation.x = - Math.PI / 2;
+
+
+    });
+
     //second resistor
     var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
     box32 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({ color: "gray" }));
@@ -4795,6 +6002,30 @@ function level5Case5(){
     var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
     box32.add(line2);
     box32.position.set(-4.4, 0, -1);
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R3", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel82 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel82);
+
+
+        thevel82.position.set(-5, 0, -.6);
+        thevel82.rotation.x = - Math.PI / 2;
+
+
+    });
+
 
     //second resistor
 
@@ -4806,6 +6037,28 @@ function level5Case5(){
     box2.add(line3);
     box2.position.set(4.4, 0, -3.8);
 
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R1", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel83 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel83);
+
+
+        thevel83.position.set(3.8, 0, -3.4);
+        thevel83.rotation.x = - Math.PI / 2;
+
+
+    });
     //wire connecting the resistors
     //  var curve1 = new THREE.CubicBezierCurve3(
     //      new THREE.Vector3(-8.8, 0, .4),
@@ -4997,14 +6250,62 @@ function level5Case8(){
     box91.add(line);
     box91.position.set(0, 0, 3.8);
 
-    // //second resistor
-    // var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
-    // box22 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({ color: "gray" }));
-    // PIEaddElement(box22);
-    // var edges2 = new THREE.EdgesGeometry(boxGeom2);
-    // var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
-    // box22.add(line2);
-    // box22.position.set(0,0,3.8);
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R5", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel85 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel85);
+
+
+        thevel85.position.set(-.58, 0, 4.2);
+        thevel85.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
+    //second resistor
+    var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
+    box92 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({ color: "gray" }));
+    PIEaddElement(box92);
+    var edges2 = new THREE.EdgesGeometry(boxGeom2);
+    var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
+    box92.add(line2);
+    box92.position.set(0,0,1.4);
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R4", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel84 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel84);
+
+
+        thevel84.position.set(-0.55, 0, 1.8);
+        thevel84.rotation.x = - Math.PI / 2;
+
+
+    });
+
 
     //wire connecting the resistors
     //  var curve1 = new THREE.CubicBezierCurve3(
@@ -5045,31 +6346,33 @@ function level5Case8(){
 
     PIEaddElement(mesh92);
 
-    //wire connecting the resistors
-    // var curve4 = new THREE.CubicBezierCurve3(
-    //     new THREE.Vector3(-1.46666, 0, 1.4),
-    //     new THREE.Vector3(-1.5, 0, 1.4),
-    //     new THREE.Vector3(-2, 0, 1.4),
-    //     new THREE.Vector3(-7, 0, 1.4)
-    // );
 
-    // var tube4 = new THREE.TubeGeometry(curve4, 100, 0.05, 20, false);
-    // mesh23 = new THREE.Mesh(tube4, new THREE.MeshBasicMaterial({ color: "black" }));
-
-    // PIEaddElement(mesh23);
 
     //wire connecting the resistors
-    // var curve5 = new THREE.CubicBezierCurve3(
-    //     new THREE.Vector3(1.466666666, 0, 1.4),
-    //     new THREE.Vector3(2, 0, 1.4),
-    //     new THREE.Vector3(3, 0, 1.4),
-    //     new THREE.Vector3(7, 0, 1.4)
-    // );
+    var curve4 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(-1.46666, 0, 1.4),
+        new THREE.Vector3(-1.5, 0, 1.4),
+        new THREE.Vector3(-2, 0, 1.4),
+        new THREE.Vector3(-7.8, 0, 1.4)
+    );
 
-    // var tube5 = new THREE.TubeGeometry(curve5, 100, 0.05, 20, false);
-    // mesh24 = new THREE.Mesh(tube5, new THREE.MeshBasicMaterial({ color: "black" }));
+    var tube4 = new THREE.TubeGeometry(curve4, 100, 0.05, 20, false);
+    mesh61 = new THREE.Mesh(tube4, new THREE.MeshBasicMaterial({ color: "black" }));
 
-    // PIEaddElement(mesh24);
+    PIEaddElement(mesh61);
+
+    // wire connecting the resistors
+    var curve5 = new THREE.CubicBezierCurve3(
+        new THREE.Vector3(1.466666666, 0, 1.4),
+        new THREE.Vector3(2, 0, 1.4),
+        new THREE.Vector3(3, 0, 1.4),
+        new THREE.Vector3(7.8, 0, 1.4)
+    );
+
+    var tube5 = new THREE.TubeGeometry(curve5, 100, 0.05, 20, false);
+    mesh62 = new THREE.Mesh(tube5, new THREE.MeshBasicMaterial({ color: "black" }));
+
+    PIEaddElement(mesh62);
 
     //wire connecting the resistors
     var curve6 = new THREE.CubicBezierCurve3(
@@ -5130,7 +6433,7 @@ function level5Case8(){
     R45= (R5*R4)/(R5+R4);    
 
     PIEaddMyCheckbox("R45",R45);
-    PIEaddMyCheckbox("R123 parellel R45",false,level5Case10);
+    PIEaddMyCheckbox("R123 p R45",false,level5Case10);
     
     PIErender();
 
@@ -5159,14 +6462,64 @@ function level5Case9(){
      box81.add(line);
      box81.position.set(-4.4, 0, 3.8);
 
-     //second resistor
-     var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
-     box82 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({color: "gray" }));//color: 0xd3d3d3
-     PIEaddElement(box82);
-     var edges2 = new THREE.EdgesGeometry(boxGeom2);
-     var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
-     box82.add(line2);
-     box82.position.set(4.4, 0, 3.8);
+
+    //second resistor
+    var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
+    box82 = new THREE.Mesh(boxGeom2, new THREE.MeshBasicMaterial({ color: "gray" }));//color: 0xd3d3d3
+    PIEaddElement(box82);
+    var edges2 = new THREE.EdgesGeometry(boxGeom2);
+    var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
+    box82.add(line2);
+    box82.position.set(4.4, 0, 3.8);
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R4", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel84 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel84);
+
+
+        thevel84.position.set(-5, 0, 4.2);
+        thevel84.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
+
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R5", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel85 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel85);
+
+
+        thevel85.position.set(3.8, 0, 4.2);
+        thevel85.rotation.x = - Math.PI / 2;
+
+
+    });
 
      //wire connecting the resistors
      var curve1 = new THREE.CubicBezierCurve3(
@@ -5266,7 +6619,7 @@ function level5Case9(){
         R45 = (R4+ R5);
 
         PIEaddMyText("R45", R45);
-        PIEaddMyCheckbox("R123 parellel R45",false,level5Case10);
+        PIEaddMyCheckbox("R123 p R45",false,level5Case10);
         PIErender();
 
 }
@@ -5275,7 +6628,7 @@ function level5Case9(){
 function level5Case10(){
 
     
-    PIEchangeDisplayCheckbox("R123 parellel R45",true);
+    PIEchangeDisplayCheckbox("R123 p R45",true);
     R12345= (R123*R45)/(R123+R45);    
     R12345string=R12345.toFixed(2);
     PIEaddMyCheckbox("R12345",R12345);
@@ -5578,10 +6931,13 @@ function removeElements() {
     PIEremoveElement(box22);
     PIEremoveElement(box82);
     PIEremoveElement(box42);
+    PIEremoveElement(box62);
     PIEremoveElement(box3);
     PIEremoveElement(box33);
     PIEremoveElement(box31);
     PIEremoveElement(box91);
+    PIEremoveElement(box61);
+    PIEremoveElement(box92);
     PIEremoveElement(box32);
     PIEremoveElement(mesh1);
     PIEremoveElement(mesh91);
@@ -5589,11 +6945,13 @@ function removeElements() {
     PIEremoveElement(mesh81);
     PIEremoveElement(mesh28);
     PIEremoveElement(mesh31);
+    PIEremoveElement(mesh61);
     PIEremoveElement(mesh2);
     PIEremoveElement(mesh82);
     PIEremoveElement(mesh92);
     PIEremoveElement(mesh42);
     PIEremoveElement(mesh22);
+    PIEremoveElement(mesh62);
     PIEremoveElement(mesh21);
     PIEremoveElement(mesh3);
     PIEremoveElement(mesh43);
@@ -5641,18 +6999,24 @@ function removeElements() {
     PIEremoveElement(thevel95);
     PIEremoveElement(thevel96);
     PIEremoveElement(thevel71);
+    PIEremoveElement(thevel81);
+    PIEremoveElement(thevel82);
+    PIEremoveElement(thevel83);
+    PIEremoveElement(thevel84);
+    PIEremoveElement(thevel85);
+    
     // level1btn.remove();
 }
 
 function removethevels(){
     PIEremoveElement(thevel1);
     PIEremoveElement(thevel2);
-    PIEremoveElement(thevel91);
-    PIEremoveElement(thevel92);
-    PIEremoveElement(thevel93);
-    PIEremoveElement(thevel94);
-    PIEremoveElement(thevel95);
-    PIEremoveElement(thevel96);
+    // PIEremoveElement(thevel91);
+    // PIEremoveElement(thevel92);
+    // PIEremoveElement(thevel93);
+    // PIEremoveElement(thevel94);
+    // PIEremoveElement(thevel95);
+    // PIEremoveElement(thevel96);
     PIEremoveElement(thevel71);
     PIErender();
 }
@@ -6383,6 +7747,62 @@ function level3ans(){
      box2.add(line2);
      box2.position.set(4.4, 0, -3.4);
 
+       //  first resistor text
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R1", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel81 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel81);
+
+
+        thevel81.position.set(-5, 0, -3);
+        thevel81.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
+
+
+
+
+
+    //  second resistor txt
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R2", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel82 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel82);
+
+
+        thevel82.position.set(3.8, 0, -3);
+        thevel82.rotation.x = - Math.PI / 2;
+
+
+    });
+
      //wire connecting the resistors
      var curve1 = new THREE.CubicBezierCurve3(
          new THREE.Vector3(-7, 0,-3.4),
@@ -6511,6 +7931,59 @@ function level3ans(){
          var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
          box42.add(line2);
          box42.position.set(4.4, 0, 3.8);
+
+    //  first resistor text
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R3", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel83 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel83);
+
+
+        thevel83.position.set(-5, 0, 4.2);
+        thevel83.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
+
+
+    //  second resistor txt
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R4", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel84 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel84);
+
+
+        thevel84.position.set(3.8, 0, 4.2);
+        thevel84.rotation.x = - Math.PI / 2;
+
+
+    });
     
          //wire connecting the resistors
          var curve1 = new THREE.CubicBezierCurve3(
@@ -6707,7 +8180,66 @@ function level2ans(){
     var edges2 = new THREE.EdgesGeometry(boxGeom2);
     var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
     box2.add(line2);
-    box2.position.set(0, 0, -1);
+    box2.position.set(0, 0, -1); var loader = new THREE.FontLoader();
+
+
+    //  second resistor txt
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R1", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel82 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel82);
+
+
+        thevel82.position.set(-0.55, 0, -.6);
+        thevel82.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
+
+     var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R2", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel81 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel81);
+
+
+        thevel81.position.set(-0.55, 0, 1.8);
+        thevel81.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
+
+
+
+
+
+
 
     //wire connecting the resistors
     //  var curve1 = new THREE.CubicBezierCurve3(
@@ -6858,6 +8390,31 @@ function level2ans(){
             var line3 = new THREE.LineSegments(edges3, new THREE.LineBasicMaterial({ color: 0x000 }));
             box3.add(line3);
             box3.position.set(0, 0, 3.8);
+
+    //  first resistor text
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R3", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel83 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel83);
+
+
+        thevel83.position.set(-.58, 0, 4.2);
+        thevel83.rotation.x = - Math.PI / 2;
+
+
+    });
 
 
             /////////////////////////////////////
@@ -7011,6 +8568,81 @@ function level4ans(){
     var line3 = new THREE.LineSegments(edges3, new THREE.LineBasicMaterial({ color: 0x000 }));
     box2.add(line3);
     box2.position.set(4.4, 0, -3.8);
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R1", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel81 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel81);
+
+
+        thevel81.position.set(-5, 0, -5.4);
+        thevel81.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R2", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel82 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel82);
+
+
+        thevel82.position.set(-5, 0, -.6);
+        thevel82.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
+    //third resistor txt
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R3", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel83 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel83);
+
+
+        thevel83.position.set(3.8, 0, -3.4);
+        thevel83.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
 
     //wire connecting the resistors
     //  var curve1 = new THREE.CubicBezierCurve3(
@@ -7191,6 +8823,30 @@ function level4ans(){
     var line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0x000 }));
     box91.add(line);
     box91.position.set(0, 0, 3.8);
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R4", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel84 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel84);
+
+
+        thevel84.position.set(-.58, 0, 4.2);
+        thevel84.rotation.x = - Math.PI / 2;
+
+
+    });
+
 
     // //second resistor
     // var boxGeom2 = new THREE.BoxGeometry(2.933, .5, 1);
@@ -7419,6 +9075,80 @@ function level5ans(){
     box2.add(line3);
     box2.position.set(4.4, 0, -3.8);
 
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R1", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel81 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel81);
+
+
+        thevel81.position.set(-5, 0, -5.4);
+        thevel81.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R2", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel82 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel82);
+
+
+        thevel82.position.set(-5, 0, -.6);
+        thevel82.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
+    //third resistor txt
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R3", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel83 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel83);
+
+
+        thevel83.position.set(3.8, 0, -3.4);
+        thevel83.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
     //wire connecting the resistors
     //  var curve1 = new THREE.CubicBezierCurve3(
     //      new THREE.Vector3(-8.8, 0, .4),
@@ -7605,6 +9335,55 @@ function level5ans(){
      box82.add(line2);
      box82.position.set(4.4, 0, 3.8);
 
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R4", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel84 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel84);
+
+
+        thevel84.position.set(-5, 0, 4.2);
+        thevel84.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
+
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R5", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel85 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel85);
+
+
+        thevel85.position.set(3.8, 0, 4.2);
+        thevel85.rotation.x = - Math.PI / 2;
+
+
+    });
+
      //wire connecting the resistors
      var curve1 = new THREE.CubicBezierCurve3(
          new THREE.Vector3(-7, 0,3.8),
@@ -7703,13 +9482,13 @@ function level5ans(){
         R45 = (R4+ R5);
 
         PIEaddMyText("R45", R45);
-        PIEaddMyCheckbox("R123 parellel R45",true,x);
+        PIEaddMyCheckbox("R123 p R45",true,x);
         PIErender();
 
 
 
     
-    // PIEchangeDisplayCheckbox("R123 parellel R45",true);
+    // PIEchangeDisplayCheckbox("R123 p R45",true);
     R12345= (R123*R45)/(R123+R45);    
     R12345string=R12345.toFixed(2);
     PIEaddMyCheckbox("R12345",R12345);
@@ -7823,6 +9602,64 @@ function level1ans(){
      var line2 = new THREE.LineSegments(edges2, new THREE.LineBasicMaterial({ color: 0x000 }));
      box2.add(line2);
      box2.position.set(4.4, 0, 0.4);
+
+
+    //  first resistor text
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R1", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel81 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel81);
+
+
+        thevel81.position.set(-5, 0, 0.8);
+        thevel81.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
+
+
+    //  second resistor txt
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("R2", {
+            font: font,
+            size: .8,
+            height: 0.3,
+            curveSegments: 3
+        });
+
+        thevel82 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel82);
+
+
+        thevel82.position.set(3.8, 0, .8);
+        thevel82.rotation.x = - Math.PI / 2;
+
+
+    });
+
+
+
+     
 
      //wire connecting the resistors
      var curve1 = new THREE.CubicBezierCurve3(
