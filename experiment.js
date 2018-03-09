@@ -5467,29 +5467,29 @@ function loadExperimentElements() {
     // showNoArrows();
    
 
-    console.log("start animation");
-    // PIEstartAnimation();
-    startOrbitalControls();
-    resetExperiment();
+    // console.log("start animation");
+    // // PIEstartAnimation();
+    // startOrbitalControls();
+    // resetExperiment();
 
-    // while(nextlevel==true){
+    // // while(nextlevel==true){
 
-    // if(level==1)
-    if (levelbtn) {
-        levelbtn.remove();
-    }
-    currentLevel = "Level 1"
-    levelbtn = PIEaddButton("Level 1");
-
-    console.log(level1btn);
-    level1Action();
-    console.log("back in start");
-    // if(nextlevel==false)
-    // {
-    //     console.log("nfdkfkl");
-    //     startAnimation();
-
+    // // if(level==1)
+    // if (levelbtn) {
+    //     levelbtn.remove();
     // }
+    // currentLevel = "Level 1"
+    // levelbtn = PIEaddButton("Level 1");
+
+    // console.log(level1btn);
+    // level1Action();
+    // console.log("back in start");
+    // // if(nextlevel==false)
+    // // {
+    // //     console.log("nfdkfkl");
+    // //     startAnimation();
+
+    // // }
 
     // PIEadjustDisplayScene();
     PIErender();
