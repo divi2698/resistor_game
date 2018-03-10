@@ -16,7 +16,6 @@ var arrow4;
 var arrow5;
 var arrow6;
 var arrow2A;
-
 var arrow3A;
 var arrow4A;
 var arrow5A;
@@ -74,6 +73,7 @@ var currentLevel="Level 1";
 var level2btn;
 var presentLevelGiveUp="Level 1";
 var giveupbtn;
+var levelAction;
 
 var box1;
 var box2;
@@ -158,6 +158,7 @@ var thevel82;
 var thevel83;
 var thevel84;
 var thevel85;
+var thevel97;
 
 
 function initialiseHelp() {
@@ -520,15 +521,238 @@ function stopAnimation() {
 
 /////////////////////////////////////////////////////////
 
-//  function showResistanceValues(){
+ function showResistanceValues(){
      
-//  }
+            console.log("in show reistance values");
+
+            console.log(levelAction);
+            var reff;
+    
+            var loader = new THREE.FontLoader();
+            loader.load("optimer.json", function (response) {
+                font = response;
+            if(levelAction=="level1act")
+                reff=refflevel1;
+            else if(levelAction=="level2act")
+                reff=refflevel2;
+            else if(levelAction=="level3act")
+                reff=refflevel3;
+            else if(levelAction=="level4act")
+                reff=refflevel4;
+            else
+                reff=refflevel5;
+
+            var res1="Req Resistance = "+reff.toString()+" ohm";
+            var geometry = new THREE.TextGeometry(res1, {
+                    font: font,
+                    size: .4,
+                    height: 0.01,
+                    curveSegments: 3
+                });
+            
+                thevel91 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+                
+            
+                PIEaddElement(thevel91);
+                thevel91.position.set(-15.5, 0, -12);
+                thevel91.rotation.x = - Math.PI / 6;
+            
+            });
+
+        var loader = new THREE.FontLoader();
+        loader.load("optimer.json", function (response) {
+        font = response;
+        var res1="R1 = "+R1.toString()+" ohm";
+        var geometry = new THREE.TextGeometry(res1, {
+            font: font,
+            size: .4,
+            height: 0.01,
+            curveSegments: 3
+        });
+
+        thevel92 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
 
 
+        PIEaddElement(thevel92);
+        thevel92.position.set(-15.70, -1, -12);
+        thevel92.rotation.x = - Math.PI / 6;
+
+        });
+
+        var loader = new THREE.FontLoader();
+        loader.load("optimer.json", function (response) {
+        font = response;
+        var res1="R2 = "+R2.toString()+" ohm";
+        var geometry = new THREE.TextGeometry(res1, {
+            font: font,
+            size: .4,
+            height: 0.01,
+            curveSegments: 3
+        });
+
+        thevel93 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+        PIEaddElement(thevel93);
+        thevel93.position.set(-15.90,-2,-12);
+        thevel93.rotation.x = - Math.PI / 6;
+
+        });
+
+
+        if (levelAction == "level1act")
+            return;
+
+
+        var loader = new THREE.FontLoader();
+        loader.load("optimer.json", function (response) {
+        font = response;
+        var res1="R3 = "+R3.toString()+" ohm";
+        var geometry = new THREE.TextGeometry(res1, {
+            font: font,
+            size: .4,
+            height: 0.01,
+            curveSegments: 3
+        });
+
+        thevel94 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel94);
+        thevel94.position.set(-16.10,-3,-12);
+        thevel94.rotation.x = - Math.PI / 6;
+
+        });
+
+        if(levelAction=="level2act")
+        return;
+
+        var loader = new THREE.FontLoader();
+        loader.load("optimer.json", function (response) {
+        font = response;
+        var res1="R4 = "+R4.toString()+" ohm";
+        var geometry = new THREE.TextGeometry(res1, {
+            font: font,
+            size: .4,
+            height: 0.01,
+            curveSegments: 3
+        });
+
+        thevel95 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel95);
+        thevel95.position.set(-16.30,-4,-12);
+        thevel95.rotation.x = - Math.PI / 6;
+
+        });
+
+   
+        if(levelAction=="level3act"||levelAction=="level4act")
+        return;
+
+        console.log("level5action and in the thvel");
+
+        var loader = new THREE.FontLoader();
+            loader.load("optimer.json", function (response) {
+                font = response;
+                var res1 = "R5 = " + R5.toString() + " ohm";
+                var geometry = new THREE.TextGeometry(res1, {
+                    font: font,
+                    size: .4,
+                    height: 0.01,
+                    curveSegments: 3
+                });
+
+                thevel96 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+                PIEaddElement(thevel96);
+                console.log("in add thevel 6");
+                thevel96.position.set(-16.50, -5, - 12);
+                thevel96.rotation.x = - Math.PI / 6;
+
+            });
+
+    
+ 
+        console.log("at end of show resistance values");
+    }
+
+
+
+
+function resetMessage(){
+
+    var loader = new THREE.FontLoader();
+    loader.load("optimer.json", function (response) {
+    font = response;
+
+    var geometry = new THREE.TextGeometry("Press Reset To Try Again!!", {
+            font: font,
+            size: .8,
+            height: 0.01,
+            curveSegments: 3
+        });
+
+        thevel1 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+        
+
+        PIEaddElement(thevel1);
+    
+
+        thevel1.position.set(-7, 0, -10);
+        thevel1.rotation.x = - Math.PI / 6;
+        
+    });
+
+
+}
+
+function nextlevelMessage(){
+    var loader = new THREE.FontLoader();
+    loader.load("./optimer.json", function (response) {
+        font = response;
+
+        var geometry = new THREE.TextGeometry("Press Next Level To Advance", {
+            font: font,
+            size: .8,
+            height: 0.01,
+            curveSegments: 3
+        });
+
+        thevel2 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        PIEaddElement(thevel2);
+        // thevel.castShadow = false;
+        // thevel.visible = false;
+
+        // geometry = new THREE.TextGeometry("Ball's Velocity", {
+        //     font: font,
+        //     size: 0.075,
+        //     height: 0.3,
+        // });
+        // heading = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+        // heading.translation = geometry.center();
+        // PIEaddElement(heading);
+        // heading.castShadow = false;
+        // heading.visible = false;
+
+        thevel2.position.set(-7.65, 0, -10);
+        thevel2.rotation.x = - Math.PI / 6;
+        
+        // thevel2.lookAt(PIEcamera.position);
+        // heading.position.set(0.4 * PIEcamera.position.x, 0.2 * PIEcamera.position.y + 0.075, 0.4 * PIEcamera.position.z);
+        // heading.lookAt(PIEcamera.position);
+    });
+
+
+}
         //======LEVEL 1 ACTION===========//
                 
 function level1Action(){
-
+  
+    levelAction="level1act";
+    showResistanceValues();
     presentLevelGiveUp="Level 1";
     giveupbtn=PIEaddButton("Give Up");
     giveupbtn.addEventListener("click",giveup);
@@ -537,68 +761,6 @@ function level1Action(){
     PIEaddMyCheckbox("R1 parellel R2", false, level1Case1);
     PIEaddMyCheckbox("R1 series R2", false, level1Case2);
 
-
-
-    var loader = new THREE.FontLoader();
-    loader.load("optimer.json", function (response) {
-    font = response;
-    var res1="Required Resistance = "+refflevel1.toString()+" ohm";
-    var geometry = new THREE.TextGeometry(res1, {
-            font: font,
-            size: .5,
-            height: 0.01,
-            curveSegments: 3
-        });
-
-        thevel91 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-        
-
-        PIEaddElement(thevel91);
-        thevel91.position.set(-22, 0, -12);
-        thevel91.rotation.x = - Math.PI / 6;
-    
-    });
-        
-
-    var loader = new THREE.FontLoader();
-    loader.load("optimer.json", function (response) {
-    font = response;
-    var res1="R1 = "+R1.toString()+" ohm";
-    var geometry = new THREE.TextGeometry(res1, {
-        font: font,
-        size: .5,
-        height: 0.01,
-        curveSegments: 3
-    });
-
-    thevel92 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-    PIEaddElement(thevel92);
-    thevel92.position.set(-22.35, -1.5, -12);
-    thevel92.rotation.x = - Math.PI / 6;
-
-    });
-    
-    var loader = new THREE.FontLoader();
-    loader.load("optimer.json", function (response) {
-    font = response;
-    var res1="R2 = "+R2.toString()+" ohm";
-    var geometry = new THREE.TextGeometry(res1, {
-        font: font,
-        size: .5,
-        height: 0.01,
-        curveSegments: 3
-    });
-
-    thevel93 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-PIEaddElement(thevel93);
-thevel93.position.set(-22.75,-3,-12);
-thevel93.rotation.x = - Math.PI / 6;
-
-});
     // PIEchangeInputCheckbox("Level 5", true);
 }
 
@@ -608,6 +770,8 @@ thevel93.rotation.x = - Math.PI / 6;
                 
 function level2Action(){
 
+    levelAction = "level2act";
+    showResistanceValues();
     level2btn.remove();
     currentLevel="Level 2";
     levelbtn.innerHTML=currentLevel;
@@ -632,91 +796,12 @@ function level2Action(){
     PIEaddMyCheckbox("R1 parellel R2", false,level2Case1);
     PIEaddMyCheckbox("R1 series R2", false,level2Case2);
 
-    var loader = new THREE.FontLoader();
-    loader.load("optimer.json", function (response) {
-        font = response;
-    var res1="Required Resistance = "+refflevel2.toString()+" ohm";
-    var geometry = new THREE.TextGeometry(res1, {
-            font: font,
-            size: .5,
-            height: 0.01,
-            curveSegments: 3
-        });
-    
-        thevel91 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-        
-    
-        PIEaddElement(thevel91);
-        thevel91.position.set(-22, 0, -12);
-        thevel91.rotation.x = - Math.PI / 6;
-       
-    });
-    PIErender();
-
-    var loader = new THREE.FontLoader();
-loader.load("optimer.json", function (response) {
-font = response;
-var res1="R1 = "+R1.toString()+" ohm";
-var geometry = new THREE.TextGeometry(res1, {
-    font: font,
-    size: .5,
-    height: 0.01,
-    curveSegments: 3
-});
-
-thevel92 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-PIEaddElement(thevel92);
-thevel92.position.set(-22.35, -1.5, -12);
-thevel92.rotation.x = - Math.PI / 6;
-
-});
-
-var loader = new THREE.FontLoader();
-loader.load("optimer.json", function (response) {
-font = response;
-var res1="R2 = "+R2.toString()+" ohm";
-var geometry = new THREE.TextGeometry(res1, {
-    font: font,
-    size: .5,
-    height: 0.01,
-    curveSegments: 3
-});
-
-thevel93 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-PIEaddElement(thevel93);
-thevel93.position.set(-22.75,-3,-12);
-thevel93.rotation.x = - Math.PI / 6;
-
-});
-
-
-var loader = new THREE.FontLoader();
-loader.load("optimer.json", function (response) {
-font = response;
-var res1="R3 = "+R3.toString()+" ohm";
-var geometry = new THREE.TextGeometry(res1, {
-    font: font,
-    size: .5,
-    height: 0.01,
-    curveSegments: 3
-});
-
-thevel94 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-PIEaddElement(thevel94);
-thevel94.position.set(-23.15,-4.5,-12);
-thevel94.rotation.x = - Math.PI / 6;
-
-});
-
+   
 }
 
 function level3Action(){
+    levelAction = "level3act";
+    showResistanceValues();
     level2btn.remove();
     currentLevel="Level 3";
     levelbtn.innerHTML=currentLevel;
@@ -743,109 +828,13 @@ function level3Action(){
     PIEaddMyCheckbox("R1 parellel R2", false,level3Case1);
     PIEaddMyCheckbox("R1 series R2", false,level3Case2);
 
-    var loader = new THREE.FontLoader();
-    loader.load("optimer.json", function (response) {
-        font = response;
-    var res1="Required Resistance = "+refflevel3.toString()+" ohm";
-    var geometry = new THREE.TextGeometry(res1, {
-            font: font,
-            size: .5,
-            height: 0.01,
-            curveSegments: 3
-        });
     
-        thevel91 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-        
-    
-        PIEaddElement(thevel91);
-        thevel91.position.set(-22, 0, -12);
-        thevel91.rotation.x = - Math.PI / 6;
-       
-    });
-
-    var loader = new THREE.FontLoader();
-loader.load("optimer.json", function (response) {
-font = response;
-var res1="R1 = "+R1.toString()+" ohm";
-var geometry = new THREE.TextGeometry(res1, {
-    font: font,
-    size: .5,
-    height: 0.01,
-    curveSegments: 3
-});
-
-thevel92 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-PIEaddElement(thevel92);
-thevel92.position.set(-22.35, -1.5, -12);
-thevel92.rotation.x = - Math.PI / 6;
-
-});
-
-var loader = new THREE.FontLoader();
-loader.load("optimer.json", function (response) {
-font = response;
-var res1="R2 = "+R2.toString()+" ohm";
-var geometry = new THREE.TextGeometry(res1, {
-    font: font,
-    size: .5,
-    height: 0.01,
-    curveSegments: 3
-});
-
-thevel93 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-PIEaddElement(thevel93);
-thevel93.position.set(-22.75,-3,-12);
-thevel93.rotation.x = - Math.PI / 6;
-
-});
-
-var loader = new THREE.FontLoader();
-loader.load("optimer.json", function (response) {
-font = response;
-var res1="R3 = "+R3.toString()+" ohm";
-var geometry = new THREE.TextGeometry(res1, {
-    font: font,
-    size: .5,
-    height: 0.01,
-    curveSegments: 3
-});
-
-thevel94 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-PIEaddElement(thevel94);
-thevel94.position.set(-23.15,-4.5,-12);
-thevel94.rotation.x = - Math.PI / 6;
-
-});
-
-var loader = new THREE.FontLoader();
-loader.load("optimer.json", function (response) {
-font = response;
-var res1="R4 = "+R4.toString()+" ohm";
-var geometry = new THREE.TextGeometry(res1, {
-    font: font,
-    size: .5,
-    height: 0.01,
-    curveSegments: 3
-});
-
-thevel95 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-PIEaddElement(thevel95);
-thevel95.position.set(-23.55,-6,-12);
-thevel95.rotation.x = - Math.PI / 6;
-
-});
-   
 }
 
 function level4Action(){
+
+    levelAction = "level4act";
+    showResistanceValues();
     level2btn.remove();
     currentLevel="Level 4";
     levelbtn.innerHTML=currentLevel;
@@ -876,110 +865,15 @@ function level4Action(){
     PIEaddMyCheckbox("R1 p R3 s R2", false,level4Case4);
     PIEaddMyCheckbox("R2 p R3 s R1", false,level4Case5);
 
-    var loader = new THREE.FontLoader();
-    loader.load("optimer.json", function (response) {
-        font = response;
-    var res1="Required Resistance = "+refflevel4.toString()+" ohm";
-    var geometry = new THREE.TextGeometry(res1, {
-            font: font,
-            size: .5,
-            height: 0.01,
-            curveSegments: 3
-        });
     
-        thevel91 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-        
-    
-        PIEaddElement(thevel91);
-        thevel91.position.set(-22, 0, -12);
-        thevel91.rotation.x = - Math.PI / 6;
-       
-    });
-   
-    var loader = new THREE.FontLoader();
-loader.load("optimer.json", function (response) {
-font = response;
-var res1="R1 = "+R1.toString()+" ohm";
-var geometry = new THREE.TextGeometry(res1, {
-    font: font,
-    size: .5,
-    height: 0.01,
-    curveSegments: 3
-});
-
-thevel92 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-PIEaddElement(thevel92);
-thevel92.position.set(-22.35, -1.5, -12);
-thevel92.rotation.x = - Math.PI / 6;
-
-});
-
-var loader = new THREE.FontLoader();
-loader.load("optimer.json", function (response) {
-font = response;
-var res1="R2 = "+R2.toString()+" ohm";
-var geometry = new THREE.TextGeometry(res1, {
-    font: font,
-    size: .5,
-    height: 0.01,
-    curveSegments: 3
-});
-
-thevel93 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-PIEaddElement(thevel93);
-thevel93.position.set(-22.75,-3,-12);
-thevel93.rotation.x = - Math.PI / 6;
-
-});
-
-var loader = new THREE.FontLoader();
-loader.load("optimer.json", function (response) {
-font = response;
-var res1="R3 = "+R3.toString()+" ohm";
-var geometry = new THREE.TextGeometry(res1, {
-    font: font,
-    size: .5,
-    height: 0.01,
-    curveSegments: 3
-});
-
-thevel94 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-PIEaddElement(thevel94);
-thevel94.position.set(-23.15,-4.5,-12);
-thevel94.rotation.x = - Math.PI / 6;
-
-});
-
-var loader = new THREE.FontLoader();
-loader.load("optimer.json", function (response) {
-font = response;
-var res1="R4 = "+R4.toString()+" ohm";
-var geometry = new THREE.TextGeometry(res1, {
-    font: font,
-    size: .5,
-    height: 0.01,
-    curveSegments: 3
-});
-
-thevel95 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-PIEaddElement(thevel95);
-thevel95.position.set(-23.55,-6,-12);
-thevel95.rotation.x = - Math.PI / 6;
-
-});
 
 }
 
 
 function level5Action(){
+
+    levelAction = "level5act";
+    showResistanceValues();
         
     level2btn.remove();
     currentLevel="Level 5";
@@ -1016,127 +910,6 @@ function level5Action(){
     PIEaddMyCheckbox("R1 p R3 s R2",false,level5Case4);
     PIEaddMyCheckbox("R2 p R3 s R1",false,level5Case5);
 
-    var loader = new THREE.FontLoader();
-    loader.load("optimer.json", function (response) {
-        font = response;
-    var res1="Required Resistance = "+refflevel5.toString()+" ohm";
-    var geometry = new THREE.TextGeometry(res1, {
-            font: font,
-            size: .5,
-            height: 0.01,
-            curveSegments: 3
-        });
-    
-        thevel91 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-        
-    
-        PIEaddElement(thevel91);
-        thevel91.position.set(-22, 0, -12);
-        thevel91.rotation.x = - Math.PI / 6;
-       
-    });
-
-    var loader = new THREE.FontLoader();
-loader.load("optimer.json", function (response) {
-font = response;
-var res1="R1 = "+R1.toString()+" ohm";
-var geometry = new THREE.TextGeometry(res1, {
-    font: font,
-    size: .5,
-    height: 0.01,
-    curveSegments: 3
-});
-
-thevel92 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-PIEaddElement(thevel92);
-thevel92.position.set(-22.35, -1.5, -12);
-thevel92.rotation.x = - Math.PI / 6;
-
-});
-
-var loader = new THREE.FontLoader();
-loader.load("optimer.json", function (response) {
-font = response;
-var res1="R2 = "+R2.toString()+" ohm";
-var geometry = new THREE.TextGeometry(res1, {
-    font: font,
-    size: .5,
-    height: 0.01,
-    curveSegments: 3
-});
-
-thevel93 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-PIEaddElement(thevel93);
-thevel93.position.set(-22.75,-3,-12);
-thevel93.rotation.x = - Math.PI / 6;
-
-});
-
-
-var loader = new THREE.FontLoader();
-loader.load("optimer.json", function (response) {
-font = response;
-var res1="R3 = "+R3.toString()+" ohm";
-var geometry = new THREE.TextGeometry(res1, {
-    font: font,
-    size: .5,
-    height: 0.01,
-    curveSegments: 3
-});
-
-thevel94 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-PIEaddElement(thevel94);
-thevel94.position.set(-23.15,-4.5,-12);
-thevel94.rotation.x = - Math.PI / 6;
-
-});
-
-var loader = new THREE.FontLoader();
-loader.load("optimer.json", function (response) {
-font = response;
-var res1="R4 = "+R4.toString()+" ohm";
-var geometry = new THREE.TextGeometry(res1, {
-    font: font,
-    size: .5,
-    height: 0.01,
-    curveSegments: 3
-});
-
-thevel95 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-PIEaddElement(thevel95);
-thevel95.position.set(-23.55,-6,-12);
-thevel95.rotation.x = - Math.PI / 6;
-
-});
-
-
-var loader = new THREE.FontLoader();
-loader.load("optimer.json", function (response) {
-font = response;
-var res1="R5 = "+R5.toString()+" ohm";
-var geometry = new THREE.TextGeometry(res1, {
-    font: font,
-    size: .5,
-    height: 0.01,
-    curveSegments: 3
-});
-
-thevel96 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-PIEaddElement(thevel96);
-thevel96.position.set(-23.95, -7.5, -12);
-thevel96.rotation.x = - Math.PI / 6;
-
-});
     // PIErender();
     console.log("level5Action");
     
@@ -1375,32 +1148,10 @@ function level1Case1(){
 
     giveupbtn.remove();
     if(R12string!=refflevel1string&&flag==0){
-        // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
-        // successbtn.addEventListener("click",resetExperiment);
-        var loader = new THREE.FontLoader();
-            loader.load("optimer.json", function (response) {
-            font = response;
-
-        var geometry = new THREE.TextGeometry("Press Reset To Try Again!!", {
-                font: font,
-                size: .8,
-                height: 0.01,
-                curveSegments: 3
-            });
-
-            thevel1 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-            
-
-            PIEaddElement(thevel1);
-          
-
-            thevel1.position.set(-8.5, 0, -12);
-            thevel1.rotation.x = - Math.PI / 6;
-            
-           
-        });
+       resetMessage();
         }
     console.log("in case1");
+
     currentLevel="Level 1";
     
  }
@@ -1558,29 +1309,8 @@ function level1Case1(){
      PIErender();
      giveupbtn.remove();
      if(R12string == refflevel1string&&flag==0) {
-         // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
-         // successbtn.addEventListener("click",resetExperiment);
-         var loader = new THREE.FontLoader();
-         loader.load("./optimer.json", function (response) {
-             font = response;
-
-             var geometry = new THREE.TextGeometry("Press Next Level To Go To Next Level", {
-                 font: font,
-                 size: .8,
-                 height: 0.01,
-                 curveSegments: 3
-             });
-
-             thevel2 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-             PIEaddElement(thevel2);
-            
-
-             thevel2.position.set(-10.1, 0, -12);
-             thevel2.rotation.x = - Math.PI / 6;
-         
-         });
+     
+        nextlevelMessage();
      }
      console.log("in case1");
 
@@ -1941,44 +1671,9 @@ function level2Case3(){
     giveupbtn.remove();
 
     if (R123string == refflevel2string&&flag==0) {
-        // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
-        // successbtn.addEventListener("click",resetExperiment);
-        var loader = new THREE.FontLoader();
-         loader.load("./optimer.json", function (response) {
-             font = response;
-
-             var geometry = new THREE.TextGeometry("Press Next Level To Go To Next Level", {
-                 font: font,
-                 size: .8,
-                 height: 0.01,
-                 curveSegments: 3
-             });
-
-             thevel2 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-             PIEaddElement(thevel2);
-             // thevel.castShadow = false;
-             // thevel.visible = false;
-
-             // geometry = new THREE.TextGeometry("Ball's Velocity", {
-             //     font: font,
-             //     size: 0.075,
-             //     height: 0.3,
-             // });
-             // heading = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-             // heading.translation = geometry.center();
-             // PIEaddElement(heading);
-             // heading.castShadow = false;
-             // heading.visible = false;
-
-             thevel2.position.set(-10.1, 0, -12);
-             thevel2.rotation.x = - Math.PI / 6;
-             
-             // thevel.lookAt(PIEcamera.position);
-             // heading.position.set(0.4 * PIEcamera.position.x, 0.2 * PIEcamera.position.y + 0.075, 0.4 * PIEcamera.position.z);
-             // heading.lookAt(PIEcamera.position);
-         });
+ 
+      
+        nextlevelMessage();
     }
 
     
@@ -2242,43 +1937,43 @@ function level2Case4(){
             PIErender();
             giveupbtn.remove();
             if(R123string!=refflevel2string){
-                // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
-                // successbtn.addEventListener("click",resetExperiment);
-                var loader = new THREE.FontLoader();
-                    loader.load("optimer.json", function (response) {
-                    font = response;
+            
+                // var loader = new THREE.FontLoader();
+                //     loader.load("optimer.json", function (response) {
+                //     font = response;
         
-                var geometry = new THREE.TextGeometry("Press Reset To Try Again!!", {
-                        font: font,
-                        size: .8,
-                        height: 0.01,
-                        curveSegments: 3
-                    });
+                // var geometry = new THREE.TextGeometry("Press Reset To Try Again!!", {
+                //         font: font,
+                //         size: .8,
+                //         height: 0.01,
+                //         curveSegments: 3
+                //     });
         
-                    thevel1 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+                //     thevel1 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
                     
         
-                    PIEaddElement(thevel1);
-                    // thevel.castShadow = false;
-                    // thevel.visible = false;
+                //     PIEaddElement(thevel1);
+                //     // thevel.castShadow = false;
+                //     // thevel.visible = false;
         
-                    // geometry = new THREE.TextGeometry("Ball's Velocity", {
-                    //     font: font,
-                    //     size: 0.075,
-                    //     height: 0.3,
-                    // });
-                    // heading = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-                    // heading.translation = geometry.center();
-                    // PIEaddElement(heading);
-                    // heading.castShadow = false;
-                    // heading.visible = false;
+                //     // geometry = new THREE.TextGeometry("Ball's Velocity", {
+                //     //     font: font,
+                //     //     size: 0.075,
+                //     //     height: 0.3,
+                //     // });
+                //     // heading = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+                //     // heading.translation = geometry.center();
+                //     // PIEaddElement(heading);
+                //     // heading.castShadow = false;
+                //     // heading.visible = false;
         
-                    thevel1.position.set(-8.5, 0, -12);
-                    thevel1.rotation.x = - Math.PI / 6;
-                    // thevel.lookAt(PIEcamera.position);
-                    // heading.position.set(0.4 * PIEcamera.position.x, 0.2 * PIEcamera.position.y + 0.075, 0.4 * PIEcamera.position.z);
-                    // heading.lookAt(PIEcamera.position);
-                });
+                //     thevel1.position.set(-8.5, 0, -12);
+                //     thevel1.rotation.x = - Math.PI / 6;
+                //     // thevel.lookAt(PIEcamera.position);
+                //     // heading.position.set(0.4 * PIEcamera.position.x, 0.2 * PIEcamera.position.y + 0.075, 0.4 * PIEcamera.position.z);
+                //     // heading.lookAt(PIEcamera.position);
+                // });
+                resetMessage();
                 }
             currentLevel="Level 1";
             console.log("level2case4");
@@ -3110,67 +2805,13 @@ function level3Case9(){
     giveupbtn.remove();
 
     if(R1234string!=refflevel3string){
-        // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
-        // successbtn.addEventListener("click",resetExperiment);
-        var loader = new THREE.FontLoader();
-            loader.load("optimer.json", function (response) {
-            font = response;
-
-        var geometry = new THREE.TextGeometry("Press Reset To Try Again!!", {
-                font: font,
-                size: .8,
-                height: 0.01,
-                curveSegments: 3
-            });
-
-            thevel1 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-            
-
-            PIEaddElement(thevel1);
-            thevel1.position.set(-8.5, 0, -12);
-            thevel1.rotation.x = - Math.PI / 6;
-           
-        });
-        
+       
+    resetMessage();
     currentLevel="Level 1";
     }
     else if (R1234string == refflevel3string&&flag==0) {
-        // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
-        // successbtn.addEventListener("click",resetExperiment);
-        var loader = new THREE.FontLoader();
-         loader.load("./optimer.json", function (response) {
-             font = response;
-
-             var geometry = new THREE.TextGeometry("Press Next Level To Go To Next Level", {
-                 font: font,
-                 size: 0.8,
-                 height: 0.01,
-                 curveSegments: 3
-             });
-
-             thevel2 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-             PIEaddElement(thevel2);
-             // thevel.castShadow = false;
-             // thevel.visible = false;
-
-             // geometry = new THREE.TextGeometry("Ball's Velocity", {
-             //     font: font,
-             //     size: 0.075,
-             //     height: 0.3,
-             // });
-             // heading = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-             // heading.translation = geometry.center();
-             // PIEaddElement(heading);
-             // heading.castShadow = false;
-             // heading.visible = false;
-
-             thevel2.position.set(-10.1, 0, -12);
-             // thevel.lookAt(PIEcamera.position);
-             // heading.position.set(0.4 * PIEcamera.position.x, 0.2 * PIEcamera.position.y + 0.075, 0.4 * PIEcamera.position.z);
-             // heading.lookAt(PIEcamera.position);
-         });
+     
+      nextlevelMessage();
 
     level2btn=PIEaddButton("Next Level");
 
@@ -3197,51 +2838,13 @@ function level3Case10(){
     giveupbtn.remove();
 
     if(R1234string!=refflevel3string){
-        // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
-        // successbtn.addEventListener("click",resetExperiment);
-        var loader = new THREE.FontLoader();
-            loader.load("optimer.json", function (response) {
-            font = response;
-
-        var geometry = new THREE.TextGeometry("Press Reset To Try Again!!", {
-                font: font,
-                size: .8,
-                height: 0.01,
-                curveSegments: 3
-            });
-
-            thevel1 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-            
-
-            PIEaddElement(thevel1);
-            thevel1.position.set(-8.5, 0, -12);
-            thevel1.rotation.x = - Math.PI / 6;
-           
-        });
+     
+        resetMessage();
         currentLevel="Level 1";
     }
     else if (R1234string == refflevel3string &&flag==0) {
         
-        var loader = new THREE.FontLoader();
-         loader.load("./optimer.json", function (response) {
-             font = response;
-
-             var geometry = new THREE.TextGeometry("Press Next Level To Go To Next Level", {
-                 font: font,
-                 size: .8,
-                 height: 0.01,
-                 curveSegments: 3
-             });
-
-             thevel2 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-            PIEaddElement(thevel2);
-            thevel2.position.set(-10.1, 0, -12);
-            thevel2.rotation.x = - Math.PI / 6;
-            
-           
-         });
+       nextlevelMessage();
 
          level2btn=PIEaddButton("Next Level");
 
@@ -4796,51 +4399,13 @@ function level4Case10(){
     PIEaddMyCheckbox("R1234",R1234);
     giveupbtn.remove();
     if(R1234string!=refflevel4string){
-        // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
-        // successbtn.addEventListener("click",resetExperiment);
-        var loader = new THREE.FontLoader();
-            loader.load("optimer.json", function (response) {
-            font = response;
-
-        var geometry = new THREE.TextGeometry("Press Reset To Try Again!!", {
-                font: font,
-                size: .8,
-                height: 0.1,
-                curveSegments: 3
-            });
-
-            thevel1 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-            
-
-            PIEaddElement(thevel1);
-            thevel1.position.set(-8.5, 0, -12);
-            thevel1.rotation.x = - Math.PI / 6;
-           
-        });
+     
+        resetMessage();
         currentLevel="Level 1";
     }
     else if (R1234string == refflevel4string&&flag==0) {
         
-        var loader = new THREE.FontLoader();
-         loader.load("./optimer.json", function (response) {
-             font = response;
-
-             var geometry = new THREE.TextGeometry("Press Next Level To Go To Next Level", {
-                 font: font,
-                 size: 0.8,
-                 height: 0.01,
-                 curveSegments: 3
-             });
-
-             thevel2 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-            PIEaddElement(thevel2);
-            thevel2.position.set(-10.1, 0, -12);
-            thevel2.rotation.x = - Math.PI / 6;
-            
-           
-         });
+       nextlevelMessage();
 
          level2btn=PIEaddButton("Next Level");
 
@@ -6634,27 +6199,8 @@ function level5Case10(){
     PIEaddMyCheckbox("R12345",R12345);
     giveupbtn.remove();
     if(R12345string!=refflevel5string){
-        // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
-        // successbtn.addEventListener("click",resetExperiment);
-        var loader = new THREE.FontLoader();
-            loader.load("optimer.json", function (response) {
-            font = response;
-
-        var geometry = new THREE.TextGeometry("Press Reset To Try Again!!", {
-                font: font,
-                size: .8,
-                height: 0.01,
-                curveSegments: 3
-            });
-
-            thevel1 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-            
-
-            PIEaddElement(thevel1);
-            thevel1.position.set(-8.5, 0, -12);
-            thevel1.rotation.x = - Math.PI / 6;
-           
-        });
+        
+        resetMessage();
         currentLevel="Level 1";
     }
     else if (R12345string == refflevel5string&&flag==0) {
@@ -6674,22 +6220,10 @@ function level5Case10(){
 
 
             PIEaddElement(thevel2);
-            thevel2.position.set(-8.65, 0, -15);
+            thevel2.position.set(-8.4, 0, -14);
             thevel2.rotation.x = - Math.PI / 6;
 
-            var geometry = new THREE.TextGeometry("Press Reset To Play Again!!", {
-                font: font,
-                size: .8,
-                height: 0.01,
-                curveSegments: 3
-            });
-
-            thevel1 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-            
-
-            PIEaddElement(thevel1);
-            thevel1.position.set(-8.33, -1.5, -15);
-            thevel1.rotation.x = - Math.PI / 6;
+            resetMessage();
     
             currentLevel="Level 1";
            
@@ -6711,22 +6245,32 @@ function  giveup(){
     flag=1;
     if(presentLevelGiveUp=="Level 1"){
         resetExperiment();
+        levelAction = "level1act";
+        showResistanceValues();
         level1ans();
     }
     else if(presentLevelGiveUp=="Level 2"){
         resetExperiment();
+        levelAction = "level2act";
+        showResistanceValues();
         level2ans();
        
     }
     else if(presentLevelGiveUp=="Level 3"){
         resetExperiment();
+        levelAction = "level3act";
+        showResistanceValues();
         level3ans();
     }
     else if(presentLevelGiveUp=="Level 4"){
+        levelAction = "level4act";
+        showResistanceValues();
         resetExperiment();
         level4ans();
     }
     else if(presentLevelGiveUp=="Level 5"){
+        levelAction = "level5act";
+        showResistanceValues();
         resetExperiment();
         level5ans();
     }
@@ -6748,7 +6292,7 @@ var geometry = new THREE.TextGeometry("Press Reset To Try Again!!", {
     
 
     PIEaddElement(thevel71);
-    thevel71.position.set(-8.5, 0, -12);
+    thevel71.position.set(-7, 0, -12);
     thevel71.rotation.x = - Math.PI / 6;
    
 });
@@ -8095,51 +7639,13 @@ function level3ans(){
     giveupbtn.remove();
 
     if(R1234string!=refflevel3string){
-        // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
-        // successbtn.addEventListener("click",resetExperiment);
-        var loader = new THREE.FontLoader();
-            loader.load("optimer.json", function (response) {
-            font = response;
-
-        var geometry = new THREE.TextGeometry("Press Reset To Try Again!!", {
-                font: font,
-                size: .8,
-                height: 0.01,
-                curveSegments: 3
-            });
-
-            thevel1 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-            
-
-            PIEaddElement(thevel1);
-            thevel1.position.set(-8.5, 0, -12);
-            thevel1.rotation.x = - Math.PI / 6;
-           
-        });
+     
+       resetMessage();
         currentLevel="Level 1";
     }
     else if (R1234string == refflevel3string &&flag==0) {
         
-        var loader = new THREE.FontLoader();
-         loader.load("./optimer.json", function (response) {
-             font = response;
-
-             var geometry = new THREE.TextGeometry("Press Next Level To Go To Next Level", {
-                 font: font,
-                 size: .8,
-                 height: 0.01,
-                 curveSegments: 3
-             });
-
-             thevel2 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-            PIEaddElement(thevel2);
-            thevel2.position.set(-10.1, 0, -12);
-            thevel2.rotation.x = - Math.PI / 6;
-            
-           
-         });
+       nextlevelMessage();
 
          level2btn=PIEaddButton("Next Level");
 
@@ -8479,44 +7985,8 @@ function level2ans(){
     giveupbtn.remove();
 
     if (R123string == refflevel2string&&flag==0) {
-        // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
-        // successbtn.addEventListener("click",resetExperiment);
-        var loader = new THREE.FontLoader();
-         loader.load("./optimer.json", function (response) {
-             font = response;
-
-             var geometry = new THREE.TextGeometry("Press Next Level To Go To Next Level", {
-                 font: font,
-                 size: .8,
-                 height: 0.01,
-                 curveSegments: 3
-             });
-
-             thevel2 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-             PIEaddElement(thevel2);
-             // thevel.castShadow = false;
-             // thevel.visible = false;
-
-             // geometry = new THREE.TextGeometry("Ball's Velocity", {
-             //     font: font,
-             //     size: 0.075,
-             //     height: 0.3,
-             // });
-             // heading = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-             // heading.translation = geometry.center();
-             // PIEaddElement(heading);
-             // heading.castShadow = false;
-             // heading.visible = false;
-
-             thevel2.position.set(-10.1, 0, -12);
-             thevel2.rotation.x = - Math.PI / 6;
-             
-             // thevel.lookAt(PIEcamera.position);
-             // heading.position.set(0.4 * PIEcamera.position.x, 0.2 * PIEcamera.position.y + 0.075, 0.4 * PIEcamera.position.z);
-             // heading.lookAt(PIEcamera.position);
-         });
+    
+       nextlevelMessage();
     }
 
     
@@ -8983,51 +8453,13 @@ function level4ans(){
     PIEaddMyCheckbox("R1234",R1234);
     giveupbtn.remove();
     if(R1234string!=refflevel4string){
-        // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
-        // successbtn.addEventListener("click",resetExperiment);
-        var loader = new THREE.FontLoader();
-            loader.load("optimer.json", function (response) {
-            font = response;
-
-        var geometry = new THREE.TextGeometry("Press Reset To Try Again!!", {
-                font: font,
-                size: .8,
-                height: 0.1,
-                curveSegments: 3
-            });
-
-            thevel1 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-            
-
-            PIEaddElement(thevel1);
-            thevel1.position.set(-8.5, 0, -12);
-            thevel1.rotation.x = - Math.PI / 6;
-           
-        });
+    
+        resetMessage();
         currentLevel="Level 1";
     }
     else if (R1234string == refflevel4string&&flag==0) {
         
-        var loader = new THREE.FontLoader();
-         loader.load("./optimer.json", function (response) {
-             font = response;
-
-             var geometry = new THREE.TextGeometry("Press Next Level To Go To Next Level", {
-                 font: font,
-                 size: 0.8,
-                 height: 0.01,
-                 curveSegments: 3
-             });
-
-             thevel2 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-            PIEaddElement(thevel2);
-            thevel2.position.set(-10.1, 0, -12);
-            thevel2.rotation.x = - Math.PI / 6;
-            
-           
-         });
+       nextlevelMessage();
 
          level2btn=PIEaddButton("Next Level");
 
@@ -9494,27 +8926,8 @@ function level5ans(){
     PIEaddMyCheckbox("R12345",R12345);
     giveupbtn.remove();
     if(R12345string!=refflevel5string){
-        // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
-        // successbtn.addEventListener("click",resetExperiment);
-        var loader = new THREE.FontLoader();
-            loader.load("optimer.json", function (response) {
-            font = response;
-
-        var geometry = new THREE.TextGeometry("Press Reset To Try Again!!", {
-                font: font,
-                size: .8,
-                height: 0.01,
-                curveSegments: 3
-            });
-
-            thevel1 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-            
-
-            PIEaddElement(thevel1);
-            thevel1.position.set(-8.5, 0, -12);
-            thevel1.rotation.x = - Math.PI / 6;
-           
-        });
+     
+        resetMessage();
         currentLevel="Level 1";
     }
     else if (R12345string == refflevel5string&&flag==0) {
@@ -9537,19 +8950,7 @@ function level5ans(){
             thevel2.position.set(-8.65, 0, -15);
             thevel2.rotation.x = - Math.PI / 6;
 
-            var geometry = new THREE.TextGeometry("Press Reset To Play Again!!", {
-                font: font,
-                size: .8,
-                height: 0.01,
-                curveSegments: 3
-            });
-
-            thevel1 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-            
-
-            PIEaddElement(thevel1);
-            thevel1.position.set(-8.33, -1.5, -15);
-            thevel1.rotation.x = - Math.PI / 6;
+            resetMessage();
     
             currentLevel="Level 1";
            
@@ -9721,29 +9122,7 @@ function level1ans(){
      PIErender();
      giveupbtn.remove();
      if(R12string == refflevel1string&&flag==0) {
-         // successbtn=PIEaddButton("PRESS RESET TO TRY AGAIN");
-         // successbtn.addEventListener("click",resetExperiment);
-         var loader = new THREE.FontLoader();
-         loader.load("./optimer.json", function (response) {
-             font = response;
-
-             var geometry = new THREE.TextGeometry("Press Next Level To Go To Next Level", {
-                 font: font,
-                 size: .8,
-                 height: 0.01,
-                 curveSegments: 3
-             });
-
-             thevel2 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-             PIEaddElement(thevel2);
-            
-
-             thevel2.position.set(-10.1, 0, -12);
-             thevel2.rotation.x = - Math.PI / 6;
-         
-         });
+        nextlevelMessage();
      }
      console.log("in case1");
 
