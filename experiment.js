@@ -161,17 +161,6 @@ var thevel85;
 var thevel97;
 
 
-
- function myFunction() {
-                var x = document.getElementById("myTopnav");
-                if (x.className === "topnav") {
-                    x.className += " responsive";
-                } else {
-                    x.className = "topnav";
-                }
-            }
-
-
 function initialiseHelp() {
     helpContent = "";
     helpContent = helpContent + "<h2>Building circuit of required resistance from given resistors</h2>";
@@ -481,13 +470,6 @@ var level2btn;
 function startAnimation() {
 
             console.log("start animation");
-
-
-            // var divs=[];
-          
-            // var para = document.createElement("a");
-            // var node = document.createTextNode("href="javascript: void (0); " style="font - size: 15px; " class="icon" onclick="myFunction()">&#9776;");
-            // para.appendChild(node);
             // PIEstartAnimation();
             startOrbitalControls();
             resetExperiment();
@@ -6238,7 +6220,7 @@ function level5Case10(){
 
 
             PIEaddElement(thevel2);
-            thevel2.position.set(-8.4, 0, -14);
+            thevel2.position.set(-8.3, 0, -14);
             thevel2.rotation.x = - Math.PI / 6;
 
             resetMessage();
@@ -6323,7 +6305,6 @@ currentLevel="Level 1";
 
 function loadExperimentElements() {
 
-           console.log("loadele");
     PIEsetExperimentTitle("Eq. Resistance");
     PIEsetDeveloperName("Diwakar");
 
@@ -6344,9 +6325,6 @@ function loadExperimentElements() {
     document.getElementById("start").addEventListener("click", startAnimation);
     document.getElementById("stop").addEventListener("click", stopAnimation);
 
-
-// var element = document.getElementById("div1");
-// element.appendChild(para);
     // PIEaddInputSlider("Voltage", 4, test2, 1, 5, 0.5);
     //The label to appear on the input element
     // value 		The initial value of the slider
@@ -6411,8 +6389,10 @@ function loadExperimentElements() {
     // // }
 
     // PIEadjustDisplayScene();
-      var spans=document.querySelectorAll("span");
-      console.log(spans);
+    PIErender();
+
+    var spans=document.querySelectorAll("span");
+     console.log(spans);
         // spans[6].setAtrribute("id","1");
         // console.log(spans.length);
         // console.log(spans[6]);
@@ -6421,27 +6401,15 @@ function loadExperimentElements() {
         var right=document.getElementById(">>");
         right.remove();
         left.remove();
-      var divs=document.querySelectorAll("div");
-            console.log("divs are");
-            console.log(divs[6]);
-            divs[6].setAttribute("class","topnav");
-            divs[6].setAttribute("id","myTopnav");
-            var a=document.createElement("a");
-            a.setAttribute("href","javascript:void(0);");
-            a.setAttribute("class","icon");
-            a.setAttribute("onclick","myFunction()");
-            a.innerHTML="&#9776";
-            a.setAttribute("style","font-size:20px;color:white;");
-            divs[6].appendChild(a);
-            // <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;
-            console.log(divs[6]);
-            
 
-         
+
 
     PIErender();
+  
 
 
+
+    
 }
 
 function resetExperiment() {
@@ -9183,19 +9151,3 @@ function level1ans(){
     
 
 }
-
-
-window.addEventListener('resize', onWindowResize, false);
-
-function onWindowResize() {
-
-
-
-    PIErenderer.setSize(window.innerWidth, window.innerHeight);
-
-    PIEcamera.aspect = window.innerWidth / window.innerHeight;
-    PIEcamera.updateProjectionMatrix();
-
-}
-
-//===========================================================//
