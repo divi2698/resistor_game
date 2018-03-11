@@ -161,6 +161,17 @@ var thevel85;
 var thevel97;
 
 
+
+ function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
+            }
+
+
 function initialiseHelp() {
     helpContent = "";
     helpContent = helpContent + "<h2>Building circuit of required resistance from given resistors</h2>";
@@ -470,6 +481,13 @@ var level2btn;
 function startAnimation() {
 
             console.log("start animation");
+
+
+            // var divs=[];
+          
+            // var para = document.createElement("a");
+            // var node = document.createTextNode("href="javascript: void (0); " style="font - size: 15px; " class="icon" onclick="myFunction()">&#9776;");
+            // para.appendChild(node);
             // PIEstartAnimation();
             startOrbitalControls();
             resetExperiment();
@@ -554,7 +572,7 @@ function stopAnimation() {
                 
             
                 PIEaddElement(thevel91);
-                thevel91.position.set(-15.5, 0, -12);
+                thevel91.position.set(-14.4, 0, -12.3);
                 thevel91.rotation.x = - Math.PI / 6;
             
             });
@@ -574,7 +592,7 @@ function stopAnimation() {
 
 
         PIEaddElement(thevel92);
-        thevel92.position.set(-15.70, -1, -12);
+        thevel92.position.set(-14.50, -1, -12);
         thevel92.rotation.x = - Math.PI / 6;
 
         });
@@ -592,7 +610,7 @@ function stopAnimation() {
 
         thevel93 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
         PIEaddElement(thevel93);
-        thevel93.position.set(-15.90,-2,-12);
+        thevel93.position.set(-14.70,-2,-12);
         thevel93.rotation.x = - Math.PI / 6;
 
         });
@@ -617,7 +635,7 @@ function stopAnimation() {
 
 
         PIEaddElement(thevel94);
-        thevel94.position.set(-16.10,-3,-12);
+        thevel94.position.set(-14.90,-3,-12);
         thevel94.rotation.x = - Math.PI / 6;
 
         });
@@ -640,7 +658,7 @@ function stopAnimation() {
 
 
         PIEaddElement(thevel95);
-        thevel95.position.set(-16.30,-4,-12);
+        thevel95.position.set(-15.10,-4,-12);
         thevel95.rotation.x = - Math.PI / 6;
 
         });
@@ -667,7 +685,7 @@ function stopAnimation() {
 
                 PIEaddElement(thevel96);
                 console.log("in add thevel 6");
-                thevel96.position.set(-16.50, -5, - 12);
+                thevel96.position.set(-15.30, -5, - 12);
                 thevel96.rotation.x = - Math.PI / 6;
 
             });
@@ -6305,6 +6323,7 @@ currentLevel="Level 1";
 
 function loadExperimentElements() {
 
+           console.log("loadele");
     PIEsetExperimentTitle("Eq. Resistance");
     PIEsetDeveloperName("Diwakar");
 
@@ -6325,6 +6344,9 @@ function loadExperimentElements() {
     document.getElementById("start").addEventListener("click", startAnimation);
     document.getElementById("stop").addEventListener("click", stopAnimation);
 
+
+// var element = document.getElementById("div1");
+// element.appendChild(para);
     // PIEaddInputSlider("Voltage", 4, test2, 1, 5, 0.5);
     //The label to appear on the input element
     // value 		The initial value of the slider
@@ -6389,16 +6411,37 @@ function loadExperimentElements() {
     // // }
 
     // PIEadjustDisplayScene();
+      var spans=document.querySelectorAll("span");
+      console.log(spans);
+        // spans[6].setAtrribute("id","1");
+        // console.log(spans.length);
+        // console.log(spans[6]);
+        spans[6].remove();
+        var left=document.getElementById("<<");
+        var right=document.getElementById(">>");
+        right.remove();
+        left.remove();
+      var divs=document.querySelectorAll("div");
+            console.log("divs are");
+            console.log(divs[6]);
+            divs[6].setAttribute("class","topnav");
+            divs[6].setAttribute("id","myTopnav");
+            var a=document.createElement("a");
+            a.setAttribute("href","javascript:void(0);");
+            a.setAttribute("class","icon");
+            a.setAttribute("onclick","myFunction()");
+            a.innerHTML="&#9776";
+            a.setAttribute("style","font-size:20px;color:white;");
+            divs[6].appendChild(a);
+            // <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;
+            console.log(divs[6]);
+            
+
+         
+
     PIErender();
 
 
-
-    PIErender();
-  
-
-
-
-    
 }
 
 function resetExperiment() {
@@ -9140,3 +9183,19 @@ function level1ans(){
     
 
 }
+
+
+window.addEventListener('resize', onWindowResize, false);
+
+function onWindowResize() {
+
+
+
+    PIErenderer.setSize(window.innerWidth, window.innerHeight);
+
+    PIEcamera.aspect = window.innerWidth / window.innerHeight;
+    PIEcamera.updateProjectionMatrix();
+
+}
+
+//===========================================================//
