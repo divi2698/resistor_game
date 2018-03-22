@@ -74,7 +74,7 @@ var level2btn;
 var presentLevelGiveUp="Level 1";
 var giveupbtn;
 var levelAction;
-var fromAction=false;
+
 var box1;
 var box2;
 var box21;
@@ -469,7 +469,6 @@ var level1btn;
 var level2btn;
 function startAnimation() {
 
-    // PIEshowControlElement();
             console.log("start animation");
             // PIEstartAnimation();
             startOrbitalControls();
@@ -483,8 +482,6 @@ function startAnimation() {
             }
             currentLevel="Level 1"
                 levelbtn=PIEaddButton("Level 1");
-              
-                
 
                 console.log(level1btn);
                 level1Action();
@@ -706,68 +703,8 @@ function resetMessage(){
         thevel1.rotation.x = - Math.PI / 6;
         
     });
-    resetMessageOnTable();
-    
 
 
-}
-
-function resetMessageOnTable(){
-    if(currentLevel=="Level 1"){
-
-        PIEupdateTableCell(3, 0, "LEVEL FAILED!!!!");
-        PIEupdateTable();
-    }
-    else if(currentLevel=="Level 2"){
-
-        PIEupdateTableCell(7, 0, "LEVEL FAILED!!!!");
-        PIEupdateTable();
-    }
-    else if(currentLevel=="Level 3"){
-
-        PIEupdateTableCell(11, 0, "LEVEL FAILED!!!!");
-        PIEupdateTable();
-    }
-    else if(currentLevel=="Level 4"){
-
-        PIEupdateTableCell(15, 0, "LEVEL FAILED!!!!");
-        PIEupdateTable();
-    }
-    else if(currentLevel=="Level 5"){
-
-        PIEupdateTableCell(19, 0, "LEVEL FAILED!!!!");
-        PIEupdateTable();
-    }
-
-}
-
-function successMessageOnTable(){
-        if(currentLevel=="Level 1"){
-
-        PIEupdateTableCell(3,0,"SUCCESS!!!!");
-        PIEupdateTable();
-        }
-        else if(currentLevel=="Level 2"){
-            PIEupdateTableCell(7, 0, "SUCCESS!!!!");
-            PIEupdateTable();
-    
-        }
-        else if(currentLevel=="Level 3"){
-            PIEupdateTableCell(11, 0, "SUCCESS!!!!");
-            PIEupdateTable();
-    
-        }
-        else if(currentLevel=="Level 4"){
-            PIEupdateTableCell(15, 0, "SUCCESS!!!!");
-            PIEupdateTable();
-    
-        }
-        else if(currentLevel=="Level 5"){
-            PIEupdateTableCell(19, 0, "SUCCESS!!!!");
-            PIEupdateTable();
-    
-        }
-    
 }
 
 function nextlevelMessage(){
@@ -807,7 +744,6 @@ function nextlevelMessage(){
         // heading.position.set(0.4 * PIEcamera.position.x, 0.2 * PIEcamera.position.y + 0.075, 0.4 * PIEcamera.position.z);
         // heading.lookAt(PIEcamera.position);
     });
-    successMessageOnTable();
 
 
 }
@@ -825,28 +761,6 @@ function level1Action(){
     PIEaddMyCheckbox("R1 parellel R2", false, level1Case1);
     PIEaddMyCheckbox("R1 series R2", false, level1Case2);
 
-    PIEcreateTable("Observation Table", 20, 5, true);
-    PIEtableSelect("Observation Table");
-   
-    var headerRow1 = [ "Level 1"];
-    PIEupdateTableRow(0 ,headerRow1);
-    // var headerRow=["R1", "R2", "R3", "R4","R5"];
-    // PIEupdateTableRow(0, headerRow);
-
-   
-    // PIEsetCellInput(2, 0,3, R1);
-    // PIEsetCellInput(2, 1,3, R2);
-    // PIEsetCellInput(2, 2,3, "-");
-    // PIEsetCellInput(2, 3,3, "-");
-    // PIEsetCellInput(2, 4, 3,"-");
-  
-   
-    PIEupdateTableCell(1, 0, "Required Resistance");
-    PIEsetCellInput(1, 1,3, refflevel1);
-   
-    PIEupdateTable();
-    // PIEsetRowInput(2, 8, "abcdefgh");
-    // PIEsetColumnInput(3,8, "abcde");
     // PIEchangeInputCheckbox("Level 5", true);
 }
 
@@ -861,10 +775,7 @@ function level2Action(){
     level2btn.remove();
     currentLevel="Level 2";
     levelbtn.innerHTML=currentLevel;
-
-    fromAction=true;
     resetExperiment();
-    fromAction = false;
     var inputCheckboxes = document.getElementsByClassName("cr boolean");
     // console.log(inputCheckboxes);
     for(var i=0;i<inputCheckboxes.length ;i++){
@@ -885,36 +796,6 @@ function level2Action(){
     PIEaddMyCheckbox("R1 parellel R2", false,level2Case1);
     PIEaddMyCheckbox("R1 series R2", false,level2Case2);
 
-    // PIEcreateTable("Level 2", 10, 10, true);
-    // PIEtableSelect("Level 2");
-    // var headerRow=["R1", "R2", "R3", "R4","R5"];
-    // PIEupdateTableRow(0, headerRow);
-    // PIEsetCellInput(1, 0,8, R1);
-    // PIEsetCellInput(1, 1,8, R2);
-    // PIEsetCellInput(1, 2,8, R3);
-    // PIEsetCellInput(1, 3,8, "-");
-    // PIEsetCellInput(1, 4, 8,"-");
-
-    PIEtableSelect("Observation Table");
-   
-    // var headerRow1 = ["--", "--", "Level2", "--", "--"];
-    // PIEupdateTableRow(6, headerRow1);
-    // var headerRow=["R1", "R2", "R3", "R4","R5"];
-    // PIEupdateTableRow(7, headerRow);
-    
-   
-    // PIEsetCellInput(8, 0,3, R1);
-    // PIEsetCellInput(8, 1,3, R2);
-    // PIEsetCellInput(8, 2,3, "-");
-    // PIEsetCellInput(8, 3,3, "-");
-    // PIEsetCellInput(8, 4, 3,"-");
-    
-    var headerRow1 = ["Level 2"];
-    PIEupdateTableRow(4, headerRow1);
-    PIEupdateTableCell(5, 0, "Required Resistance");
-    PIEsetCellInput(5, 1, 3, refflevel2);
-    PIEupdateTable();
-
    
 }
 
@@ -924,12 +805,7 @@ function level3Action(){
     level2btn.remove();
     currentLevel="Level 3";
     levelbtn.innerHTML=currentLevel;
-
-
-    fromAction = true;
     resetExperiment();
-    fromAction = false;
-
     var inputCheckboxes = document.getElementsByClassName("cr boolean");
     // console.log(inputCheckboxes);
     for(var i=0;i<inputCheckboxes.length ;i++){
@@ -952,23 +828,6 @@ function level3Action(){
     PIEaddMyCheckbox("R1 parellel R2", false,level3Case1);
     PIEaddMyCheckbox("R1 series R2", false,level3Case2);
 
-    // PIEcreateTable("Level 3", 10, 10, true);
-    // PIEtableSelect("Level 3");
-    // var headerRow=["R1", "R2", "R3", "R4","R5"];
-    // PIEupdateTableRow(0, headerRow);
-    // PIEsetCellInput(1,0,8, R1);
-    // PIEsetCellInput(1,1,8, R2);
-    // PIEsetCellInput(1,2,8, R3);
-    // PIEsetCellInput(1,3,8, R4);
-    // PIEsetCellInput(1,4,8,"-");
-
-    PIEtableSelect("Observation Table");
-    var headerRow1 = ["Level 3"];
-    PIEupdateTableRow(8, headerRow1);
-    PIEupdateTableCell(9, 0, "Required Resistance");
-    PIEsetCellInput(9, 1, 3, refflevel3);
-    PIEupdateTable();
-
     
 }
 
@@ -979,12 +838,7 @@ function level4Action(){
     level2btn.remove();
     currentLevel="Level 4";
     levelbtn.innerHTML=currentLevel;
-
-
-    fromAction = true;
     resetExperiment();
-    fromAction = false;
-
     var inputCheckboxes = document.getElementsByClassName("cr boolean");
     // console.log(inputCheckboxes);
 
@@ -1011,22 +865,6 @@ function level4Action(){
     PIEaddMyCheckbox("R1 p R3 s R2", false,level4Case4);
     PIEaddMyCheckbox("R2 p R3 s R1", false,level4Case5);
 
-    // PIEcreateTable("Level 4", 10, 10, true);
-    // PIEtableSelect("Level 4");
-    // var headerRow=["R1", "R2", "R3", "R4","R5"];
-    // PIEupdateTableRow(0, headerRow);
-    // PIEsetCellInput(1,0,8, R1);
-    // PIEsetCellInput(1,1,8, R2);
-    // PIEsetCellInput(1,2,8, R3);
-    // PIEsetCellInput(1,3,8, R4);
-    // PIEsetCellInput(1,4,8,"-");
-    PIEtableSelect("Observation Table");
-    var headerRow1 = ["Level 4"];
-    PIEupdateTableRow(12, headerRow1);
-    PIEupdateTableCell(13, 0, "Required Resistance");
-    PIEsetCellInput(13, 1, 3, refflevel4);
-    PIEupdateTable();
-
     
 
 }
@@ -1040,12 +878,7 @@ function level5Action(){
     level2btn.remove();
     currentLevel="Level 5";
     levelbtn.innerHTML=currentLevel;
-
-
-    fromAction = true;
     resetExperiment();
-    fromAction = false;
-    
     var inputCheckboxes = document.getElementsByClassName("cr boolean");
     console.log(inputCheckboxes.length);
 
@@ -1072,27 +905,10 @@ function level5Action(){
 
     PIEaddMyCheckbox("R1 p R2 p R3",false,level5Case1);
     PIEaddMyCheckbox("R1 s R2 s R3",false,level5Case2);
+
     PIEaddMyCheckbox("R1 p R2 s R3",false,level5Case3);
     PIEaddMyCheckbox("R1 p R3 s R2",false,level5Case4);
     PIEaddMyCheckbox("R2 p R3 s R1",false,level5Case5);
-
-    // PIEcreateTable("Level 5", 10, 10, true);
-    // PIEtableSelect("Level 5");
-    // var headerRow=["R1", "R2", "R3", "R4","R5"];
-    // PIEupdateTableRow(0, headerRow);
-    // PIEsetCellInput(1,0,8, R1);
-    // PIEsetCellInput(1,1,8, R2);
-    // PIEsetCellInput(1,2,8, R3);
-    // PIEsetCellInput(1,3,8, R4);
-    // PIEsetCellInput(1,4,8,R5);
-
-    PIEtableSelect("Observation Table");
-    var headerRow1 = ["Level 5"];
-    PIEupdateTableRow(16, headerRow1);
-    PIEupdateTableCell(17, 0, "Required Resistance");
-    PIEsetCellInput(17, 1, 3, refflevel3);
-    PIEupdateTable();
-
 
     // PIErender();
     console.log("level5Action");
@@ -1331,33 +1147,10 @@ function level1Case1(){
     PIErender();
 
     giveupbtn.remove();
-
-    // table data
-    PIEtableSelect("Observation Table");
-    // PIEupdateTableRow(3, ["R1pR2"]);
-    // // PIEsetCellInput(3, 1, 20, "R1 parelell R2");
-    // PIEsetCellInput(4, 0, 3, R12.toFixed(2));
-    PIEupdateTableCell(2,0,"Your Resistance");
-    PIEsetCellInput(2,1,3,R12.toFixed(2));
-
     if(R12string!=refflevel1string&&flag==0){
        resetMessage();
         }
     console.log("in case1");
-    // var headerRow=["R1", "R2", "R3", "R4","R5"];
-    // PIEupdateTableRow(0, headerRow);
-    // PIEupdateTableCell(1, 0,"   "+R1+"    ");
-    // PIEupdateTableCell(1, 1, R2);
-    // PIEupdateTableCell(1, 2, "-");
-    // PIEupdateTableCell(1, 3, "-");
-    // PIEupdateTableCell(1, 4, "-");
-    // PIEsetRowInput(2, 8, "abcdefgh");
-    // PIEsetColumnInput(3,8, "abcde");
-
-
-
-    PIEupdateTable();
-   
 
     currentLevel="Level 1";
     
@@ -1513,18 +1306,6 @@ function level1Case1(){
 
      R12string=R12.toFixed(2);
      PIEaddMyText("R12", R12);
-
-
-    //  PIEtableSelect("Observation Table");
-    //  PIEupdateTableRow(3, ["R1pR2"]);
-    //  // PIEsetCellInput(3, 1, 20, "R1 parelell R2");
-    //  PIEsetCellInput(4, 0, 3, R12.toFixed(2));
-     PIEtableSelect("Observation Table");
-  
-     PIEupdateTableCell(2, 0, "Your Resistance");
-     PIEsetCellInput(2, 1, 3, R12.toFixed(2));
-
-
      PIErender();
      giveupbtn.remove();
      if(R12string == refflevel1string&&flag==0) {
@@ -1774,13 +1555,6 @@ function level2Case1(){
 
     PIEaddMyText("R12", R12);
     PIEaddMyCheckbox("R12 parellel R3",false,level2Case3);
-
-
-    // PIEtableSelect("Observation Table");
-    // PIEupdateTableRow(9, ["R1pR2"]);
-    // // PIEsetCellInput(3, 1, 20, "R1 parelell R2");
-    // PIEsetCellInput(10, 0, 3, R12.toFixed(2));
-
     PIErender();
    
     console.log("in l2c1");
@@ -1893,17 +1667,6 @@ function level2Case3(){
     R123string=R123.toFixed(2);
 
     PIEaddMyText("R123", R123);
-
-    // PIEtableSelect("Observation Table");
-    // PIEupdateTableRow(9, ["R1pR2","R12pR3"]);
-    // // PIEsetCellInput(3, 1, 20, "R1 parelell R2");
-    // PIEsetCellInput(10, 1, 3, R123.toFixed(2));
-
-    PIEtableSelect("Observation Table");
-
-    PIEupdateTableCell(6, 0, "Your Resistance");
-    PIEsetCellInput(6, 1, 3, R123.toFixed(2));
-
     PIErender();
     giveupbtn.remove();
 
@@ -2170,17 +1933,9 @@ function level2Case4(){
 
             R123 = (R12 * R3) / (R12 + R3);
             R123string=R123.toFixed(2);
-
-
             PIEaddMyText("R123", R123);
-            PIEtableSelect("Observation Table");
-
-            PIEupdateTableCell(6, 0, "Your Resistance");
-            PIEsetCellInput(6, 1, 3, R123.toFixed(2));
             PIErender();
             giveupbtn.remove();
-
-
             if(R123string!=refflevel2string){
             
                 // var loader = new THREE.FontLoader();
@@ -3047,11 +2802,6 @@ function level3Case9(){
 
     R1234string=R1234.toFixed(2);
     PIEaddMyCheckbox("R1234",R1234);
-
-    PIEtableSelect("Observation Table");
-
-    PIEupdateTableCell(10, 0, "Your Resistance");
-    PIEsetCellInput(10, 1, 3, R1234.toFixed(2));
     giveupbtn.remove();
 
     if(R1234string!=refflevel3string){
@@ -3085,12 +2835,6 @@ function level3Case10(){
     R1234= (R12*R34)/(R12+R34);    
     R1234string=R1234.toFixed(2);
     PIEaddMyCheckbox("R1234",R1234);
-
-
-    PIEtableSelect("Observation Table");
-
-    PIEupdateTableCell(10, 0, "Your Resistance");
-    PIEsetCellInput(10, 1, 3, R1234.toFixed(2));
     giveupbtn.remove();
 
     if(R1234string!=refflevel3string){
@@ -4653,13 +4397,6 @@ function level4Case10(){
     R1234= (R123*R4)/(R123+R4);    
     R1234string=R1234.toFixed(2);
     PIEaddMyCheckbox("R1234",R1234);
-
-
-    PIEtableSelect("Observation Table");
-
-    PIEupdateTableCell(14, 0, "Your Resistance");
-    PIEsetCellInput(14, 1, 3, R1234.toFixed(2));
-
     giveupbtn.remove();
     if(R1234string!=refflevel4string){
      
@@ -6459,12 +6196,7 @@ function level5Case10(){
     PIEchangeDisplayCheckbox("R123 p R45",true);
     R12345= (R123*R45)/(R123+R45);    
     R12345string=R12345.toFixed(2);
-   
-    PIEtableSelect("Observation Table");
-
-    PIEupdateTableCell(18, 0, "Your Resistance");
-    PIEsetCellInput(18, 1, 3, R12345.toFixed(2));
-
+    PIEaddMyCheckbox("R12345",R12345);
     giveupbtn.remove();
     if(R12345string!=refflevel5string){
         
@@ -6697,36 +6429,6 @@ function resetExperiment() {
     for(var i = 0; i < number.length; i++) {
         number[i].remove();
     }
-
-    if(fromAction==false){
-    //   var p=document.querySelectorAll("div>p");
-    //         console.log("p are");
-    //         console.log(p);
-    //        p.forEach(function(p){
-    //            if(p){
-    //                p.remove();
-    //            }
-    //        });
-   
-
-      var tables=document.querySelectorAll("div[draggable]");
-            console.log("table are");
-            console.log(tables);
-           tables.forEach(function(table){
-               if(table){
-                   table.remove();
-               }
-           });
-
-            PIEtableData.splice(0,PIEtableData.length);
-            PIEtableRows.splice(0,PIEtableRows.length);
-            PIEtableNames.splice(0,PIEtableNames.length);
-            PIEtables.splice(0,PIEtables.length);
-            PIEcurrentTable=0;
-            PIEdraggedTable=0;
-    }
-
-
     removeElements();
 
     PIEcbDisplayHandles.splice(0,PIEcbDisplayHandles.length);
@@ -6740,8 +6442,6 @@ function resetExperiment() {
     if(levelbtn)
     levelbtn.innerHTML=currentLevel;
     PIEshowDisplayPanel();
-    
-    PIEtoggleTable("Level 1");
     resetScene();
     PIErender();
     console.log("reset");
