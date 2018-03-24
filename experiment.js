@@ -833,6 +833,7 @@ function level1Action(){
     }
 
     PIEcreateTable("Observation Table", 20, 5, true);
+    // PIEcreateTable("Resistor", 20, 5, true);
     PIEtableSelect("Observation Table");
    
     var headerRow1 = [ "Level 1"];
@@ -933,6 +934,11 @@ function level2Action(){
    
 }
 
+var flag31=0;
+var flag32=0;
+var flag33=0;
+var flag34=0;
+var flag35=0;
 function level3Action(){
     levelAction = "level3act";
     showResistanceValues();
@@ -963,9 +969,13 @@ function level3Action(){
     giveupbtn=PIEaddButton("Give Up");
     giveupbtn.addEventListener("click",giveup);
 
-    PIEaddMyText("Resultant Resistance", refflevel3);    
+    PIEaddMyText("Resultant Resistance", refflevel3); 
+    if(flag31==0){   
     PIEaddMyCheckbox("R1 parellel R2", false,level3Case1);
     PIEaddMyCheckbox("R1 series R2", false,level3Case2);
+    flag32=0;
+    flag31=1;
+    }
 
     // PIEcreateTable("Level 3", 10, 10, true);
     // PIEtableSelect("Level 3");
@@ -987,6 +997,9 @@ function level3Action(){
     
 }
 
+var flag41=0;
+var flag42=0;
+var flag43=0;
 function level4Action(){
 
     levelAction = "level4act";
@@ -1019,12 +1032,16 @@ function level4Action(){
     giveupbtn=PIEaddButton("Give Up");
     giveupbtn.addEventListener("click",giveup);
 
-    PIEaddMyText("Resultant Resistance", refflevel4);    
+    PIEaddMyText("Resultant Resistance", refflevel4);   
+    if(flag41==0){ 
     PIEaddMyCheckbox("R1 p R2 p R3", false,level4Case1);
     PIEaddMyCheckbox("R1 s R2 s R3", false,level4Case2);
     PIEaddMyCheckbox("R1 p R2 s R3", false,level4Case3);
     PIEaddMyCheckbox("R1 p R3 s R2", false,level4Case4);
     PIEaddMyCheckbox("R2 p R3 s R1", false,level4Case5);
+    flag41=1;
+    flag42=0;
+    }
 
     // PIEcreateTable("Level 4", 10, 10, true);
     // PIEtableSelect("Level 4");
@@ -1046,6 +1063,10 @@ function level4Action(){
 
 }
 
+var flag51=0;
+var flag52=0;
+var flag53=0;
+var flag54=0;
 
 function level5Action(){
 
@@ -1084,12 +1105,15 @@ function level5Action(){
     giveupbtn.addEventListener("click",giveup);
 
     PIEaddMyText("Resultant Resistance", refflevel5);    
-
+    if(flag51==0){
     PIEaddMyCheckbox("R1 p R2 p R3",false,level5Case1);
     PIEaddMyCheckbox("R1 s R2 s R3",false,level5Case2);
     PIEaddMyCheckbox("R1 p R2 s R3",false,level5Case3);
     PIEaddMyCheckbox("R1 p R3 s R2",false,level5Case4);
     PIEaddMyCheckbox("R2 p R3 s R1",false,level5Case5);
+    flag51=1;
+    flag52=0;
+}
 
     // PIEcreateTable("Level 5", 10, 10, true);
     // PIEtableSelect("Level 5");
@@ -1958,11 +1982,11 @@ function level2Case3(){
     console.log("in case1");
 
 
-    function newFunction() {
+    // function newFunction() {
         PIEupdateTableCell(6, 0, "Your Resistance");
         PIEsetCellInput(6, 1, 3, R123.toFixed(2));
         PIErender();
-    }
+    // }
 
     }
     flag23=1;
@@ -2277,6 +2301,7 @@ function level2Case4(){
 //===============================================================//
 
 function level3Case1(){
+    if(flag31==0){
 
     PIEchangeDisplayCheckbox("R1 parellel R2", true);
     var inputCheckboxes = document.getElementsByClassName("cr boolean");
@@ -2485,7 +2510,9 @@ function level3Case1(){
     PIErender();
    
     console.log("in l3c1");
-    
+}
+flag32=1;
+flag33=0;
 
 
 
@@ -2494,6 +2521,7 @@ function level3Case1(){
 
 function level3Case2(){
  //r1 s r2
+ if(flag32==0){
     PIEchangeDisplayCheckbox("R1 series R2", true);
     var inputCheckboxes = document.getElementsByClassName("cr boolean");
     // console.log(inputCheckboxes);
@@ -2676,6 +2704,9 @@ function level3Case2(){
         PIErender();
     
         console.log("in l3c1");
+    }
+    flag32=1;
+    flag33=0;
 
 
 
@@ -2686,6 +2717,7 @@ function level3Case2(){
 
 function level3Case3(){
 
+    if(flag33==0){
     PIEchangeDisplayCheckbox("R3 parellel R4", true);
     var inputCheckboxes = document.getElementsByClassName("cr boolean");
     // console.log(inputCheckboxes);
@@ -2892,14 +2924,16 @@ function level3Case3(){
     PIErender();
    
     console.log("in l3c3");
-    
+}
+flag33=1;
+flag34=0;
 
 }
 
 function level3Case4(){
 
     //r3 s r4 
-
+    if(flag33==0){
     PIEchangeDisplayCheckbox("R3 series R4", true);
     var inputCheckboxes = document.getElementsByClassName("cr boolean");
     // console.log(inputCheckboxes);
@@ -3080,11 +3114,14 @@ function level3Case4(){
         PIEaddMyCheckbox("R12 parellel R34",false,level3Case10);
         
         PIErender();
+    }
+    flag33=1;
+    flag34=0;
 
 }
 
 function level3Case9(){
-
+    if(flag34==0){
     PIEchangeDisplayCheckbox("R12 parellel R34",true);
     R1234= (R12*R34)/(R12+R34);    
 
@@ -3111,19 +3148,18 @@ function level3Case9(){
     level2btn.addEventListener("click",level4Action);
 
     PIErender();
-
     }
-
-    
-     
     
     console.log("level3case9");
+    }
 
+    flag34=1;
+    
 }
 
 
 function level3Case10(){
-
+if(flag34==0){
     PIEchangeDisplayCheckbox("R12 parellel R34",true);
     R1234= (R12*R34)/(R12+R34);    
     R1234string=R1234.toFixed(2);
@@ -3154,6 +3190,9 @@ function level3Case10(){
     console.log("level3case10");
 
 }
+flag34=1;
+
+}
 
 
 //=====================================================================//
@@ -3167,7 +3206,7 @@ function level4Case1(){
 
     // r1 p r2 p r3
 
-
+    if(flag42==0){
     PIEchangeDisplayCheckbox("R1 p R2 p R3", true);
     var inputCheckboxes = document.getElementsByClassName("cr boolean");
     // console.log(inputCheckboxes);
@@ -3427,15 +3466,16 @@ function level4Case1(){
    
     console.log("in l4c1");
 
-
-    
+    }
+    flag42=1;
+    flag43=0;
 }
 
 function level4Case2(){
 
 
     // r1 s r2 s r3
-
+    if(flag42==0){
     PIEchangeDisplayCheckbox("R1 s R2 s R3", true);
     var inputCheckboxes = document.getElementsByClassName("cr boolean");
     // console.log(inputCheckboxes);
@@ -3672,10 +3712,14 @@ function level4Case2(){
        PIErender();
       
        console.log("in l4c2");
-
+    }
+    flag42=1;
+    flag43=0;
 }
-function level4Case3(){
 
+
+function level4Case3(){
+    if(flag42==0){
     PIEchangeDisplayCheckbox("R1 p R2 s R3", true);
     var inputCheckboxes = document.getElementsByClassName("cr boolean");
     // console.log(inputCheckboxes);
@@ -3955,14 +3999,15 @@ function level4Case3(){
    
    
     console.log("in l4c3");
-
-
-
+    }
+    flag42=1;
+    flag43=0;
 
 }
 
 
 function level4Case4(){
+    if(flag42==0){
 
     PIEchangeDisplayCheckbox("R1 p R3 s R2", true);
     var inputCheckboxes = document.getElementsByClassName("cr boolean");
@@ -4240,12 +4285,15 @@ function level4Case4(){
    
    
     console.log("in l4c4");
-
+}
+flag42=1;
+flag43=0;
 
 
 }
 function level4Case5(){
         
+    if(flag42==0){
     PIEchangeDisplayCheckbox("R2 p R3 s R1", true);
     var inputCheckboxes = document.getElementsByClassName("cr boolean");
     // console.log(inputCheckboxes);
@@ -4522,12 +4570,15 @@ function level4Case5(){
    
    
     console.log("in l4c5");
-
+}
+flag42=1;
+flag43=0;
 
 }
 
 function level4Case10(){
 
+    if(flag43==0){
     PIEchangeDisplayCheckbox("R123 parellel R4",true);
 
 
@@ -4724,6 +4775,9 @@ function level4Case10(){
     console.log("level4case10");
 
 }
+flag43=1;
+
+}
 /////////////////////////////////////////////////////////////////
 
 
@@ -4739,7 +4793,7 @@ function level5Case1(){
     // r1 p r2 p r3
 
     
-
+    if(flag52==0){
     PIEchangeDisplayCheckbox("R1 p R2 p R3", true);
     var inputCheckboxes = document.getElementsByClassName("cr boolean");
     // console.log(inputCheckboxes);
@@ -5000,7 +5054,9 @@ function level5Case1(){
     PIErender();
    
     console.log("in l5c1");
-
+}
+flag52=1;
+flag53=0;
 
     
 }
@@ -5011,6 +5067,7 @@ function level5Case1(){
 
 function level5Case2(){
 
+    if(flag52==0){
 
     // r1 s r2 s r3
 
@@ -5246,12 +5303,16 @@ function level5Case2(){
        PIErender();
       
        console.log("in l5c2");
+    }
+    flag52=1;
+    flag53=0;
 
 }
 
 
 function level5Case3(){
 
+    if(flag52==0){
     PIEchangeDisplayCheckbox("R1 p R2 s R3", true);
     var inputCheckboxes = document.getElementsByClassName("cr boolean");
     // console.log(inputCheckboxes);
@@ -5531,15 +5592,16 @@ function level5Case3(){
    
    
     console.log("in l4c3");
-
-
-
+}
+flag52=1;
+flag53=0;
 
 }
 
 
 function level5Case4(){
 
+    if(flag52==0){
     PIEchangeDisplayCheckbox("R1 p R3 s R2", true);
     var inputCheckboxes = document.getElementsByClassName("cr boolean");
     // console.log(inputCheckboxes);
@@ -5818,11 +5880,16 @@ function level5Case4(){
    
     console.log("in l4c4");
 
+}
+flag52=1;
+flag53=0;
+
 
 
 }
 function level5Case5(){
-        
+      
+    if(flag52==0){
     PIEchangeDisplayCheckbox("R2 p R3 s R1", true);
     var inputCheckboxes = document.getElementsByClassName("cr boolean");
     // console.log(inputCheckboxes);
@@ -6097,6 +6164,9 @@ function level5Case5(){
    
    
     console.log("in l5c5");
+}
+flag52=1;
+flag53=0;
 
 
 }
@@ -6107,7 +6177,7 @@ function level5Case5(){
 function level5Case8(){
 
     // r4 p r5
-
+    if(flag53==0){
     PIEchangeDisplayCheckbox("R4 parellel R5",true);
     var inputCheckboxes = document.getElementsByClassName("cr boolean");
     // console.log(inputCheckboxes);
@@ -6309,7 +6379,9 @@ function level5Case8(){
     PIErender();
 
     console.log("level5case8");
-
+}
+flag53=1;
+flag54=0;
 
 
     
@@ -6319,6 +6391,7 @@ function level5Case8(){
 function level5Case9(){
     
 
+    if(flag53==0){
     PIEchangeDisplayCheckbox("R4 series R5", true);
     var inputCheckboxes = document.getElementsByClassName("cr boolean");
     // console.log(inputCheckboxes);
@@ -6492,13 +6565,16 @@ function level5Case9(){
         PIEaddMyText("R45", R45);
         PIEaddMyCheckbox("R123 p R45",false,level5Case10);
         PIErender();
+    }
+    flag53=1;
+    flag54=0;
 
 }
 
 
 function level5Case10(){
 
-    
+    if(flag54==0){
     PIEchangeDisplayCheckbox("R123 p R45",true);
     R12345= (R123*R45)/(R123+R45);    
     R12345string=R12345.toFixed(2);
@@ -6548,11 +6624,13 @@ function level5Case10(){
     }
     
     console.log("level3case10");
+}
+flag54=1;
 
 
 }
 
-function  giveup(){
+function giveup(){
     flag=1;
     if(presentLevelGiveUp=="Level 1"){
         resetExperiment();
@@ -6790,6 +6868,17 @@ function resetExperiment() {
     flag21=0;
     flag22=0;
     flag23=0;
+    flag31=0;
+    flag32=0;
+    flag33=0;
+    flag34=0;
+    flag41=0;
+    flag42=0;
+    flag43=0;
+    flag51=0;
+    flag52=0;
+    flag53=0;
+    flag54=0;
     resetScene();
     PIErender();
     console.log("reset");
