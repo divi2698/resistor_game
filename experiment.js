@@ -526,159 +526,160 @@ function stopAnimation() {
 
  function showResistanceValues(){
      
-            console.log("in show reistance values");
+        //     console.log("in show reistance values");
 
-            console.log(levelAction);
-            var reff;
+        //     console.log(levelAction);
+        //     var reff;
     
-            var loader = new THREE.FontLoader();
-            loader.load("optimer.json", function (response) {
-                font = response;
-            if(levelAction=="level1act")
-                reff=refflevel1;
-            else if(levelAction=="level2act")
-                reff=refflevel2;
-            else if(levelAction=="level3act")
-                reff=refflevel3;
-            else if(levelAction=="level4act")
-                reff=refflevel4;
-            else
-                reff=refflevel5;
+        //     var loader = new THREE.FontLoader();
+        //     loader.load("optimer.json", function (response) {
+        //         font = response;
+        //     if(levelAction=="level1act")
+        //         reff=refflevel1;
+        //     else if(levelAction=="level2act")
+        //         reff=refflevel2;
+        //     else if(levelAction=="level3act")
+        //         reff=refflevel3;
+        //     else if(levelAction=="level4act")
+        //         reff=refflevel4;
+        //     else
+        //         reff=refflevel5;
 
-            var res1="Req Resistance = "+reff.toString()+" ohm";
-            var geometry = new THREE.TextGeometry(res1, {
-                    font: font,
-                    size: .4,
-                    height: 0.01,
-                    curveSegments: 3
-                });
+        //     var res1="Req Resistance = "+reff.toString()+" ohm";
+        //     var geometry = new THREE.TextGeometry(res1, {
+        //             font: font,
+        //             size: .4,
+        //             height: 0.01,
+        //             curveSegments: 3
+        //         });
             
-                thevel91 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+        //         thevel91 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
                 
             
-                PIEaddElement(thevel91);
-                thevel91.position.set(-14.4, 0, -12.3);
-                thevel91.rotation.x = - Math.PI / 6;
+        //         PIEaddElement(thevel91);
+        //         thevel91.position.set(-14.4, 0, -12.3);
+        //         thevel91.rotation.x = - Math.PI / 6;
             
-            });
+        //     });
 
-        var loader = new THREE.FontLoader();
-        loader.load("optimer.json", function (response) {
-        font = response;
-        var res1="R1 = "+R1.toString()+" ohm";
-        var geometry = new THREE.TextGeometry(res1, {
-            font: font,
-            size: .4,
-            height: 0.01,
-            curveSegments: 3
-        });
+        // var loader = new THREE.FontLoader();
+        // loader.load("optimer.json", function (response) {
+        // font = response;
+        // var res1="R1 = "+R1.toString()+" ohm";
+        // var geometry = new THREE.TextGeometry(res1, {
+        //     font: font,
+        //     size: .4,
+        //     height: 0.01,
+        //     curveSegments: 3
+        // });
 
-        thevel92 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-
-
-        PIEaddElement(thevel92);
-        thevel92.position.set(-14.50, -1, -12);
-        thevel92.rotation.x = - Math.PI / 6;
-
-        });
-
-        var loader = new THREE.FontLoader();
-        loader.load("optimer.json", function (response) {
-        font = response;
-        var res1="R2 = "+R2.toString()+" ohm";
-        var geometry = new THREE.TextGeometry(res1, {
-            font: font,
-            size: .4,
-            height: 0.01,
-            curveSegments: 3
-        });
-
-        thevel93 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
-        PIEaddElement(thevel93);
-        thevel93.position.set(-14.70,-2,-12);
-        thevel93.rotation.x = - Math.PI / 6;
-
-        });
+        // thevel92 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
 
 
-        if (levelAction == "level1act")
-            return;
+        // PIEaddElement(thevel92);
+        // thevel92.position.set(-14.50, -1, -12);
+        // thevel92.rotation.x = - Math.PI / 6;
+
+        // });
+
+        // var loader = new THREE.FontLoader();
+        // loader.load("optimer.json", function (response) {
+        // font = response;
+        // var res1="R2 = "+R2.toString()+" ohm";
+        // var geometry = new THREE.TextGeometry(res1, {
+        //     font: font,
+        //     size: .4,
+        //     height: 0.01,
+        //     curveSegments: 3
+        // });
+
+        // thevel93 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+        // PIEaddElement(thevel93);
+        // thevel93.position.set(-14.70,-2,-12);
+        // thevel93.rotation.x = - Math.PI / 6;
+
+        // });
 
 
-        var loader = new THREE.FontLoader();
-        loader.load("optimer.json", function (response) {
-        font = response;
-        var res1="R3 = "+R3.toString()+" ohm";
-        var geometry = new THREE.TextGeometry(res1, {
-            font: font,
-            size: .4,
-            height: 0.01,
-            curveSegments: 3
-        });
-
-        thevel94 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+        // if (levelAction == "level1act")
+        //     return;
 
 
-        PIEaddElement(thevel94);
-        thevel94.position.set(-14.90,-3,-12);
-        thevel94.rotation.x = - Math.PI / 6;
+        // var loader = new THREE.FontLoader();
+        // loader.load("optimer.json", function (response) {
+        // font = response;
+        // var res1="R3 = "+R3.toString()+" ohm";
+        // var geometry = new THREE.TextGeometry(res1, {
+        //     font: font,
+        //     size: .4,
+        //     height: 0.01,
+        //     curveSegments: 3
+        // });
 
-        });
-
-        if(levelAction=="level2act")
-        return;
-
-        var loader = new THREE.FontLoader();
-        loader.load("optimer.json", function (response) {
-        font = response;
-        var res1="R4 = "+R4.toString()+" ohm";
-        var geometry = new THREE.TextGeometry(res1, {
-            font: font,
-            size: .4,
-            height: 0.01,
-            curveSegments: 3
-        });
-
-        thevel95 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+        // thevel94 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
 
 
-        PIEaddElement(thevel95);
-        thevel95.position.set(-15.10,-4,-12);
-        thevel95.rotation.x = - Math.PI / 6;
+        // PIEaddElement(thevel94);
+        // thevel94.position.set(-14.90,-3,-12);
+        // thevel94.rotation.x = - Math.PI / 6;
 
-        });
+        // });
+
+        // if(levelAction=="level2act")
+        // return;
+
+        // var loader = new THREE.FontLoader();
+        // loader.load("optimer.json", function (response) {
+        // font = response;
+        // var res1="R4 = "+R4.toString()+" ohm";
+        // var geometry = new THREE.TextGeometry(res1, {
+        //     font: font,
+        //     size: .4,
+        //     height: 0.01,
+        //     curveSegments: 3
+        // });
+
+        // thevel95 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+
+
+        // PIEaddElement(thevel95);
+        // thevel95.position.set(-15.10,-4,-12);
+        // thevel95.rotation.x = - Math.PI / 6;
+
+        // });
 
    
-        if(levelAction=="level3act"||levelAction=="level4act")
-        return;
+        // if(levelAction=="level3act"||levelAction=="level4act")
+        // return;
 
-        console.log("level5action and in the thvel");
+        // console.log("level5action and in the thvel");
 
-        var loader = new THREE.FontLoader();
-            loader.load("optimer.json", function (response) {
-                font = response;
-                var res1 = "R5 = " + R5.toString() + " ohm";
-                var geometry = new THREE.TextGeometry(res1, {
-                    font: font,
-                    size: .4,
-                    height: 0.01,
-                    curveSegments: 3
-                });
+        // var loader = new THREE.FontLoader();
+        //     loader.load("optimer.json", function (response) {
+        //         font = response;
+        //         var res1 = "R5 = " + R5.toString() + " ohm";
+        //         var geometry = new THREE.TextGeometry(res1, {
+        //             font: font,
+        //             size: .4,
+        //             height: 0.01,
+        //             curveSegments: 3
+        //         });
 
-                thevel96 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
+        //         thevel96 = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0xffffff }));
 
 
-                PIEaddElement(thevel96);
-                console.log("in add thevel 6");
-                thevel96.position.set(-15.30, -5, - 12);
-                thevel96.rotation.x = - Math.PI / 6;
+        //         PIEaddElement(thevel96);
+        //         console.log("in add thevel 6");
+        //         thevel96.position.set(-15.30, -5, - 12);
+        //         thevel96.rotation.x = - Math.PI / 6;
 
-            });
+        //     });
 
     
  
-        console.log("at end of show resistance values");
-    }
+        // console.log("at end of show resistance values");
+
+ }
 
 
 
@@ -832,11 +833,33 @@ function level1Action(){
     flag2=0;
     }
 
-    PIEcreateTable("Observation Table", 20, 5, true);
-    // PIEcreateTable("Resistor", 20, 5, true);
-    PIEtableSelect("Observation Table");
-   
     var headerRow1 = [ "Level 1"];
+    PIEcreateTable("Observation Table", 20, 5, true);
+    PIEcreateTable("Resistor Values", 5, 2, true);
+
+    var tables=document.querySelectorAll("div[draggable]");
+    console.log("table are");
+    console.log(tables);
+    tables[1].style.removeProperty("top");  
+
+   tables[1].style.position="absolute";  
+   
+   tables[1].style.bottom="0";       
+   tables[1].style.right="0";       
+         
+   
+
+    PIEtableSelect("Resistor Values");
+    // PIEupdateTableRow(0 ,headerRow1);
+    PIEupdateTableCell(0, 0, "Resistor R1");
+    PIEsetCellInput(0, 1,13, R1+" ohm");
+    // PIEupdateTableCell(1, 2, "ohm");
+    PIEupdateTableCell(1, 0, "Resistor R2");
+    PIEsetCellInput(1, 1,13, R2+" ohm");
+    PIEupdateTable();
+
+
+    PIEtableSelect("Observation Table");
     PIEupdateTableRow(0 ,headerRow1);
     // var headerRow=["R1", "R2", "R3", "R4","R5"];
     // PIEupdateTableRow(0, headerRow);
@@ -911,6 +934,15 @@ function level2Action(){
     // PIEsetCellInput(1, 3,8, "-");
     // PIEsetCellInput(1, 4, 8,"-");
 
+    var headerRow1 = ["Level 2"];
+
+    PIEtableSelect("Resistor Values");
+    // PIEupdateTableRow(3 ,headerRow1);
+    PIEupdateTableCell(2, 0, "Resistor R3");
+    PIEsetCellInput(2, 1,13, R3+" ohm");
+  
+    PIEupdateTable();
+
     PIEtableSelect("Observation Table");
    
     // var headerRow1 = ["--", "--", "Level2", "--", "--"];
@@ -925,7 +957,7 @@ function level2Action(){
     // PIEsetCellInput(8, 3,3, "-");
     // PIEsetCellInput(8, 4, 3,"-");
     
-    var headerRow1 = ["Level 2"];
+    
     PIEupdateTableRow(4, headerRow1);
     PIEupdateTableCell(5, 0, "Required Resistance");
     PIEsetCellInput(5, 1, 3, refflevel2);
@@ -987,8 +1019,15 @@ function level3Action(){
     // PIEsetCellInput(1,3,8, R4);
     // PIEsetCellInput(1,4,8,"-");
 
-    PIEtableSelect("Observation Table");
     var headerRow1 = ["Level 3"];
+
+    PIEtableSelect("Resistor Values");
+    // PIEupdateTableRow(5 ,headerRow1);
+    PIEupdateTableCell(3, 0, "Resistor R4");
+    PIEsetCellInput(3, 1,13, R4+" ohm");
+    PIEupdateTable();
+
+    PIEtableSelect("Observation Table");
     PIEupdateTableRow(8, headerRow1);
     PIEupdateTableCell(9, 0, "Required Resistance");
     PIEsetCellInput(9, 1, 3, refflevel3);
@@ -1052,8 +1091,11 @@ function level4Action(){
     // PIEsetCellInput(1,2,8, R3);
     // PIEsetCellInput(1,3,8, R4);
     // PIEsetCellInput(1,4,8,"-");
-    PIEtableSelect("Observation Table");
     var headerRow1 = ["Level 4"];
+
+ 
+
+    PIEtableSelect("Observation Table");
     PIEupdateTableRow(12, headerRow1);
     PIEupdateTableCell(13, 0, "Required Resistance");
     PIEsetCellInput(13, 1, 3, refflevel4);
@@ -1124,9 +1166,16 @@ function level5Action(){
     // PIEsetCellInput(1,2,8, R3);
     // PIEsetCellInput(1,3,8, R4);
     // PIEsetCellInput(1,4,8,R5);
+    var headerRow1 = ["Level 5"];
+
+    PIEtableSelect("Resistor Values");
+    // PIEupdateTableRow(7 ,headerRow1);
+    PIEupdateTableCell(4, 0, "Resistor R5");
+    PIEsetCellInput(4, 1,13, R5+" ohm");
+    PIEupdateTable();
 
     PIEtableSelect("Observation Table");
-    var headerRow1 = ["Level 5"];
+   
     PIEupdateTableRow(16, headerRow1);
     PIEupdateTableCell(17, 0, "Required Resistance");
     PIEsetCellInput(17, 1, 3, refflevel3);
@@ -1153,6 +1202,11 @@ function level1Case1(){
 
     //  alert("jfjdkf");
     if(flag2==0){
+
+        // PIEtableSelect("Resistor Values");
+        // PIEtoggleTable();
+        // PIEtableSelect("Observation Table");
+
             PIEchangeDisplayCheckbox("R1 parellel R2", true);
             var inputCheckboxes = document.getElementsByClassName("cr boolean");
                 // console.log(inputCheckboxes);
